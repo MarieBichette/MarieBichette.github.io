@@ -1,5 +1,3 @@
-README.md
-============================
 This doc is related to the https://github.com/hippo91/XVOF project.
 It has been generated using sphinx 
 
