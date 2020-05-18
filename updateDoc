@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Update the path to the documentation : xvof_dir/XVOF/xfv/build/html
+xvof_dir="$(pwd)/../../XVOF/xfv/doc/build/html/*"
+echo "Fetch the html files in $xvof_dir"
+
+cp -r $xvof_dir .
+echo "Modified files are : "
+git status
+git -a -m "Update doc from XVOF repository"
+git push
+
