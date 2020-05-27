@@ -7,6 +7,4 @@ echo "Fetch the html files in $xvof_dir"
 cp -r $xvof_dir .
 echo "Modified files are : "
 git status
-git -a -m "Update doc from XVOF repository"
-git push
 
