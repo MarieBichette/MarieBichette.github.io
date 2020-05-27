@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installation" href="installation.html" />
-    <link rel="prev" title="Welcome to XVOF !" href="index.html" />
+    <link rel="prev" title="Code organisation" href="organisation.html" />
   
    
 
@@ -42,7 +42,7 @@
           <a href="installation.html" title="Installation"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to XVOF !"
+          <a href="organisation.html" title="Code organisation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">XVOF  documentation</a> &#187;</li> 
       </ul>
@@ -89,8 +89,8 @@
   </div>
 </div>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to XVOF !</a></p>
+  <p class="topless"><a href="organisation.html"
+                        title="previous chapter">Code organisation</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="installation.html"
                         title="next chapter">Installation</a></p>
@@ -135,7 +135,7 @@
 The following documentation specifies the role of all functions and modules in the code.</p>
 <div class="section" id="module-cell">
 <span id="cell"></span><h2>Cell<a class="headerlink" href="#module-cell" title="Permalink to this headline">¶</a></h2>
-<p>A module to implement Cell classes</p>
+<p>Package for cell modules</p>
 <dl class="py class">
 <dt id="cell.Cell">
 <em class="property">class </em><code class="descclassname">cell.</code><code class="descname">Cell</code><span class="sig-paren">(</span><em><span class="n">nbr_of_cells</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell" title="Permalink to this definition">¶</a></dt>
@@ -152,6 +152,9 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.Cell.compute_new_density">
 <em class="property">abstract </em><code class="descname">compute_new_density</code><span class="sig-paren">(</span><em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_new_density" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new density in the cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_of_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify cells to be computed</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -164,6 +167,13 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.Cell.compute_new_pseudo">
 <em class="property">abstract </em><code class="descname">compute_new_pseudo</code><span class="sig-paren">(</span><em><span class="n">time_step</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_new_pseudo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new value of artificial viscosity in the cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>time_step</strong> (<em>float</em>) – time step</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_of_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify cells to be computed</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -176,12 +186,22 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.Cell.compute_new_time_step">
 <em class="property">abstract </em><code class="descname">compute_new_time_step</code><span class="sig-paren">(</span><em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_new_time_step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new value of critical time step in the cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_of_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify cells to be computed</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.Cell.compute_size">
-<em class="property">abstract </em><code class="descname">compute_size</code><span class="sig-paren">(</span><em><span class="n">topologie</span></em>, <em><span class="n">vecteur_coord_noeuds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_size" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="descname">compute_size</code><span class="sig-paren">(</span><em><span class="n">topology</span></em>, <em><span class="n">node_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the size of the cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>topology</strong> (<a class="reference internal" href="#mesh.Topology" title="mesh.Topology"><em>Topology</em></a>) – topology of the mesh</li>
+<li><strong>node_coord</strong> (<em>numpy.array</em><em>(</em><em>[</em><em>nbr_of_nodes</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=np.float64</em><em>, </em><em>order='C'</em><em>)</em>) – array of nodal coordinates</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -237,11 +257,15 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dl class="py method">
 <dt id="cell.Cell.initialize_cell_fields">
 <code class="descname">initialize_cell_fields</code><span class="sig-paren">(</span><em><span class="n">mask_node_target</span></em>, <em><span class="n">mask_node_projectile</span></em>, <em><span class="n">topology</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.initialize_cell_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialisation of the cell fields and attributes of cell_in_target and cell_in_projectile
-:param mask_node_target: bool array for nodes in the target
-:param mask_node_projectile: bool array for nodes in the target
-:param topology: mesh connectivity object
-:return:</p>
+<dd><p>Initialisation of the cell fields and attributes of cell_in_target and cell_in_projectile</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mask_node_target</strong> (<em>numpy.array</em><em>(</em><em>[</em><em>nbr_of_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>, </em><em>order='C'</em><em>)</em>) – bool array for nodes in the target</li>
+<li><strong>mask_node_projectile</strong> (<em>numpy.array</em><em>(</em><em>[</em><em>nbr_of_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>, </em><em>order='C'</em><em>)</em>) – bool array for nodes in the target</li>
+<li><strong>topology</strong> (<a class="reference internal" href="#mesh.Topology" title="mesh.Topology"><em>Topology</em></a>) – mesh connectivity object</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -338,22 +362,38 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.OneDimensionCell.add_elastic_energy_method">
 <em class="property">classmethod </em><code class="descname">add_elastic_energy_method</code><span class="sig-paren">(</span><em><span class="n">dt</span></em>, <em><span class="n">density_current</span></em>, <em><span class="n">density_new</span></em>, <em><span class="n">stress_dev_current</span></em>, <em><span class="n">stress_dev_new</span></em>, <em><span class="n">strain_rate_dev</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.add_elastic_energy_method" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take into account the additional term in internal energy due to elasticity</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>dt</strong> – time step</li>
+<li><strong>density_current</strong> – density at time t</li>
+<li><strong>density_new</strong> – density at time t+dt</li>
+<li><strong>stress_dev_current</strong> – stress deviator at time t</li>
+<li><strong>stress_dev_new</strong> – stress deviator at time t+dt</li>
+<li><strong>strain_rate_dev</strong> – deviator of the strain rate tensor at time t+dt/2</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.apply_equation_of_state">
-<em class="property">classmethod </em><code class="descname">apply_equation_of_state</code><span class="sig-paren">(</span><em><span class="n">cell</span><span class="p">:</span> <span class="n">xfv.src.cell.cell.Cell</span></em>, <em><span class="n">eos</span></em>, <em><span class="n">density</span></em>, <em><span class="n">density_new</span></em>, <em><span class="n">pressure</span></em>, <em><span class="n">pressure_new</span></em>, <em><span class="n">energy</span></em>, <em><span class="n">energy_new</span></em>, <em><span class="n">pseudo</span></em>, <em><span class="n">cson_new</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.apply_equation_of_state" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the equation of state to get the new internal energy, pressure and sound speed
-:param cell: cell collection [in]
-:param eos: equation of state object [in]
-:param density: array of current density [in]
-:param density_new: array of new velocity [in]
-:param pressure: array of current pressure [in]
-:param pressure_new: array of new pressure [out]
-:param energy: array of current energy [in]
-:param energy_new: array of new energy [out]
-:param pseudo: array of artificial viscosity [in]
-:param cson_new: array of sound speed [out]</p>
+<em class="property">classmethod </em><code class="descname">apply_equation_of_state</code><span class="sig-paren">(</span><em><span class="n">cell</span><span class="p">:</span> <span class="n">xfv.src.cell.cell.Cell</span></em>, <em><span class="n">eos</span></em>, <em><span class="n">density</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">density_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">pressure</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">pressure_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">energy</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">energy_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">pseudo</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">cson_new</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.apply_equation_of_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the equation of state to get the new internal energy, pressure and sound speed</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>cell</strong> – cell collection [in]</li>
+<li><strong>eos</strong> – equation of state object [in]</li>
+<li><strong>density</strong> – array of current density [in]</li>
+<li><strong>density_new</strong> – array of new velocity [in]</li>
+<li><strong>pressure</strong> – array of current pressure [in]</li>
+<li><strong>pressure_new</strong> – array of new pressure [out]</li>
+<li><strong>energy</strong> – array of current energy [in]</li>
+<li><strong>energy_new</strong> – array of new energy [out]</li>
+<li><strong>pseudo</strong> – array of artificial viscosity [in]</li>
+<li><strong>cson_new</strong> – array of sound speed [out]</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -363,6 +403,13 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 - compute yield stress
 - tests plasticity criterion
 - compute plastic strain rate for plastic cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mask</strong> – boolean array to identify cells to be computed</li>
+<li><strong>dt</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -382,29 +429,40 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_complete_stress_tensor">
 <code class="descname">compute_complete_stress_tensor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_complete_stress_tensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the Cauchy stress tensor (assemble pression et dï¿½viateur)</p>
+<dd><p>Compute the Cauchy stress tensor (sum of pressure, artificial viscosity and
+deviatoric stress)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_deviator_strain_rate">
 <em class="property">static </em><code class="descname">compute_deviator_strain_rate</code><span class="sig-paren">(</span><em><span class="n">dt</span></em>, <em><span class="n">topology</span></em>, <em><span class="n">node_coord_new</span></em>, <em><span class="n">node_velocity_new</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_deviator_strain_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute strain rate deviator
-:param mask : mask to select classical cells
-:param dt : time step
-:param topology : table of connectivity : link between cells and nodes id
-:param node_coord_new : array with new nodes coordinates
-:param node_velocity_new : array with new nodes velocities</p>
+<dd><p>Compute strain rate deviator</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mask</strong> – mask to select classical cells</li>
+<li><strong>dt</strong> – time step</li>
+<li><strong>topology</strong> – table of connectivity : link between cells and nodes id</li>
+<li><strong>node_coord_new</strong> – array with new nodes coordinates</li>
+<li><strong>node_velocity_new</strong> – array with new nodes velocities</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_deviatoric_stress_tensor">
 <code class="descname">compute_deviatoric_stress_tensor</code><span class="sig-paren">(</span><em><span class="n">mask</span></em>, <em><span class="n">topology</span></em>, <em><span class="n">node_coord_new</span></em>, <em><span class="n">node_velocity_new</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_deviatoric_stress_tensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the deviatoric part of the stress tensor
-:param mask : mask to select classical cells
-:param topology : table of connectivity : link between cells and nodes id
-:param node_coord_new : array with new nodes coordinates (time n+1)
-:param node_velocity_new : array with new nodes velocities (time n+1/2)
-:param delta_t : time step (staggered tn+1/2)</p>
+<dd><p>Compute the deviatoric part of the stress tensor</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mask</strong> – mask to select classical cells</li>
+<li><strong>topology</strong> – table of connectivity : link between cells and nodes id</li>
+<li><strong>node_coord_new</strong> – array with new nodes coordinates (time n+1)</li>
+<li><strong>node_velocity_new</strong> – array with new nodes velocities (time n+1/2)</li>
+<li><strong>delta_t</strong> – time step (staggered tn+1/2)</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -416,8 +474,10 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_new_density">
 <code class="descname">compute_new_density</code><span class="sig-paren">(</span><em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_density" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of the density of the cells at time t+dt using mass conservation principle
-:param mask : array of boolean to identify classical cells</p>
+<dd><p>Computation of the density of the cells at time t+dt using mass conservation principle</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – array of boolean to identify classical cells</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -428,77 +488,114 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_new_pseudo">
-<code class="descname">compute_new_pseudo</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_pseudo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of cells artificial viscosity at time t+dt
-:param delta_t : time step
-:param mask : array of boolean to identify classical cells</p>
+<code class="descname">compute_new_pseudo</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_pseudo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computation of cells artificial viscosity at time t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – time step</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify classical cells</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_new_size">
 <code class="descname">compute_new_size</code><span class="sig-paren">(</span><em><span class="n">topology</span></em>, <em><span class="n">node_coord</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of the cells length at time t+dt
-:param topology : table to link nodes and cells index
-:param node_coord : array with the new nodes coordinates
-:param mask : array of boolean to identify classical cells</p>
+<dd><p>Computation of the cells length at time t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>topology</strong> (<a class="reference internal" href="#mesh.Topology1D" title="mesh.Topology1D"><em>Topology1D</em></a>) – table to link nodes and cells index</li>
+<li><strong>node_coord</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_nodes</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=np.float64</em><em>)</em>) – array with the nodes coordinates at time t+dt</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify classical cells</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_new_time_step">
 <code class="descname">compute_new_time_step</code><span class="sig-paren">(</span><em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_time_step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of the time step in the cells at time t+dt
-:param mask : array of boolean to identify classical cells</p>
+<dd><p>Computation of the time step in the cells at time t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – boolean array to identify classical cells</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_pseudo">
 <em class="property">classmethod </em><code class="descname">compute_pseudo</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">rho_old</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">rho_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">size_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">cel_son</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">a_pseudo</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">b_pseudo</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_pseudo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of artificial viscosity
-:param delta_t: time step
-:param rho_old: density at time t
-:param rho_new: density at time t+dt
-:param size_new: cell size at time t+dt
-:param cel_son: sound speed at time t
-:param a_pseudo: quadratic pseudo coefficient
-:param b_pseudo: linear pseudo coefficient</p>
+<dd><p>Computation of artificial viscosity</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – time step</li>
+<li><strong>rho_old</strong> – density at time t</li>
+<li><strong>rho_new</strong> – density at time t+dt</li>
+<li><strong>size_new</strong> – cell size at time t+dt</li>
+<li><strong>cel_son</strong> – sound speed at time t</li>
+<li><strong>a_pseudo</strong> – quadratic pseudo coefficient</li>
+<li><strong>b_pseudo</strong> – linear pseudo coefficient</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_shear_modulus">
 <code class="descname">compute_shear_modulus</code><span class="sig-paren">(</span><em><span class="n">shear_modulus_model</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_shear_modulus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the shear modulus G according to the constitutive elasticity model in XDATA
-:param shear_modulus_model : model to compute the shear modulus
-:param mask : mask to identify the cells to be computed</p>
+<dd><p>Compute the shear modulus G according to the constitutive elasticity model in XDATA</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>shear_modulus_model</strong> – model to compute the shear modulus</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – mask to identify the cells to be computed</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_size">
 <code class="descname">compute_size</code><span class="sig-paren">(</span><em><span class="n">topology</span></em>, <em><span class="n">node_coord</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of the cells initial length
-:param topology : table to link nodes and cells index
-:param node_coord : array with nodes coordinates</p>
+<dd><p>Computation of the cells initial length</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>topology</strong> (<a class="reference internal" href="#mesh.Topology1D" title="mesh.Topology1D"><em>Topology1D</em></a>) – table to link nodes and cells index</li>
+<li><strong>node_coord</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_nodes</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=np.float64</em><em>)</em>) – array with nodes coordinates</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_time_step">
 <em class="property">classmethod </em><code class="descname">compute_time_step</code><span class="sig-paren">(</span><em><span class="n">cfl</span></em>, <em><span class="n">cfl_pseudo</span></em>, <em><span class="n">rho_old</span></em>, <em><span class="n">rho_new</span></em>, <em><span class="n">size_new</span></em>, <em><span class="n">sound_speed_new</span></em>, <em><span class="n">pseudo_old</span></em>, <em><span class="n">pseudo_new</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_time_step" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of the time step
-:param cfl : nombre cfl
-:param cfl_pseudo : cfl linked to the shock treatment stability condition
-:param rho_old : density at time t
-:param rho_new : density at time t+dt
-:param size_new : size of element
-:param sound_speed_new : sound velocity at time t+dt
-:param pseudo_old : artificial viscosity at time t
-:param pseudo_new : artificial viscosity at timet+dt</p>
+<dd><p>Computation of the time step</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>cfl</strong> – nombre cfl</li>
+<li><strong>cfl_pseudo</strong> – cfl linked to the shock treatment stability condition</li>
+<li><strong>rho_old</strong> – density at time t</li>
+<li><strong>rho_new</strong> – density at time t+dt</li>
+<li><strong>size_new</strong> – size of element</li>
+<li><strong>sound_speed_new</strong> – sound velocity at time t+dt</li>
+<li><strong>pseudo_old</strong> – artificial viscosity at time t</li>
+<li><strong>pseudo_new</strong> – artificial viscosity at timet+dt</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.compute_yield_stress">
 <code class="descname">compute_yield_stress</code><span class="sig-paren">(</span><em><span class="n">yield_stress_model</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_yield_stress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the yield stress according to plasticity constitutive model in XDATA
-:param yield_stress_model : model to compute the yield stress
-:param mask : mask to identify the cells to be computed</p>
+<dd><p>Compute the yield stress according to plasticity constitutive model in XDATA</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>yield_stress_model</strong> – model to compute the yield stress</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – mask to identify the cells to be computed</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -543,22 +640,36 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.OneDimensionCell.general_method_deviator_strain_rate">
 <em class="property">static </em><code class="descname">general_method_deviator_strain_rate</code><span class="sig-paren">(</span><em><span class="n">dt</span></em>, <em><span class="n">x_new</span></em>, <em><span class="n">u_new</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.general_method_deviator_strain_rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the deviator of strain rate tensor (defined at the center of the cell)
-from the coordinates and velocities interpolated at the center of the cell
-:param mask : bool array to identify cells to be computed
-:param dt : time step (float)
-:param x_new : coordinates array at time n+1 of the left and right nodes of each cell
-Shape is array([coord_node_left, coord_node_right] * nbr_cells in the mask)
-:param u_new : velocity array at time n+1/2 of the left and right nodes of each cell
-Shape is array([velocity_node_left, velocity_node_right] * nbr_cells in the mask)
-x_new, u_new shape is (size(mask), 2)</p>
+from the coordinates and velocities interpolated at the center of the cell</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>dt</strong> – time step (float)</li>
+<li><strong>x_new</strong> – coordinates array at time n+1 of the left and right nodes of each cell.</li>
+<li><strong>u_new</strong> – velocity array at time n+1/2 of the left and right nodes of each cell</li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>x_new, u_new shape is (size(mask), 2)</p>
+<ul class="last simple">
+<li>x_new is an array : array([coord_node_left, coord_node_right] * nbr_cells in the mask)</li>
+<li>u_new is an array : array([velocity_node_left, velocity_node_right] * nbr_cells in the mask)</li>
+</ul>
+</div>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionCell.impose_pressure">
-<code class="descname">impose_pressure</code><span class="sig-paren">(</span><em><span class="n">ind_cell</span></em>, <em><span class="n">pressure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.impose_pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pressure imposition
-:param ind_cell : index of the cells
-:param pressure : pressure value to be imposed</p>
+<code class="descname">impose_pressure</code><span class="sig-paren">(</span><em><span class="n">ind_cell</span><span class="p">:</span> <span class="n">int</span></em>, <em><span class="n">pressure</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.impose_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pressure imposition</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>ind_cell</strong> – index of the cells</li>
+<li><strong>pressure</strong> – pressure value to be imposed</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -672,7 +783,12 @@ x_new, u_new shape is (size(mask), 2)</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.apply_plasticity_enr">
 <code class="descname">apply_plasticity_enr</code><span class="sig-paren">(</span><em><span class="n">mask_mesh</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.apply_plasticity_enr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply plasticity treatment if criterion is activated :        - compute yield stress        - tests plasticity criterion        - compute plastic strain rate for plastic cells</p>
+<dd><p>Apply plasticity treatment if criterion is activated :</p>
+<ul class="simple">
+<li>compute yield stress</li>
+<li>tests plasticity criterion</li>
+<li>compute plastic strain rate for plastic cells</li>
+</ul>
 </dd></dl>
 
 <dl class="py method">
@@ -701,29 +817,46 @@ x_new, u_new shape is (size(mask), 2)</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_discontinuity_borders_velocity">
 <em class="property">classmethod </em><code class="descname">compute_discontinuity_borders_velocity</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">node_velocity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_discontinuity_borders_velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the velocities of points at the discontinuity border
-:param disc: Discontinuity to be considered
-:param node_velocity : array with nodes velocity
-:return ug : velocity of the discontinuity left boundary
-:return ud : velocity of the discontinuity right boundary</p>
+<dd><p>Compute the velocities of points at the discontinuity border</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>disc</strong> – Discontinuity to be considered</li>
+<li><strong>node_velocity</strong> – array with nodes velocity</li>
+</ul>
+</dd>
+<dt class="field-name">Return ug</dt><dd class="field-body"><p class="first">velocity of the discontinuity left boundary</p>
+</dd>
+<dt class="field-name">Return ud</dt><dd class="field-body"><p class="first last">velocity of the discontinuity right boundary</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_deviatoric_strain_rate">
-<code class="descname">compute_enriched_deviatoric_strain_rate</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">node_coord_new</span></em>, <em><span class="n">node_velocity_new</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_deviatoric_strain_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute devaiateur du taux de dï¿½formation
-:param delta_t : time step
-:param node_coord_new : array, new nodes coordinates
-:param node_velocity_new : array, new nodes velocity</p>
+<code class="descname">compute_enriched_deviatoric_strain_rate</code><span class="sig-paren">(</span><em><span class="n">dt</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">node_coord_new</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">node_velocity_new</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_deviatoric_strain_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the deviatoric strain rate for enriched cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>dt</strong> – time step</li>
+<li><strong>node_coord_new</strong> – array, new nodes coordinates</li>
+<li><strong>node_velocity_new</strong> – array, new nodes velocity</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_deviatoric_stress_tensor">
 <code class="descname">compute_enriched_deviatoric_stress_tensor</code><span class="sig-paren">(</span><em><span class="n">node_coord_new</span></em>, <em><span class="n">node_velocity_new</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_deviatoric_stress_tensor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the deviatoric part of the stress tensor
-:param node_coord_new : array, new nodes coordinates
-:param node_velocity_new : array, new nodes velocity
-:param delta_t : float, time step</p>
+<dd><p>Compute the deviatoric part of the stress tensor</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>node_coord_new</strong> – array, new nodes coordinates</li>
+<li><strong>node_velocity_new</strong> – array, new nodes velocity</li>
+<li><strong>delta_t</strong> – float, time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -736,24 +869,33 @@ x_new, u_new shape is (size(mask), 2)</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_part_size">
 <code class="descname">compute_enriched_elements_new_part_size</code><span class="sig-paren">(</span><em><span class="n">time_step</span></em>, <em><span class="n">node_velocity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_part_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the new size of each ruptured element part (left size and right size)
-:param time_step: time step
-:param node_velocity: array, node velocities</p>
+<dd><p>Compute the new size of each ruptured element part (left size and right size)</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>time_step</strong> – time step</li>
+<li><strong>node_velocity</strong> – array, node velocities</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_pressure">
 <code class="descname">compute_enriched_elements_new_pressure</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_pressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute pressure, internal energy and sound velocity in left and right parts of
-the enriched elements
-:param delta_t : time step</p>
+the enriched elements</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_pseudo">
 <code class="descname">compute_enriched_elements_new_pseudo</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_elements_new_pseudo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the new artificial viscosity of the enriched_cells
-:param delta_t: time_step</p>
+<dd><p>Compute the new artificial viscosity of the enriched_cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time_step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -767,8 +909,10 @@ time step for the enriched cells</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_shear_modulus">
 <code class="descname">compute_enriched_shear_modulus</code><span class="sig-paren">(</span><em><span class="n">shear_modulus_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_shear_modulus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the shear modulus for ruptured cell
-:param shear_modulus_model : model to compute the shear modulus</p>
+<dd><p>Compute the shear modulus for ruptured cell</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>shear_modulus_model</strong> – model to compute the shear modulus</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -780,8 +924,10 @@ time step for the enriched cells</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.compute_enriched_yield_stress">
 <code class="descname">compute_enriched_yield_stress</code><span class="sig-paren">(</span><em><span class="n">yield_stress_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.compute_enriched_yield_stress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the yield stress for ruptured cells
-:param yield_stress_model : model to compute the yield stress</p>
+<dd><p>Compute the yield stress for ruptured cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>yield_stress_model</strong> – model to compute the yield stress</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -822,8 +968,10 @@ time step for the enriched cells</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.initialize_additional_cell_dof">
 <code class="descname">initialize_additional_cell_dof</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.initialize_additional_cell_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Values to initialize the right part fields when discontinuity disc is created
-:param disc : the current discontinuity</p>
+<dd><p>Values to initialize the right part fields when discontinuity disc is created</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>disc</strong> – the current discontinuity</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -852,21 +1000,35 @@ time step for the enriched cells</p>
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.reconstruct_enriched_elasto_field">
 <code class="descname">reconstruct_enriched_elasto_field</code><span class="sig-paren">(</span><em><span class="n">classical_field</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">enriched_field_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.reconstruct_enriched_elasto_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>True field reconstruction from the classical and enriched fields
-:param classical_field: classical field
-:param enriched_field_name: name of the enriched field
-:return: complete field
-:rtype np.array</p>
+<dd><p>True field reconstruction from the classical and enriched fields</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>classical_field</strong> – classical field</li>
+<li><strong>enriched_field_name</strong> – name of the enriched field</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first">complete field</p>
+</dd>
+<dt class="field-name">Return type</dt><dd class="field-body"><p class="first last">np.array</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.reconstruct_enriched_hydro_field">
 <code class="descname">reconstruct_enriched_hydro_field</code><span class="sig-paren">(</span><em><span class="n">classical_field</span><span class="p">:</span> <span class="n">xfv.src.fields.field.Field</span></em>, <em><span class="n">enriched_field_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.reconstruct_enriched_hydro_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>True field reconstruction from the classical and enriched fields
-:param classical_field: classical field
-:param enriched_field_name: name of the enriched field
-:return: complete field
-:rtype np.array</p>
+<dd><p>True field reconstruction from the classical and enriched fields</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>classical_field</strong> – classical field</li>
+<li><strong>enriched_field_name</strong> – name of the enriched field</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first">complete field</p>
+</dd>
+<dt class="field-name">Return type</dt><dd class="field-body"><p class="first last">np.array</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -886,9 +1048,24 @@ time step for the enriched cells</p>
 
 </dd></dl>
 
+<dl class="py function">
+<dt id="cell.consecutive">
+<code class="descclassname">cell.</code><code class="descname">consecutive</code><span class="sig-paren">(</span><em><span class="n">data</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em>, <em><span class="n">stepsize</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.consecutive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an array in which each item is an array of contiguous values of the original data array</p>
+<p>Taken from <a class="reference external" href="https://stackoverflow.com/questions/7352684/how-to-find-the-groups-of-consecutive-elements-in-a-numpy-array">https://stackoverflow.com/questions/7352684/how-to-find-the-groups-of-consecutive-elements-in-a-numpy-array</a></p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>data</strong> – the array to be splitted in continuous arrays</li>
+<li><strong>stepsize</strong> – the difference between tow values that are considered contiguous</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-cohesive_model">
 <span id="cohesive-zone-model"></span><h2>Cohesive Zone Model<a class="headerlink" href="#module-cohesive_model" title="Permalink to this headline">¶</a></h2>
+<p>Package for cohesive zone model modules</p>
 <dl class="py class">
 <dt id="cohesive_model.CohesiveLaw">
 <em class="property">class </em><code class="descclassname">cohesive_model.</code><code class="descname">CohesiveLaw</code><span class="sig-paren">(</span><em><span class="n">cohesive_law_points</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model.CohesiveLaw" title="Permalink to this definition">¶</a></dt>
@@ -908,13 +1085,17 @@ time step for the enriched cells</p>
 <em class="property">classmethod </em><code class="descname">interpolate_cohesive_law</code><span class="sig-paren">(</span><em><span class="n">opening</span></em>, <em><span class="n">separation_1</span></em>, <em><span class="n">separation_2</span></em>, <em><span class="n">stress_1</span></em>, <em><span class="n">stress_2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model.CohesiveLaw.interpolate_cohesive_law" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interpolate the value of cohesive stress between points 1 and 2</p>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>opening</strong> – discontinuity opening</dd>
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>opening</strong> – discontinuity opening</li>
+<li><strong>separation_1</strong> – separation at point 1</li>
+<li><strong>separation_2</strong> – separation at point 2</li>
+<li><strong>stress_1</strong> – stress at point 1</li>
+<li><strong>stress_2</strong> – stress at point 2</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">cohesive stress</p>
+</dd>
 </dl>
-<p>:param separation_1 : separation at point 1
-:param separation_2 : separation at point 2
-:param stress_1 : stress at point 1
-:param stress_2 : stress at point 2
-:return: cohesive stress</p>
 </dd></dl>
 
 </dd></dl>
@@ -927,8 +1108,10 @@ time step for the enriched cells</p>
 <dt id="cohesive_model.CohesiveZoneModel.compute_cohesive_stress">
 <code class="descname">compute_cohesive_stress</code><span class="sig-paren">(</span><em><span class="n">disc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model.CohesiveZoneModel.compute_cohesive_stress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the cohesive force for the current opening of discontinuity according to the
-current discontinuity opening
-:param disc :discontinuity</p>
+current discontinuity opening</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>disc</strong> – discontinuity</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -936,6 +1119,7 @@ current discontinuity opening
 </div>
 <div class="section" id="module-cohesive_model_unloading">
 <span id="cohesive-zone-model-unloading-options"></span><h2>Cohesive Zone Model : unloading options<a class="headerlink" href="#module-cohesive_model_unloading" title="Permalink to this headline">¶</a></h2>
+<p>Package for unloading the cohesive zone model modules</p>
 <dl class="py class">
 <dt id="cohesive_model_unloading.UnloadingModelBase">
 <em class="property">class </em><code class="descclassname">cohesive_model_unloading.</code><code class="descname">UnloadingModelBase</code><span class="sig-paren">(</span><em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model_unloading.UnloadingModelBase" title="Permalink to this definition">¶</a></dt>
@@ -944,10 +1128,16 @@ current discontinuity opening
 <dt id="cohesive_model_unloading.UnloadingModelBase.compute_unloading_reloading_condition">
 <em class="property">abstract </em><code class="descname">compute_unloading_reloading_condition</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">new_opening</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model_unloading.UnloadingModelBase.compute_unloading_reloading_condition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the cohesive stress in case of unloading or reloading condition
-(new_opening is less than the discontinuity maximal opening
-:param disc : discontinuity
-:param new_opening : opening of the discontinuity
-:return: cohesive stress (float)</p>
+(new_opening is less than the discontinuity maximal opening</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>disc</strong> – discontinuity</li>
+<li><strong>new_opening</strong> – opening of the discontinuity</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">cohesive stress (float)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -960,10 +1150,16 @@ current discontinuity opening
 <dt id="cohesive_model_unloading.ConstantStiffnessUnloading.compute_unloading_reloading_condition">
 <code class="descname">compute_unloading_reloading_condition</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">new_opening</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model_unloading.ConstantStiffnessUnloading.compute_unloading_reloading_condition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the cohesive stress in case of unloading or reloading condition
-(new_opening is less than the discontinuity maximal opening
-:param disc : discontinuity
-:param new_opening : opening of the discontinuity
-:return: cohesive stress (float)</p>
+(new_opening is less than the discontinuity maximal opening</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>disc</strong> – discontinuity</li>
+<li><strong>new_opening</strong> – opening of the discontinuity</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">cohesive stress (float)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -976,10 +1172,16 @@ current discontinuity opening
 <dt id="cohesive_model_unloading.LossOfStiffnessUnloading.compute_unloading_reloading_condition">
 <code class="descname">compute_unloading_reloading_condition</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">new_opening</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cohesive_model_unloading.LossOfStiffnessUnloading.compute_unloading_reloading_condition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the cohesive stress in case of unloading or reloading condition
-(new_opening is less than the discontinuity maximal opening
-:param disc : discontinuity
-:param new_opening : opening of the discontinuity
-:return: cohesive stress (float)</p>
+(new_opening is less than the discontinuity maximal opening</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>disc</strong> – discontinuity</li>
+<li><strong>new_opening</strong> – opening of the discontinuity</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">cohesive stress (float)</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -987,6 +1189,7 @@ current discontinuity opening
 </div>
 <div class="section" id="module-contact">
 <span id="contact"></span><h2>Contact<a class="headerlink" href="#module-contact" title="Permalink to this headline">¶</a></h2>
+<p>Package for contact modules</p>
 <dl class="py class">
 <dt id="contact.ContactBase">
 <em class="property">class </em><code class="descclassname">contact.</code><code class="descname">ContactBase</code><span class="sig-paren">(</span><em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#contact.ContactBase" title="Permalink to this definition">¶</a></dt>
@@ -994,12 +1197,15 @@ current discontinuity opening
 <dl class="py method">
 <dt id="contact.ContactBase.compute_contact_force">
 <em class="property">abstract </em><code class="descname">compute_contact_force</code><span class="sig-paren">(</span><em><span class="n">node_velocity</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#contact.ContactBase.compute_contact_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if contact and apply correction
-:param node_coord: node coordinates array
-:param node_velocity: node velocity array
-:param node_force : node force array
-:param disc: discontinuity to examine
-:param delta_t : time step</p>
+<dd><p>Checks if contact and apply correction</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>node_velocity</strong> – node velocity array</li>
+<li><strong>disc</strong> – discontinuity to examine</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1011,10 +1217,15 @@ current discontinuity opening
 <dl class="py method">
 <dt id="contact.LagrangianMultiplierContact.compute_contact_force">
 <code class="descname">compute_contact_force</code><span class="sig-paren">(</span><em><span class="n">node_velocity</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#contact.LagrangianMultiplierContact.compute_contact_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if contact and apply correction
-:param node_velocity: node velocity array
-:param disc: discontinuity to examine
-:param delta_t : time step</p>
+<dd><p>Checks if contact and apply correction</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>node_velocity</strong> – node velocity array</li>
+<li><strong>disc</strong> – discontinuity to examine</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1026,10 +1237,15 @@ current discontinuity opening
 <dl class="py method">
 <dt id="contact.PenaltyContact.compute_contact_force">
 <code class="descname">compute_contact_force</code><span class="sig-paren">(</span><em><span class="n">node_velocity</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; float<a class="headerlink" href="#contact.PenaltyContact.compute_contact_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks if contact and apply correction
-:param node_velocity: node velocity array
-:param disc: discontinuity to examine
-:param delta_t : time step</p>
+<dd><p>Checks if contact and apply correction</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>node_velocity</strong> – node velocity array</li>
+<li><strong>disc</strong> – discontinuity to examine</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1037,11 +1253,28 @@ current discontinuity opening
 </div>
 <div class="section" id="module-custom_functions">
 <span id="customized-boundary-condition-functions"></span><h2>Customized Boundary Condition Functions<a class="headerlink" href="#module-custom_functions" title="Permalink to this headline">¶</a></h2>
+<p>Package for customized boundary condition shape functions modules</p>
 <dl class="py class">
 <dt id="custom_functions.CustomFunction">
 <em class="property">class </em><code class="descclassname">custom_functions.</code><code class="descname">CustomFunction</code><a class="headerlink" href="#custom_functions.CustomFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>A generic CustomFunction class that should be used to derive
 more specific custom function class</p>
+<dl class="py method">
+<dt id="custom_functions.CustomFunction.evaluate">
+<em class="property">abstract </em><code class="descname">evaluate</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.CustomFunction.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the function evaluated at time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>time</strong> – the required time</li>
+<li><strong>args</strong> – other arguments</li>
+<li><strong>kwargs</strong> – other keywords arguments</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">the value</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="custom_functions.CustomFunction.is_pressure">
 <code class="descname">is_pressure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.CustomFunction.is_pressure" title="Permalink to this definition">¶</a></dt>
@@ -1072,17 +1305,17 @@ more specific custom function class</p>
 <dt id="custom_functions.ConstantValue">
 <em class="property">class </em><code class="descclassname">custom_functions.</code><code class="descname">ConstantValue</code><span class="sig-paren">(</span><em><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.ConstantValue" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class defines a function that returns a constant value</p>
-<blockquote>
-<div>^</div></blockquote>
-<dl class="docutils">
-<dt>value|……………..</dt><dd><div class="line-block">
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-<div class="line"><br /></div>
-</div>
-<p><a href="#id1"><span class="problematic" id="id2">|</span></a>_________________&gt;</p>
-</dd>
+<a class="reference internal image-reference" href="_images/constant_value.png"><img alt="_images/constant_value.png" class="align-center" src="_images/constant_value.png" style="width: 250.5px; height: 162.75px;" /></a>
+<dl class="py method">
+<dt id="custom_functions.ConstantValue.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.ConstantValue.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the function evaluated at time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – the required time</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the value</dd>
 </dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -1105,25 +1338,21 @@ more specific custom function class</p>
 <dt id="custom_functions.Ramp">
 <em class="property">class </em><code class="descclassname">custom_functions.</code><code class="descname">Ramp</code><span class="sig-paren">(</span><em><span class="n">first_value</span></em>, <em><span class="n">second_value</span></em>, <em><span class="n">start_time</span></em>, <em><span class="n">end_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.Ramp" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class that defines a ramp between 2 constants steps</p>
-<blockquote>
-<div>^</div></blockquote>
-<dl class="docutils">
-<dt>second value|       ………..</dt><dd><div class="line-block">
-<div class="line-block">
-<div class="line">/</div>
-</div>
-<div class="line">/</div>
-</div>
-</dd>
-<dt>first value <a href="#id3"><span class="problematic" id="id4">|</span></a>…./</dt><dd><dl class="docutils">
-<dt><a href="#id5"><span class="problematic" id="id6">|</span></a>_________________&gt;</dt><dd>start end</dd>
-</dl>
-</dd>
-</dl>
+<a class="reference internal image-reference" href="_images/ramp.png"><img alt="_images/ramp.png" class="align-center" src="_images/ramp.png" style="width: 269.25px; height: 184.5px;" /></a>
 <dl class="py method">
 <dt id="custom_functions.Ramp.end_time">
 <em class="property">property </em><code class="descname">end_time</code><a class="headerlink" href="#custom_functions.Ramp.end_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the time at which the slope ends</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="custom_functions.Ramp.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.Ramp.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the function evaluated at time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – the required time</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the value</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1150,30 +1379,39 @@ more specific custom function class</p>
 <dt id="custom_functions.SuccessiveRamp">
 <em class="property">class </em><code class="descclassname">custom_functions.</code><code class="descname">SuccessiveRamp</code><span class="sig-paren">(</span><em><span class="n">first_p_ramp</span></em>, <em><span class="n">second_p_ramp</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.SuccessiveRamp" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class chains two Ramp functions</p>
+<dl class="py method">
+<dt id="custom_functions.SuccessiveRamp.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.SuccessiveRamp.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the function evaluated at time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – the required time</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the value</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt id="custom_functions.TwoSteps">
 <em class="property">class </em><code class="descclassname">custom_functions.</code><code class="descname">TwoSteps</code><span class="sig-paren">(</span><em><span class="n">first_value</span></em>, <em><span class="n">second_value</span></em>, <em><span class="n">critical_time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.TwoSteps" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class defines a 2 constant steps function</p>
-<blockquote>
-<div>^</div></blockquote>
-<dl class="docutils">
-<dt>second value|    ………..</dt><dd><div class="line-block">
-<div class="line"><a href="#id7"><span class="problematic" id="id8">|</span></a></div>
-<div class="line"><a href="#id9"><span class="problematic" id="id10">|</span></a></div>
-</div>
-</dd>
-<dt>first value <a href="#id13"><span class="problematic" id="id14">|....|</span></a></dt><dd><dl class="docutils">
-<dt><a href="#id11"><span class="problematic" id="id12">|</span></a>_________________&gt;</dt><dd>critical time</dd>
+<a class="reference internal image-reference" href="_images/two_steps.png"><img alt="_images/two_steps.png" class="align-center" src="_images/two_steps.png" style="width: 256.5px; height: 168.75px;" /></a>
+<dl class="py method">
+<dt id="custom_functions.TwoSteps.evaluate">
+<code class="descname">evaluate</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#custom_functions.TwoSteps.evaluate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the function evaluated at time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – the required time</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the value</dd>
 </dl>
-</dd>
-</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
 <div class="section" id="module-data">
 <span id="data"></span><h2>Data<a class="headerlink" href="#module-data" title="Permalink to this headline">¶</a></h2>
+<p>Package for reading the case data modules</p>
 <dl class="py class">
 <dt id="data.DataContainer">
 <em class="property">class </em><code class="descclassname">data.</code><code class="descname">DataContainer</code><span class="sig-paren">(</span><em><span class="n">datafile_path</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>pathlib.Path<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#data.DataContainer" title="Permalink to this definition">¶</a></dt>
@@ -1183,6 +1421,7 @@ more specific custom function class</p>
 </div>
 <div class="section" id="module-discontinuity">
 <span id="discontinuity"></span><h2>Discontinuity<a class="headerlink" href="#module-discontinuity" title="Permalink to this headline">¶</a></h2>
+<p>Package for discontinuity modules</p>
 <dl class="py class">
 <dt id="discontinuity.Discontinuity">
 <em class="property">class </em><code class="descclassname">discontinuity.</code><code class="descname">Discontinuity</code><span class="sig-paren">(</span><em><span class="n">cell_id</span><span class="p">:</span> <span class="n">int</span></em>, <em><span class="n">mask_in_nodes</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">mask_out_nodes</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">discontinuity_position_in_ruptured_element</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">enriched_mass_matrix_props</span><span class="p">:</span> <span class="n">xfv.src.data.enriched_mass_matrix_props.EnrichedMassMatrixProps</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity" title="Permalink to this definition">¶</a></dt>
@@ -1200,34 +1439,18 @@ more specific custom function class</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_force">
-<em class="property">property </em><code class="descname">additional_dof_force</code><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional nodes force at time t</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="discontinuity.Discontinuity.additional_dof_increment">
 <code class="descname">additional_dof_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_increment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increment the variables of discontinuity</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_velocity_current">
-<em class="property">property </em><code class="descname">additional_dof_velocity_current</code><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_velocity_current" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional nodes velocity at time t-dt/2</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_velocity_new">
-<em class="property">property </em><code class="descname">additional_dof_velocity_new</code><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_velocity_new" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional nodes velocity at time t+dt/2</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="discontinuity.Discontinuity.compute_discontinuity_new_opening">
 <code class="descname">compute_discontinuity_new_opening</code><span class="sig-paren">(</span><em><span class="n">node_position</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.compute_discontinuity_new_opening" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the discontinuity opening
-:param node_position: coordinates of the nodes</p>
+<dd><p>Compute the discontinuity opening</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>node_position</strong> – coordinates of the nodes</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1243,17 +1466,19 @@ more specific custom function class</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="discontinuity.Discontinuity.discontinuity_position">
-<em class="property">property </em><code class="descname">discontinuity_position</code><a class="headerlink" href="#discontinuity.Discontinuity.discontinuity_position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the discontinuity position</p>
+<dt id="discontinuity.Discontinuity.get_discontinuity_associated_with_cell">
+<em class="property">classmethod </em><code class="descname">get_discontinuity_associated_with_cell</code><span class="sig-paren">(</span><em><span class="n">cell_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.get_discontinuity_associated_with_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loop on the discontinuities collection to find the one that contain the cell cell_id</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>cell_id</strong> – cell id to find</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">Discontinuity or None if no disc is found</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="discontinuity.Discontinuity.get_discontinuity_associated_with_cell">
-<em class="property">classmethod </em><code class="descname">get_discontinuity_associated_with_cell</code><span class="sig-paren">(</span><em><span class="n">cell_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.get_discontinuity_associated_with_cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Loop on the discontinuities collection to find the one that contain the cell cell_id
-:param cell_id: cell id to find
-:return: Discontinuity or None if no disc is found</p>
+<dt id="discontinuity.Discontinuity.get_ruptured_cell_id">
+<em class="property">property </em><code class="descname">get_ruptured_cell_id</code><a class="headerlink" href="#discontinuity.Discontinuity.get_ruptured_cell_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the id of ruptured cell for the discontinuity</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1265,42 +1490,46 @@ more specific custom function class</p>
 <dl class="py method">
 <dt id="discontinuity.Discontinuity.label">
 <em class="property">property </em><code class="descname">label</code><a class="headerlink" href="#discontinuity.Discontinuity.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on label variable
-:return: label</p>
+<dd><p>Accessor on label variable</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">label</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discontinuity.Discontinuity.mask_disc_nodes">
 <em class="property">property </em><code class="descname">mask_disc_nodes</code><a class="headerlink" href="#discontinuity.Discontinuity.mask_disc_nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the mask on the nodes of the discontinuity
-:return: the mask on the nodes “concerned” by the discontinuity</p>
+<dd><p>Accessor on the mask on the nodes of the discontinuity</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the mask on the nodes “concerned” by the discontinuity</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discontinuity.Discontinuity.mask_in_nodes">
 <em class="property">property </em><code class="descname">mask_in_nodes</code><a class="headerlink" href="#discontinuity.Discontinuity.mask_in_nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the mask on the nodes “in” the discontinuity
-:return: the mask on the nodes “in” the discontinuity</p>
+<dd><p>Accessor on the mask on the nodes “in” the discontinuity</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the mask on the nodes “in” the discontinuity</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discontinuity.Discontinuity.mask_out_nodes">
 <em class="property">property </em><code class="descname">mask_out_nodes</code><a class="headerlink" href="#discontinuity.Discontinuity.mask_out_nodes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the mask on the nodes “out” the discontinuity
-:return: the mask on the nodes “out” the discontinuity</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="discontinuity.Discontinuity.mask_ruptured_cell">
-<em class="property">property </em><code class="descname">mask_ruptured_cell</code><a class="headerlink" href="#discontinuity.Discontinuity.mask_ruptured_cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a mask to identify the ruptured cell associated with discontinuity</p>
+<dd><p>Accessor on the mask on the nodes “out” the discontinuity</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the mask on the nodes “out” the discontinuity</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="discontinuity.Discontinuity.mass_matrix_updated">
 <em class="property">property </em><code class="descname">mass_matrix_updated</code><a class="headerlink" href="#discontinuity.Discontinuity.mass_matrix_updated" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the boolean that indicates if the mass matrix has been computed
-:return: the boolean that indicates if the mass matrix has been computed</p>
+<dd><p>Accessor on the boolean that indicates if the mass matrix has been computed</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the boolean that indicates if the mass matrix has been computed</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1315,17 +1544,12 @@ more specific custom function class</p>
 <dd><p>Set the new velocity to the old one to cancel the increment that has lead to contact</p>
 </dd></dl>
 
-<dl class="py method">
-<dt id="discontinuity.Discontinuity.ruptured_cell_id">
-<em class="property">property </em><code class="descname">ruptured_cell_id</code><a class="headerlink" href="#discontinuity.Discontinuity.ruptured_cell_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the id of ruptured cell for the discontinuity</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
 <div class="section" id="module-equationsofstate">
 <span id="equation-of-state"></span><h2>Equation Of State<a class="headerlink" href="#module-equationsofstate" title="Permalink to this headline">¶</a></h2>
+<p>Package for equation of state modules</p>
 <dl class="py class">
 <dt id="equationsofstate.EquationOfStateBase">
 <em class="property">class </em><code class="descclassname">equationsofstate.</code><code class="descname">EquationOfStateBase</code><a class="headerlink" href="#equationsofstate.EquationOfStateBase" title="Permalink to this definition">¶</a></dt>
@@ -1371,6 +1595,7 @@ derivative of the pressure with respect to the internal energy</p>
 </div>
 <div class="section" id="module-fields">
 <span id="fields"></span><h2>Fields<a class="headerlink" href="#module-fields" title="Permalink to this headline">¶</a></h2>
+<p>Package for field management modules</p>
 <dl class="py class">
 <dt id="fields.Field">
 <em class="property">class </em><code class="descclassname">fields.</code><code class="descname">Field</code><span class="sig-paren">(</span><em><span class="n">size</span></em>, <em><span class="n">current_value</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em><span class="n">new_value</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#fields.Field" title="Permalink to this definition">¶</a></dt>
@@ -1424,6 +1649,7 @@ derivative of the pressure with respect to the internal energy</p>
 </div>
 <div class="section" id="module-figure_manager">
 <span id="figuremanager-animation"></span><h2>FigureManager (animation)<a class="headerlink" href="#module-figure_manager" title="Permalink to this headline">¶</a></h2>
+<p>Package for figure management modules</p>
 <dl class="py class">
 <dt id="figure_manager.PhysicFigure">
 <em class="property">class </em><code class="descclassname">figure_manager.</code><code class="descname">PhysicFigure</code><span class="sig-paren">(</span><em><span class="n">X</span></em>, <em><span class="n">Y</span></em>, <em><span class="n">xlabel</span><span class="o">=</span><span class="default_value">'X'</span></em>, <em><span class="n">ylabel</span><span class="o">=</span><span class="default_value">'Y'</span></em>, <em><span class="n">titre</span><span class="o">=</span><span class="default_value">'titre'</span></em>, <em><span class="n">interface_id</span><span class="o">=</span><span class="default_value">0</span></em>, <em><span class="n">save_path</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#figure_manager.PhysicFigure" title="Permalink to this definition">¶</a></dt>
@@ -1456,19 +1682,27 @@ And save the image if a path is given</p>
 <dl class="py method">
 <dt id="figure_manager.FigureManager.create_figure_for_cell_field">
 <code class="descname">create_figure_for_cell_field</code><span class="sig-paren">(</span><em><span class="n">field_x</span></em>, <em><span class="n">field_y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#figure_manager.FigureManager.create_figure_for_cell_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creation of figures for cell fields
-:param field_x: abscissa of the figure
-:param field_y: ordinate of the figure
-Abscissa is thus the cell coordinates</p>
+<dd><p>Creation of figures for cell fields. Abscissa is thus the cell coordinates</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>field_x</strong> – abscissa of the figure</li>
+<li><strong>field_y</strong> – ordinate of the figure</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="figure_manager.FigureManager.create_figure_for_node_field">
 <code class="descname">create_figure_for_node_field</code><span class="sig-paren">(</span><em><span class="n">field_x</span></em>, <em><span class="n">field_y</span></em><span class="sig-paren">)</span><a class="headerlink" href="#figure_manager.FigureManager.create_figure_for_node_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creation of figures for nodal fields
-:param field_x: abscissa of the figure
-:param field_y: ordinate of the figure
-Abscissa is thus the node coordinates</p>
+<dd><p>Creation of figures for nodal fields. Abscissa is thus the node coordinates</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>field_x</strong> – abscissa of the figure</li>
+<li><strong>field_y</strong> – ordinate of the figure</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1506,9 +1740,14 @@ Abscissa is thus the node coordinates</p>
 <code class="descname">update</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="n">iteration</span></em><span class="sig-paren">)</span><a class="headerlink" href="#figure_manager.FigureManager.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>If the current time given in argument is above the time of next output then
 the manager asks each of its database to save fields. It’s the same for
-a current iteration above the iteration of next output
-:param time : simulation time
-:param iteration : id of the current iteration</p>
+a current iteration above the iteration of next output</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>time</strong> – simulation time</li>
+<li><strong>iteration</strong> – id of the current iteration</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1520,8 +1759,10 @@ a current iteration above the iteration of next output
 <dl class="py method">
 <dt id="figure_manager.FigureManager.update_figs">
 <code class="descname">update_figs</code><span class="sig-paren">(</span><em><span class="n">title_compl</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#figure_manager.FigureManager.update_figs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the fields and the associated figures
-:param title_compl: title of the figure</p>
+<dd><p>Update the fields and the associated figures</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>title_compl</strong> – title of the figure</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1529,6 +1770,7 @@ a current iteration above the iteration of next output
 </div>
 <div class="section" id="module-mass_matrix">
 <span id="mass-matrix"></span><h2>Mass Matrix<a class="headerlink" href="#module-mass_matrix" title="Permalink to this headline">¶</a></h2>
+<p>Package for mass matrix modules</p>
 <dl class="py class">
 <dt id="mass_matrix.EnrichedMassMatrix">
 <em class="property">class </em><code class="descclassname">mass_matrix.</code><code class="descname">EnrichedMassMatrix</code><span class="sig-paren">(</span><em><span class="n">size_of_mass_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix" title="Permalink to this definition">¶</a></dt>
@@ -1543,30 +1785,45 @@ a current iteration above the iteration of next output
 <dt id="mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix">
 <code class="descname">compute_enriched_mass_matrix</code><span class="sig-paren">(</span><em><span class="n">discontinuity</span></em>, <em><span class="n">topology</span></em>, <em><span class="n">cells_mass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the enriched mass matrix for Hansbo shape functions
-(associated with 1 discontinuity)
-:param discontinuity : discontinuity to be considered
-:param topology: topology = connectivity
-:param cells_mass: array of cells mass</p>
+(associated with 1 discontinuity)</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>discontinuity</strong> – discontinuity to be considered</li>
+<li><strong>topology</strong> – topology = connectivity</li>
+<li><strong>cells_mass</strong> – array of cells mass</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix_left_part">
 <em class="property">abstract </em><code class="descname">compute_enriched_mass_matrix_left_part</code><span class="sig-paren">(</span><em><span class="n">mass_0</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix_left_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the left part
-DDL are organized : 0 : N1g and 1 : N2g
-:param mass_0: mass of the element right on the left of the cracked cell
-:param mass_1 : mass of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 0 : N1g and 1 : N2g</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_0</strong> – mass of the element right on the left of the cracked cell</li>
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix_right_part">
 <em class="property">abstract </em><code class="descname">compute_enriched_mass_matrix_right_part</code><span class="sig-paren">(</span><em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_2</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.compute_enriched_mass_matrix_right_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the right part
-DDL are organized : 2 : N2d and 3: N1d
-:param mass_1 : mass of the cracked cell
-:param mass_2: mass of the element right on the right of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 2 : N2d and 3: N1d</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>mass_2</strong> – mass of the element right on the right of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1584,22 +1841,25 @@ DDL are organized : 2 : N2d and 3: N1d
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrix.inverse_enriched_mass_matrix_classic_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_classic_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.inverse_enriched_mass_matrix_classic_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom
-:return: the extraction of the inverse of the mass matrix for classical dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the extraction of the inverse of the mass matrix for classical dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrix.inverse_enriched_mass_matrix_enriched_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_enriched_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.inverse_enriched_mass_matrix_enriched_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom
-:return: extraction of the inverse of the mass matrix for enriched dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">extraction of the inverse of the mass matrix for enriched dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrix.print_enriched_mass_matrix">
 <em class="property">abstract </em><code class="descname">print_enriched_mass_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrix.print_enriched_mass_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the mass matrix * (with aligned members)
-:return:</p>
+<dd><p>Print the mass matrix * (with aligned members)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1624,20 +1884,30 @@ DDL are organized : 2 : N2d and 3: N1d
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.compute_enriched_mass_matrix_left_part">
 <code class="descname">compute_enriched_mass_matrix_left_part</code><span class="sig-paren">(</span><em><span class="n">mass_0</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.compute_enriched_mass_matrix_left_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the left part
-DDL are organized : 0 : N1g and 1 : N2g
-:param mass_0: mass of the element right on the left of the cracked cell
-:param mass_1 : mass of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 0 : N1g and 1 : N2g</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_0</strong> – mass of the element right on the left of the cracked cell</li>
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.compute_enriched_mass_matrix_right_part">
 <code class="descname">compute_enriched_mass_matrix_right_part</code><span class="sig-paren">(</span><em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_2</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.compute_enriched_mass_matrix_right_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the right part
-DDL are organized : 2 : N2d and 3: N1d
-:param mass_1 : mass of the cracked cell
-:param mass_2: mass of the element right on the right of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 2 : N2d and 3: N1d</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>mass_2</strong> – mass of the element right on the right of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1655,30 +1925,35 @@ DDL are organized : 2 : N2d and 3: N1d
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_classic_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_classic_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_classic_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom
-:return: the extraction of the inverse of the mass matrix for classical dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the extraction of the inverse of the mass matrix for classical dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_coupling_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_coupling_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_coupling_dof" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor on the inverse of the mass matrix for coupling between classical and enriched
-degrees of freedom
-:return: the coupling part of the inverse of the mass matrix</p>
+degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the coupling part of the inverse of the mass matrix</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_enriched_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_enriched_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.inverse_enriched_mass_matrix_enriched_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom
-:return: extraction of the inverse of the mass matrix for enriched dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">extraction of the inverse of the mass matrix for enriched dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixConsistent.print_enriched_mass_matrix">
 <code class="descname">print_enriched_mass_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixConsistent.print_enriched_mass_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Print the mass matrix * (with aligned members)
-:return:</p>
+<dd><p>Print the mass matrix * (with aligned members)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1703,20 +1978,30 @@ degrees of freedom
 <dt id="mass_matrix.EnrichedMassMatrixLump.compute_enriched_mass_matrix_left_part">
 <em class="property">abstract </em><code class="descname">compute_enriched_mass_matrix_left_part</code><span class="sig-paren">(</span><em><span class="n">mass_0</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLump.compute_enriched_mass_matrix_left_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the left part
-DDL are organized : 0 : N1g and 1 : N2g
-:param mass_0: mass of the element right on the left of the cracked cell
-:param mass_1 : mass of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 0 : N1g and 1 : N2g</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_0</strong> – mass of the element right on the left of the cracked cell</li>
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixLump.compute_enriched_mass_matrix_right_part">
 <em class="property">abstract </em><code class="descname">compute_enriched_mass_matrix_right_part</code><span class="sig-paren">(</span><em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_2</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLump.compute_enriched_mass_matrix_right_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the right part
-DDL are organized : 2 : N2d and 3: N1d
-:param mass_1 : mass of the cracked cell
-:param mass_2: mass of the element right on the right of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 2 : N2d and 3: N1d</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>mass_2</strong> – mass of the element right on the right of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1734,15 +2019,19 @@ DDL are organized : 2 : N2d and 3: N1d
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixLump.inverse_enriched_mass_matrix_classic_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_classic_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLump.inverse_enriched_mass_matrix_classic_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom
-:return: the extraction of the inverse of the mass matrix for classical dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for classical degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">the extraction of the inverse of the mass matrix for classical dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixLump.inverse_enriched_mass_matrix_enriched_dof">
 <em class="property">property </em><code class="descname">inverse_enriched_mass_matrix_enriched_dof</code><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLump.inverse_enriched_mass_matrix_enriched_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom
-:return: extraction of the inverse of the mass matrix for enriched dof</p>
+<dd><p>Accessor on the inverse of the mass matrix for enriched degrees of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">extraction of the inverse of the mass matrix for enriched dof</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1768,20 +2057,30 @@ separately</p>
 <dt id="mass_matrix.EnrichedMassMatrixLumpMenouillard.compute_enriched_mass_matrix_left_part">
 <code class="descname">compute_enriched_mass_matrix_left_part</code><span class="sig-paren">(</span><em><span class="n">mass_0</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLumpMenouillard.compute_enriched_mass_matrix_left_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the left part
-DDL are organized : 0 : N1g and 1 : N2g
-:param mass_0: mass of the element right on the left of the cracked cell
-:param mass_1 : mass of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 0 : N1g and 1 : N2g</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_0</strong> – mass of the element right on the left of the cracked cell</li>
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixLumpMenouillard.compute_enriched_mass_matrix_right_part">
 <code class="descname">compute_enriched_mass_matrix_right_part</code><span class="sig-paren">(</span><em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_2</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLumpMenouillard.compute_enriched_mass_matrix_right_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the right part
-DDL are organized : 2 : N2d and 3: N1d
-:param mass_1 : mass of the cracked cell
-:param mass_2: mass of the element right on the right of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 2 : N2d and 3: N1d</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>mass_2</strong> – mass of the element right on the right of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1795,20 +2094,30 @@ mass matrix</p>
 <dt id="mass_matrix.EnrichedMassMatrixLumpSum.compute_enriched_mass_matrix_left_part">
 <code class="descname">compute_enriched_mass_matrix_left_part</code><span class="sig-paren">(</span><em><span class="n">mass_0</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLumpSum.compute_enriched_mass_matrix_left_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the left part
-DDL are organized : 0 : N1g and 1 : N2g
-:param mass_0: mass of the element right on the left of the cracked cell
-:param mass_1 : mass of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 0 : N1g and 1 : N2g</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_0</strong> – mass of the element right on the left of the cracked cell</li>
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mass_matrix.EnrichedMassMatrixLumpSum.compute_enriched_mass_matrix_right_part">
 <code class="descname">compute_enriched_mass_matrix_right_part</code><span class="sig-paren">(</span><em><span class="n">mass_1</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">mass_2</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">epsilon</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.EnrichedMassMatrixLumpSum.compute_enriched_mass_matrix_right_part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the Hansbo mass matrix for the right part
-DDL are organized : 2 : N2d and 3: N1d
-:param mass_1 : mass of the cracked cell
-:param mass_2: mass of the element right on the right of the cracked cell
-:param epsilon: relative position of the disc inside the cracked cell</p>
+DDL are organized : 2 : N2d and 3: N1d</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mass_1</strong> – mass of the cracked cell</li>
+<li><strong>mass_2</strong> – mass of the element right on the right of the cracked cell</li>
+<li><strong>epsilon</strong> – relative position of the disc inside the cracked cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1820,10 +2129,15 @@ DDL are organized : 2 : N2d and 3: N1d
 <dl class="py method">
 <dt id="mass_matrix.OneDimensionMassMatrix.compute_correction_mass_matrix_for_cell_500">
 <code class="descname">compute_correction_mass_matrix_for_cell_500</code><span class="sig-paren">(</span><em><span class="n">cell_mass_vector</span></em>, <em><span class="n">mask_node</span></em>, <em><span class="n">topologie</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.OneDimensionMassMatrix.compute_correction_mass_matrix_for_cell_500" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the exact form of mass matrix (classical) , no lumping
-:param cell_mass_vector: vector of cells mass
-:param mask_node: id of cell to be considered
-:param topologie : topology</p>
+<dd><p>Compute the exact form of mass matrix (classical) , no lumping</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>cell_mass_vector</strong> – vector of cells mass</li>
+<li><strong>mask_node</strong> – id of cell to be considered</li>
+<li><strong>topologie</strong> – topology</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1896,8 +2210,8 @@ DDL are organized : 2 : N2d and 3: N1d
 <dt id="mass_matrix.multiplication_masse">
 <code class="descclassname">mass_matrix.</code><code class="descname">multiplication_masse</code><span class="sig-paren">(</span><em><span class="n">matrix</span></em>, <em><span class="n">vector</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.multiplication_masse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fonction pour faire le produit matriciel matrice * vecteur adapté pour la matrice masse sous
-forme de vecteur
-:param matrix : matrix (array multiD)
+forme de vecteur</p>
+<p>:param matrix : matrix (array multiD)
 :param vector: vector (array 1D)</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">matrice</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">])</span>
@@ -1916,21 +2230,26 @@ forme de vecteur
 <dt id="mass_matrix.inverse_masse">
 <code class="descclassname">mass_matrix.</code><code class="descname">inverse_masse</code><span class="sig-paren">(</span><em><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.inverse_masse" title="Permalink to this definition">¶</a></dt>
 <dd><p>MassMatrix de type MassMatrix
-Fonction pour faire inverse la matrice masse, qu’elle soit sous forme de vecteur ou de matrice
-:param matrix: matrix to inverse</p>
+Fonction pour faire inverse la matrice masse, qu’elle soit sous forme de vecteur ou de matrice</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>matrix</strong> – matrix to inverse</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="mass_matrix.lump_matrix">
 <code class="descclassname">mass_matrix.</code><code class="descname">lump_matrix</code><span class="sig-paren">(</span><em><span class="n">matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mass_matrix.lump_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Condense la matrice de masse avec la méthode de Menouillard
-(on somme sur toute la ligne pour obtenir une matrice diagonale)
-:param matrix: matrix to lump</p>
+(on somme sur toute la ligne pour obtenir une matrice diagonale)</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>matrix</strong> – matrix to lump</dd>
+</dl>
 </dd></dl>
 
 </div>
 <div class="section" id="module-mesh">
 <span id="mesh"></span><h2>Mesh<a class="headerlink" href="#module-mesh" title="Permalink to this headline">¶</a></h2>
+<p>Package for mesh modules</p>
 <dl class="py class">
 <dt id="mesh.Mesh1dEnriched">
 <em class="property">class </em><code class="descclassname">mesh.</code><code class="descname">Mesh1dEnriched</code><span class="sig-paren">(</span><em><span class="n">initial_coordinates</span></em>, <em><span class="n">initial_velocities</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched" title="Permalink to this definition">¶</a></dt>
@@ -1939,49 +2258,70 @@ Fonction pour faire inverse la matrice masse, qu’elle soit sous forme de vecte
 <dt id="mesh.Mesh1dEnriched.apply_contact_correction">
 <code class="descname">apply_contact_correction</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.apply_contact_correction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the contact force to be applied to ensure non penetration of the
-discontinuities boundaries
-:param delta_t : time step</p>
+discontinuities boundaries</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.apply_elasticity">
 <code class="descname">apply_elasticity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">shear_modulus_model</span></em>, <em><span class="n">mask_material</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.apply_elasticity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the deviatoric part of stress tensor
-:param delta_t : float, time step staggered
-:param shear_modulus_model: model to compute the shear modulus
-:param mask_material: array of bool to select cells of interest</p>
+<dd><p>Compute the deviatoric part of stress tensor</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – float, time step staggered</li>
+<li><strong>shear_modulus_model</strong> – model to compute the shear modulus</li>
+<li><strong>mask_material</strong> – array of bool to select cells of interest</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.apply_plasticity">
 <code class="descname">apply_plasticity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">yield_stress_model</span></em>, <em><span class="n">plasticity_criterion</span></em>, <em><span class="n">mask_mesh</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.apply_plasticity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply plasticity treatment if criterion is activated :
-- compute yield stress
-- tests plasticity criterion
-- compute plastic strain rate for plastic cells
-:param delta_t : time step
-:param yield_stress_model: model to compute the yield stress
-:param plasticity_criterion: model for the plasticity criterion
-:param mask_mesh : mask cells in projectile or target</p>
+<dd><p>Apply plasticity treatment if criterion is activated :</p>
+<ul class="simple">
+<li>compute yield stress</li>
+<li>tests plasticity criterion</li>
+<li>compute plastic strain rate for plastic cells</li>
+</ul>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – time step</li>
+<li><strong>yield_stress_model</strong> – model to compute the yield stress</li>
+<li><strong>plasticity_criterion</strong> – model for the plasticity criterion</li>
+<li><strong>mask_mesh</strong> – mask cells in projectile or target</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.apply_pressure">
 <code class="descname">apply_pressure</code><span class="sig-paren">(</span><em><span class="n">surface</span></em>, <em><span class="n">pressure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.apply_pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply a given pressure on left or right boundary
-:var surface: name of the surface where pressure has to be imposed
-:var pressure: value of the pressure to impose
-:type surface: str (‘left’ | ‘right’)
-:type pressure: float</p>
+<dd><p>Apply a given pressure on left or right boundary</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>surface</strong> (<em>str</em><em> (</em><em>'left' | 'right'</em><em>)</em>) – name of the surface where pressure has to be imposed</li>
+<li><strong>pressure</strong> (<em>float</em>) – value of the pressure to impose</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.apply_rupture_treatment">
 <code class="descname">apply_rupture_treatment</code><span class="sig-paren">(</span><em><span class="n">treatment</span></em>, <em><span class="n">time</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.apply_rupture_treatment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the rupture treatment on the cells enforcing the rupture criterion
-:var treatment: rupture treatment
-:type treatment: RuptureTreatment
-:param time : simulation time</p>
+<dd><p>Apply the rupture treatment on the cells enforcing the rupture criterion</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>treatment</strong> (<a class="reference internal" href="#rupturetreatment.RuptureTreatment" title="rupturetreatment.RuptureTreatment"><em>RuptureTreatment</em></a>) – rupture treatment</li>
+<li><strong>time</strong> – simulation time</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2029,16 +2369,19 @@ discontinuities boundaries
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.compute_new_cells_pressures">
 <code class="descname">compute_new_cells_pressures</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_cells_pressures" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of cells pressure at t+dt
-:var delta_t: time step</p>
+<dd><p>Computation of cells pressure at t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.compute_new_cells_pseudo_viscosity">
-<code class="descname">compute_new_cells_pseudo_viscosity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_cells_pseudo_viscosity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of cells artificial viscosity at t+dt
-:var delta_t: time step
-:type delta_t: float</p>
+<code class="descname">compute_new_cells_pseudo_viscosity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_cells_pseudo_viscosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computation of cells artificial viscosity at t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2056,8 +2399,10 @@ discontinuities boundaries
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.compute_new_nodes_coordinates">
 <code class="descname">compute_new_nodes_coordinates</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_nodes_coordinates" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of nodes coordinates at t+dt
-:param delta_t: time step</p>
+<dd><p>Computation of nodes coordinates at t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2069,8 +2414,10 @@ discontinuities boundaries
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.compute_new_nodes_velocities">
 <code class="descname">compute_new_nodes_velocities</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_nodes_velocities" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computation of nodes velocities at t+dt
-:var delta_t: time step</p>
+<dd><p>Computation of nodes velocities at t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>delta_t</strong> – time step</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2106,16 +2453,16 @@ discontinuities boundaries
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.get_discontinuity_list">
 <em class="property">static </em><code class="descname">get_discontinuity_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.get_discontinuity_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the list of existing discontinuities
-:return:</p>
+<dd><p>Returns the list of existing discontinuities</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.get_ruptured_cells">
 <code class="descname">get_ruptured_cells</code><span class="sig-paren">(</span><em><span class="n">rupture_criterion</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.get_ruptured_cells" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the cells where the rupture criterion is checked and store them
-:var rupture_criterion: rupture criterion
-:type rupture_criterion: RuptureCriterion</p>
+<dd><p>Find the cells where the rupture criterion is checked and store them</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>rupture_criterion</strong> (<a class="reference internal" href="#rupturecriterion.RuptureCriterion" title="rupturecriterion.RuptureCriterion"><em>RuptureCriterion</em></a>) – rupture criterion</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2145,7 +2492,7 @@ discontinuities boundaries
 <dl class="py method">
 <dt id="mesh.Mesh1dEnriched.topology">
 <em class="property">property </em><code class="descname">topology</code><a class="headerlink" href="#mesh.Mesh1dEnriched.topology" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne l’objet de topologie (pour qu’il soit accesible pour les tests unitaires)</p>
+<dd><p>Returns the topology object (in order to get it accessible for unittests)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2159,12 +2506,18 @@ discontinuities boundaries
 <dl class="py class">
 <dt id="mesh.Topology">
 <em class="property">class </em><code class="descclassname">mesh.</code><code class="descname">Topology</code><span class="sig-paren">(</span><em><span class="n">nbr_of_nodes</span></em>, <em><span class="n">nbr_of_cells</span></em>, <em><span class="n">dim</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology" title="Permalink to this definition">¶</a></dt>
-<dd><p>Une classe gï¿½rant la topologie et les connectivitï¿½s d’un maillage</p>
+<dd><p>A class to manage mesh topology and objects connectivity</p>
 <dl class="py method">
 <dt id="mesh.Topology.add_cell_in_contact_with_node">
-<code class="descname">add_cell_in_contact_with_node</code><span class="sig-paren">(</span><em><span class="n">ind_node</span></em>, <em><span class="n">ind_cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.add_cell_in_contact_with_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ajoute l’indice, ‘ind_cell’, de la maille Ã&nbsp; la liste des mailles en contact
-avec le noeud d’indice ‘ind_node’</p>
+<code class="descname">add_cell_in_contact_with_node</code><span class="sig-paren">(</span><em><span class="n">ind_node</span><span class="p">:</span> <span class="n">int</span></em>, <em><span class="n">ind_cell</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.add_cell_in_contact_with_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Register a cell ind_cell as belonging to the node ind_node</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>ind_cell</strong> – cell index connected to ind_node</li>
+<li><strong>ind_node</strong> – node index connected to ind_cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2181,23 +2534,18 @@ avec le noeud d’indice ‘ind_node’</p>
 
 <dl class="py method">
 <dt id="mesh.Topology.get_cells_in_contact_with_node">
-<code class="descname">get_cells_in_contact_with_node</code><span class="sig-paren">(</span><em><span class="n">ind_node</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.get_cells_in_contact_with_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renvoie un tableau des mailles en contact avec le noeud</p>
+<code class="descname">get_cells_in_contact_with_node</code><span class="sig-paren">(</span><em><span class="n">ind_node</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.get_cells_in_contact_with_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the cell indexes connected to the node ind_node</p>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>ind_node</strong> (<em>int</em>) – indice du noeud dont on veut connaitre les mailles connexes</dd>
-<dt class="field-name">Returns</dt><dd class="field-body">un tableau des mailles en contact avec le noeud</dd>
-<dt class="field-name">Return type</dt><dd class="field-body">numpy.array</dd>
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>ind_node</strong> – node index</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="mesh.Topology.get_nodes_belonging_to_cell">
-<code class="descname">get_nodes_belonging_to_cell</code><span class="sig-paren">(</span><em><span class="n">ind_cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.get_nodes_belonging_to_cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Renvoie un tableau des noeuds appartenant ï¿½ la maille
-:param ind_cell: indice de la maille dont on veut connaitre les noeuds
-:return: un tableau des noeuds appartenant ï¿½ la maille
-:type ind_cell: int
-:rtype: numpy.array</p>
+<code class="descname">get_nodes_belonging_to_cell</code><span class="sig-paren">(</span><em><span class="n">ind_cell</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.get_nodes_belonging_to_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the node indexes connected to the cell ind_cell
+:param ind_cell: cell_index</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2209,12 +2557,14 @@ avec le noeud d’indice ‘ind_node’</p>
 <dl class="py method">
 <dt id="mesh.Topology.set_nodes_belonging_to_cell">
 <code class="descname">set_nodes_belonging_to_cell</code><span class="sig-paren">(</span><em><span class="n">ind_cell</span></em>, <em><span class="n">ind_node_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology.set_nodes_belonging_to_cell" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attribue la liste des indices des noeuds, ‘nodes_list’
-appartenant ï¿½ la maille d’indice ‘ind_cell’
-:param ind_cell: indice de la maille ï¿½ laquelle attribuer les indices de noeuds
-: ind_node_list: indices des noeuds appartenant ï¿½ la cellule d’indice ind_cell
-:type ind_cell: int
-:type ind_node_list: list</p>
+<dd><p>Register a node list as belonging to the cell ‘ind_cell’</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>ind_cell</strong> (<em>int</em>) – cell index</li>
+<li><strong>ind_node_list</strong> (<em>list</em>) – list of the node index connected to ind_cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2222,7 +2572,7 @@ appartenant ï¿½ la maille d’indice ‘ind_cell’
 <dl class="py class">
 <dt id="mesh.Topology1D">
 <em class="property">class </em><code class="descclassname">mesh.</code><code class="descname">Topology1D</code><span class="sig-paren">(</span><em><span class="n">nbr_of_nodes</span></em>, <em><span class="n">nbr_of_cells</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology1D" title="Permalink to this definition">¶</a></dt>
-<dd><p>Spï¿½cialisation 1D de topology</p>
+<dd><p>1D specialization of the Topology class</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_topo</span> <span class="o">=</span> <span class="n">Topology1D</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">my_topo</span><span class="o">.</span><span class="n">get_cells_in_contact_with_node</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">array([ -1, 0])</span>
@@ -2250,8 +2600,14 @@ appartenant ï¿½ la maille d’indice ‘ind_cell’
 <dl class="py method">
 <dt id="mesh.Topology1D.add_cell_in_contact_with_node">
 <code class="descname">add_cell_in_contact_with_node</code><span class="sig-paren">(</span><em><span class="n">ind_node</span></em>, <em><span class="n">ind_cell</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Topology1D.add_cell_in_contact_with_node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ajoute l’indice, ‘ind_cell’, de la maille ï¿½ la liste des mailles en contact
-avec le noeud d’indice ‘ind_node’</p>
+<dd><p>Register a cell ind_cell as belonging to the node ind_node</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>ind_cell</strong> – cell index connected to ind_node</li>
+<li><strong>ind_node</strong> – node index connected to ind_cell</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2272,21 +2628,33 @@ tous les X des noeuds contigus en mêmoire. (vectorisation, localisation spatial
 <dl class="py method">
 <dt id="node.Node.compute_new_coodinates">
 <code class="descname">compute_new_coodinates</code><span class="sig-paren">(</span><em><span class="n">mask</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.Node.compute_new_coodinates" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul de la coordonnée au temps t+dt
-:param mask : mask to select some specific nodes
-:param delta_t: time step</p>
+<dd><p>Calcul de la coordonnée au temps t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>mask</strong> – mask to select some specific nodes</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.Node.compute_new_force">
 <em class="property">abstract </em><code class="descname">compute_new_force</code><span class="sig-paren">(</span><em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.Node.compute_new_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul de la force agissant sur le noeud</p>
+<dd><p>Compute the nodal forces</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.Node.compute_new_velocity">
 <em class="property">abstract </em><code class="descname">compute_new_velocity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">mask</span></em>, <em><span class="n">matrice_masse</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.Node.compute_new_velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul de la vitesse au demi pas de temps supérieur</p>
+<dd><p>Compute the velocity at time t+dt/2</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – staggered timestep</li>
+<li><strong>mask</strong> – boolean array to identify nodes to be computes</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2304,8 +2672,10 @@ tous les X des noeuds contigus en mêmoire. (vectorisation, localisation spatial
 <em class="property">property </em><code class="descname">enriched</code><a class="headerlink" href="#node.Node.enriched" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns an array of the status of all nodes
 False = classical node
-True = enriched node
-:return:  numpy.array([nbr_of_nodes], dtype=bool)</p>
+True = enriched node</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Returns</dt><dd class="field-body">numpy.array([nbr_of_nodes], dtype=bool)</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2321,8 +2691,7 @@ True = enriched node
 <dl class="py method">
 <dt id="node.Node.increment">
 <code class="descname">increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node.Node.increment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mise à jour de la vitesse et de la coordonnée des noeuds
-pour passer au pas de temps suivant.</p>
+<dd><p>Update the node velocities and coordinates</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2399,7 +2768,7 @@ pour passer au pas de temps suivant.</p>
 <dl class="py class">
 <dt id="node.OneDimensionNode">
 <em class="property">class </em><code class="descclassname">node.</code><code class="descname">OneDimensionNode</code><span class="sig-paren">(</span><em><span class="n">nbr_of_nodes</span></em>, <em><span class="n">poz_init</span></em>, <em><span class="n">vit_init</span></em>, <em><span class="n">section</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Un objet Node1d reprï¿½sente l’ensemble des noeuds 1d du maillage</p>
+<dd><p>A class to manage all the nodes in a 1d mesh</p>
 <dl class="py method">
 <dt id="node.OneDimensionNode.apply_correction_reference_bar">
 <code class="descname">apply_correction_reference_bar</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">inv_complete_mass_matrix</span></em>, <em><span class="n">inv_wilkins_mass_matrix</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.apply_correction_reference_bar" title="Permalink to this definition">¶</a></dt>
@@ -2410,20 +2779,29 @@ mass matrix for elements in mask</p>
 <dl class="py method">
 <dt id="node.OneDimensionNode.apply_pressure">
 <code class="descname">apply_pressure</code><span class="sig-paren">(</span><em><span class="n">ind_node</span></em>, <em><span class="n">pressure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.apply_pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Appliquer une pressure sur le noeud d’indice “ind_node”
-:param ind_node: indice du noeud sur lequel appliquer la pressure
-:param pressure: pressure ï¿½ appliquer
-:type ind_node: int
-:type pressure: float</p>
+<dd><p>Apply pressure on a given node</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>ind_node</strong> (<em>int</em>) – node index to apply the pressure at</li>
+<li><strong>pressure</strong> (<em>float</em>) – pressure to be applied</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.apply_velocity_boundary_coundition">
 <code class="descname">apply_velocity_boundary_coundition</code><span class="sig-paren">(</span><em><span class="n">ind_node</span></em>, <em><span class="n">velocity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.apply_velocity_boundary_coundition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Appliquer une CL en vitesse sur le noeud ind_node
-:param ind_node:
-:param velocity:
-:return:</p>
+<dd><p>Appliquer une CL en vitesse sur le noeud ind_node</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>ind_node</strong> – </li>
+<li><strong>velocity</strong> – </li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last"></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2437,43 +2815,43 @@ mass matrix for elements in mask</p>
 <dl class="py method">
 <dt id="node.OneDimensionNode.compute_complete_velocity_field">
 <code class="descname">compute_complete_velocity_field</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.compute_complete_velocity_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul du champ de vitesse vraie</p>
+<dd><p>Compute the true field of nodal velocity</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.compute_new_force">
 <code class="descname">compute_new_force</code><span class="sig-paren">(</span><em><span class="n">topologie</span></em>, <em><span class="n">contrainte</span></em>, <em><span class="n">classical_cell_mask</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.compute_new_force" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul des forces agissant sur les noeuds
-:param topologie: topologie du calcul
-:param contrainte : tenseur des contriante de cauchy sigma xx
-:param classical_cell_mask: masks of the classical cells
-:type topologie: Topology
-:type contrainte: numpy.array([nbr_of_node-1, 1], dtype=np.float64, order=’C’)</p>
+<dd><p>Calcul des forces agissant sur les noeuds</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>topologie</strong> (<a class="reference internal" href="#mesh.Topology" title="mesh.Topology"><em>Topology</em></a>) – topologie du calcul</li>
+<li><strong>contrainte</strong> (<em>numpy.array</em><em>(</em><em>[</em><em>nbr_of_node-1</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=np.float64</em><em>, </em><em>order='C'</em><em>)</em>) – tenseur des contriante de cauchy sigma xx</li>
+<li><strong>classical_cell_mask</strong> – masks of the classical cells</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.compute_new_velocity">
 <code class="descname">compute_new_velocity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">mask</span></em>, <em><span class="n">matrice_masse</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.compute_new_velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcul de la vitesse au demi pas de temps supï¿½rieur
-:param delta_t: pas de temps
-:type delta_t: float
-:param mask : noeuds sï¿½lectionnï¿½s pour calculer avec cette mï¿½thode</p>
-<blockquote>
-<div>(typiquement : OneDimensionEnrichedNode.classical / .enriched )
-s’applique sur les degrï¿½s de libertï¿½ classiques des noeuds classiques ou enrichis
-ne prend pas en compte le couplage entre degrï¿½s de libertï¿½ enrichis/classiques</div></blockquote>
-<p>:type mask : tableau de boolï¿½ens
-:param matrice_masse : inverse de la matrice de masse</p>
+<dd><p>Computes the node velocities at time t+dt/2</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> (<em>float</em>) – pas de temps</li>
+<li><strong>mask</strong> (<em>boolean array</em>) – boolean array to select non enriched nodes</li>
+<li><strong>matrice_masse</strong> – inverse de la matrice de masse</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.enrichment_not_concerned">
 <em class="property">property </em><code class="descname">enrichment_not_concerned</code><a class="headerlink" href="#node.OneDimensionNode.enrichment_not_concerned" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Returns</dt><dd class="field-body">boolean mask indicating which nodes are concerned by enrichment</dd>
-</dl>
-<p>(a node is concerned by enrichment if one of his connected cell is enriched,
-ie if its evolution is modified by enrichment)</p>
+<dd><p>By definition, a node is concerned by enrichment if one of his connected cell is enriched,
+ie if its evolution is modified by enrichment
+:return: boolean mask indicating which nodes are concerned by enrichment</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2481,20 +2859,20 @@ ie if its evolution is modified by enrichment)</p>
 <code class="descname">infos</code><span class="sig-paren">(</span><em><span class="n">index</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionNode.infos" title="Permalink to this definition">¶</a></dt>
 <dd><p>Affichage des informations concernant le noeud d’indice index</p>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>index</strong> (<em>int</em>) – indice du noeud ï¿½ afficher</dd>
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>index</strong> (<em>int</em>) – node index to print</dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.section">
 <em class="property">property </em><code class="descname">section</code><a class="headerlink" href="#node.OneDimensionNode.section" title="Permalink to this definition">¶</a></dt>
-<dd><p>Surface associï¿½e au noeud</p>
+<dd><p>Surface associated with a node</p>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionNode.velocity_field">
 <em class="property">property </em><code class="descname">velocity_field</code><a class="headerlink" href="#node.OneDimensionNode.velocity_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>Champ de vitesse vraie</p>
+<dd><p>True field of the node velocities</p>
 </dd></dl>
 
 </dd></dl>
@@ -2506,10 +2884,23 @@ ie if its evolution is modified by enrichment)</p>
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries">
 <code class="descname">apply_force_on_discontinuity_boundaries</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">stress</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transport the force to apply on discontinuity boundaries on the classical and enriched nodes
-:param disc: current discontinuity
-:param stress: value of the force to apply
-:return:</p>
+<dd><p>Transport the force to apply on discontinuity boundaries on the classical and enriched nodes</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>disc</strong> – current discontinuity</li>
+<li><strong>stress</strong> – value of the force to apply</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries_arr">
+<code class="descname">apply_force_on_discontinuity_boundaries_arr</code><span class="sig-paren">(</span><em><span class="n">force</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries_arr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transport the force to apply on discontinuity boundaries on the classical and enriched nodes</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>force</strong> – value of the force to apply</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2522,10 +2913,15 @@ ie if its evolution is modified by enrichment)</p>
 
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.compute_additional_dof_new_velocity">
-<code class="descname">compute_additional_dof_new_velocity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">inv_matrice_masse</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_additional_dof_new_velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the new velocity enriched degree of freedom
-:param delta_t: float, time step
-:param inv_matrice_masse: inverse of the mass matrix</p>
+<code class="descname">compute_additional_dof_new_velocity</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_additional_dof_new_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the new velocity enriched degree of freedom</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>disc</strong> – the current discontinuity</li>
+<li><strong>delta_t</strong> – float, time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2537,27 +2933,39 @@ ie if its evolution is modified by enrichment)</p>
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.compute_enriched_nodes_cohesive_forces">
 <code class="descname">compute_enriched_nodes_cohesive_forces</code><span class="sig-paren">(</span><em><span class="n">cohesive_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_enriched_nodes_cohesive_forces" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the cohesive forces for the enriched nodes
-:param cohesive_model : cohesive model</p>
+<dd><p>Compute the cohesive forces for the enriched nodes</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>cohesive_model</strong> – cohesive model</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.compute_enriched_nodes_new_force">
 <code class="descname">compute_enriched_nodes_new_force</code><span class="sig-paren">(</span><em><span class="n">contrainte_xx</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">enr_contrainte_xx</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_enriched_nodes_new_force" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the enriched force on enriched nodes and apply correction for classical
-force on enriched nodes (classical ddl)
-:param contrainte_xx : vecteur contrainte xx, array de taille (nb_cell, 1)
-:param enr_contrainte_xx : vecteur contrainte xx enrichie, array de taille (nb_cell, 1)</p>
+force on enriched nodes (classical ddl)</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>contrainte_xx</strong> – vecteur contrainte xx, array de taille (nb_cell, 1)</li>
+<li><strong>enr_contrainte_xx</strong> – vecteur contrainte xx enrichie, array de taille (nb_cell, 1)</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.coupled_enrichment_terms_compute_new_velocity">
-<code class="descname">coupled_enrichment_terms_compute_new_velocity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span></em>, <em><span class="n">inv_matrix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.coupled_enrichment_terms_compute_new_velocity" title="Permalink to this definition">¶</a></dt>
+<code class="descname">coupled_enrichment_terms_compute_new_velocity</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.coupled_enrichment_terms_compute_new_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the coupled terms between classical and enriched dof due to non diagonal
 complete mass matrix. Takes into account nodes concerned by enrichment and
-not only the enriched nodes
-:param delta_t: time step
-:param inv_matrix : inverse of the mass matrix (coupling classic / enr ddl part)</p>
+not only the enriched nodes</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>disc</strong> – the current discontinuity</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2571,19 +2979,24 @@ not only the enriched nodes
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.enriched_nodes_compute_new_coordinates">
 <em class="property">static </em><code class="descname">enriched_nodes_compute_new_coordinates</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.enriched_nodes_compute_new_coordinates" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the new nodes coordinates after enrichment
-:param disc: current discontinuity
-:param delta_t: time step</p>
+<dd><p>Compute the new nodes coordinates after enrichment</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>disc</strong> – current discontinuity</li>
+<li><strong>delta_t</strong> – time step</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.enrichment_concerned">
 <em class="property">property </em><code class="descname">enrichment_concerned</code><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.enrichment_concerned" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils field-list" frame="void" rules="none">
+<dd><p>By definition, the nodes concerned by enrichment have non null enriched shape function on
+their support</p>
+<dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Returns</dt><dd class="field-body">boolean mask indicating which nodes are concerned by enrichment</dd>
 </dl>
-<p>(fonctions de formes enrichies N* non nulles sur leur support)
-en 1D : correspond aux noeuds enrichis et les premiers voisins.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2603,15 +3016,19 @@ en 1D : correspond aux noeuds enrichis et les premiers voisins.</p>
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.initialize_additional_node_dof">
 <code class="descname">initialize_additional_node_dof</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.initialize_additional_node_dof" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialialise les ddl enrichis aux noeuds
-:param disc: Discontinuity</p>
+<dd><p>Initialialise les ddl enrichis aux noeuds</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>disc</strong> – Discontinuity</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.reinitialize_kinematics_after_contact">
 <code class="descname">reinitialize_kinematics_after_contact</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.reinitialize_kinematics_after_contact" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the new velocity to the old one to cancel the increment that has lead to contact
-:param disc : discontinuity to be considered</p>
+<dd><p>Set the new velocity to the old one to cancel the increment that has lead to contact</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>disc</strong> – discontinuity to be considered</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2625,6 +3042,7 @@ en 1D : correspond aux noeuds enrichis et les premiers voisins.</p>
 </div>
 <div class="section" id="module-output_manager">
 <span id="outputs"></span><h2>Outputs<a class="headerlink" href="#module-output_manager" title="Permalink to this headline">¶</a></h2>
+<p>Package for output management modules</p>
 <dl class="py class">
 <dt id="output_manager.OutputDatabase">
 <em class="property">class </em><code class="descclassname">output_manager.</code><code class="descname">OutputDatabase</code><span class="sig-paren">(</span><em><span class="n">path_to_hdf5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabase" title="Permalink to this definition">¶</a></dt>
@@ -2634,12 +3052,18 @@ en 1D : correspond aux noeuds enrichis et les premiers voisins.</p>
 <code class="descname">add_field</code><span class="sig-paren">(</span><em><span class="n">f_name</span></em>, <em><span class="n">values</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabase.add_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a dataset corresponding to field_name and storing the values.
 All extra keywords arguments are stored as attributes of the dataset</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>f_name</strong> – name of the field to be added</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="output_manager.OutputDatabase.add_time">
 <code class="descname">add_time</code><span class="sig-paren">(</span><em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabase.add_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create an hdf5 group containing all fields for the current time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – time to be added</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2664,16 +3088,28 @@ All extra keywords arguments are stored as attributes of the dataset</p>
 <dt id="output_manager.OutputManager.get_value_of_field">
 <code class="descname">get_value_of_field</code><span class="sig-paren">(</span><em><span class="n">field</span><span class="p">:</span> <span class="n">xfv.src.output_manager.outputmanager.Field</span></em>, <em><span class="n">owner</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#output_manager.OutputManager.get_value_of_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the np.array associated to the field following all the attribute names list</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>field</strong> – field to be extracted</li>
+<li><strong>owner</strong> – object who supports the fields</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="output_manager.OutputManager.register_all_fields">
 <code class="descname">register_all_fields</code><span class="sig-paren">(</span><em><span class="n">enrichment_registration</span></em>, <em><span class="n">cells</span></em>, <em><span class="n">nodes</span></em>, <em><span class="n">database_id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputManager.register_all_fields" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add all fields to the manager.
-:param enrichment_registration : bool to control if the enriched fields should be registered
-:param cells: cells from which fields must be printed
-:param nodes: nodes from which fields must be printed
-:param database_id: identifier of the database</p>
+<dd><p>Add all fields to the manager.</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>enrichment_registration</strong> – bool to control if the enriched fields should be registered</li>
+<li><strong>cells</strong> – cells from which fields must be printed</li>
+<li><strong>nodes</strong> – nodes from which fields must be printed</li>
+<li><strong>database_id</strong> – identifier of the database</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2715,9 +3151,16 @@ Differentiation is made with test startswith(Additional)</p>
 <dd><p>Compute the time or iteration of outputs</p>
 <dl class="py method">
 <dt id="output_manager.OutputTimeControler.db_has_to_be_updated">
-<code class="descname">db_has_to_be_updated</code><span class="sig-paren">(</span><em><span class="n">time</span></em>, <em><span class="n">iteration</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputTimeControler.db_has_to_be_updated" title="Permalink to this definition">¶</a></dt>
+<code class="descname">db_has_to_be_updated</code><span class="sig-paren">(</span><em><span class="n">time</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">iteration</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#output_manager.OutputTimeControler.db_has_to_be_updated" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return True if the iteration or time requires to write fields in the database
-and update the next output time or iteration</p>
+and update the next output time or iteration.</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>time</strong> – current time</li>
+<li><strong>iteration</strong> – current iteration</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2730,8 +3173,10 @@ and update the next output time or iteration</p>
 <dt id="output_manager.OutputDatabaseExploit.extract_discontinuity_opening">
 <code class="descname">extract_discontinuity_opening</code><span class="sig-paren">(</span><em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabaseExploit.extract_discontinuity_opening" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read database to extract the discontinuity opening, cohesive force and a bool to
-filter results
-:param time : time which to extract data at</p>
+filter results</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – time which to extract data at</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2751,11 +3196,16 @@ filter results
 
 <dl class="py method">
 <dt id="output_manager.OutputDatabaseExploit.extract_fields_for_cohesive_zone_model">
-<code class="descname">extract_fields_for_cohesive_zone_model</code><span class="sig-paren">(</span><em><span class="n">indice_maille_rompue</span></em>, <em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabaseExploit.extract_fields_for_cohesive_zone_model" title="Permalink to this definition">¶</a></dt>
+<code class="descname">extract_fields_for_cohesive_zone_model</code><span class="sig-paren">(</span><em><span class="n">cracked_cell_index</span></em>, <em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabaseExploit.extract_fields_for_cohesive_zone_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read database to extract the discontinuity opening, cohesive force and a bool to
-filter results
-:param indice_maille_rompue : maille d’interet pour la zone cohesive
-:param time : time which to extract data at</p>
+filter results</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>cracked_cell_index</strong> – cell id containing the cohesive zone</li>
+<li><strong>time</strong> – time which to extract data at</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2776,9 +3226,11 @@ filter results
 <dl class="py method">
 <dt id="output_manager.OutputDatabaseExploit.get_cells_coordinate">
 <code class="descname">get_cells_coordinate</code><span class="sig-paren">(</span><em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.OutputDatabaseExploit.get_cells_coordinate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the cells center coordinate at time time
-:param time: time at which the cells coordinates are computed
-:return: the cells center coordinates</p>
+<dd><p>Return the cells center coordinate at time time</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>time</strong> – time at which the cells coordinates are computed</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the cells center coordinates</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2857,14 +3309,15 @@ filter results
 <code class="descclassname">output_manager.</code><code class="descname">build_cell_true_field</code><span class="sig-paren">(</span><em><span class="n">classical_field</span></em>, <em><span class="n">enriched_field</span></em>, <em><span class="n">enrichment_type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#output_manager.build_cell_true_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the cell true field based on the cell status</p>
 <dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
 <li><strong>classical_field</strong> – field of classical values</li>
 <li><strong>enriched_field</strong> – field of enriched values</li>
 <li><strong>enrichment_type</strong> – type of enrichment. Moes ou Hansbo (utile pour reconstruction)</li>
 </ul>
 </dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last">the cell true field</p>
+</dd>
 </dl>
-<p>:return the cell true field</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>
@@ -2892,6 +3345,7 @@ filter results
 </div>
 <div class="section" id="module-plasticitycriterion">
 <span id="plasticity-criterion"></span><h2>Plasticity criterion<a class="headerlink" href="#module-plasticitycriterion" title="Permalink to this headline">¶</a></h2>
+<p>Package for plasticity criterion modules</p>
 <dl class="py class">
 <dt id="plasticitycriterion.PlasticityCriterion">
 <em class="property">class </em><code class="descclassname">plasticitycriterion.</code><code class="descname">PlasticityCriterion</code><a class="headerlink" href="#plasticitycriterion.PlasticityCriterion" title="Permalink to this definition">¶</a></dt>
@@ -2945,6 +3399,7 @@ filter results
 </div>
 <div class="section" id="module-rheology">
 <span id="rheology"></span><h2>Rheology<a class="headerlink" href="#module-rheology" title="Permalink to this headline">¶</a></h2>
+<p>Package for rheology modules</p>
 <dl class="py class">
 <dt id="rheology.ShearModulus">
 <em class="property">class </em><code class="descclassname">rheology.</code><code class="descname">ShearModulus</code><span class="sig-paren">(</span><em><span class="n">initial_value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rheology.ShearModulus" title="Permalink to this definition">¶</a></dt>
@@ -2953,6 +3408,10 @@ filter results
 <dt id="rheology.ShearModulus.compute">
 <em class="property">abstract </em><code class="descname">compute</code><span class="sig-paren">(</span><em><span class="n">density</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#rheology.ShearModulus.compute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new value of shear modulus</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>density</strong> – the current density</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the computed shear modulus</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2965,6 +3424,10 @@ filter results
 <dt id="rheology.ConstantShearModulus.compute">
 <code class="descname">compute</code><span class="sig-paren">(</span><em><span class="n">density</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#rheology.ConstantShearModulus.compute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the shear modulus =&gt; returns constant value of shear modulus</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>density</strong> – the current density</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the computed shear modulus</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2977,6 +3440,10 @@ filter results
 <dt id="rheology.YieldStress.compute">
 <em class="property">abstract </em><code class="descname">compute</code><span class="sig-paren">(</span><em><span class="n">density</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#rheology.YieldStress.compute" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new value of shear modulus</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>density</strong> – the current density</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the computed yield stress</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2988,8 +3455,11 @@ filter results
 <dl class="py method">
 <dt id="rheology.ConstantYieldStress.compute">
 <code class="descname">compute</code><span class="sig-paren">(</span><em><span class="n">density</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span> &#x2192; numpy.array<a class="headerlink" href="#rheology.ConstantYieldStress.compute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the value of the yield stress
-:return: float</p>
+<dd><p>Compute the value of the yield stress</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>density</strong> – the current density</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">the computed yield stress</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -2997,6 +3467,7 @@ filter results
 </div>
 <div class="section" id="module-rupturecriterion">
 <span id="rupture-criterion"></span><h2>Rupture criterion<a class="headerlink" href="#module-rupturecriterion" title="Permalink to this headline">¶</a></h2>
+<p>Package for rupture criterion modules</p>
 <dl class="py class">
 <dt id="rupturecriterion.RuptureCriterion">
 <em class="property">class </em><code class="descclassname">rupturecriterion.</code><code class="descname">RuptureCriterion</code><a class="headerlink" href="#rupturecriterion.RuptureCriterion" title="Permalink to this definition">¶</a></dt>
@@ -3004,8 +3475,10 @@ filter results
 <dl class="py method">
 <dt id="rupturecriterion.RuptureCriterion.check_criterion">
 <em class="property">abstract </em><code class="descname">check_criterion</code><span class="sig-paren">(</span><em><span class="n">cells</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturecriterion.RuptureCriterion.check_criterion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check of the rupture criterion on the cells in arguments
-:param cells: cells on which to check the criterion</p>
+<dd><p>Check of the rupture criterion on the cells in arguments</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>cells</strong> – cells on which to check the criterion</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -3017,7 +3490,7 @@ filter results
 results to other results obtained without XFEM on a half rod</p>
 <dl class="py method">
 <dt id="rupturecriterion.HalfRodComparisonCriterion.check_criterion">
-<code class="descname">check_criterion</code><span class="sig-paren">(</span><em><span class="n">cells</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturecriterion.HalfRodComparisonCriterion.check_criterion" title="Permalink to this definition">¶</a></dt>
+<code class="descname">check_criterion</code><span class="sig-paren">(</span><em><span class="n">cells</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturecriterion.HalfRodComparisonCriterion.check_criterion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the mask of the cells where only the ruptured_cell_index is set to True</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><strong>cells</strong> – cells on which to check criterion</dd>
@@ -3076,6 +3549,7 @@ results to other results obtained without XFEM on a half rod</p>
 </div>
 <div class="section" id="module-rupturetreatment">
 <span id="rupture-treatments"></span><h2>Rupture treatments<a class="headerlink" href="#module-rupturetreatment" title="Permalink to this headline">¶</a></h2>
+<p>Package for failure treatment modules</p>
 <dl class="py class">
 <dt id="rupturetreatment.RuptureTreatment">
 <em class="property">class </em><code class="descclassname">rupturetreatment.</code><code class="descname">RuptureTreatment</code><a class="headerlink" href="#rupturetreatment.RuptureTreatment" title="Permalink to this definition">¶</a></dt>
@@ -3121,20 +3595,31 @@ results to other results obtained without XFEM on a half rod</p>
 <dl class="py method">
 <dt id="rupturetreatment.EnrichElement.apply_treatment">
 <code class="descname">apply_treatment</code><span class="sig-paren">(</span><em><span class="n">cells</span></em>, <em><span class="n">ruptured_cells</span></em>, <em><span class="n">nodes</span></em>, <em><span class="n">topology</span></em>, <em><span class="n">time</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturetreatment.EnrichElement.apply_treatment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply the rupture treatment by enriching one of the cells that is marked as ruptured cells
-:param cells: array of all cells
-:param ruptured_cells: boolean array marking the ruptured cells
-:param nodes: array of all nodes
-:param topology: topology of the problem</p>
+<dd><p>Apply the rupture treatment by enriching one of the cells that is marked as ruptured cells</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>cells</strong> – array of all cells</li>
+<li><strong>ruptured_cells</strong> – boolean array marking the ruptured cells</li>
+<li><strong>nodes</strong> – array of all nodes</li>
+<li><strong>topology</strong> – topology of the problem</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="rupturetreatment.EnrichElement.initialize_cracked_cell_size">
 <code class="descname">initialize_cracked_cell_size</code><span class="sig-paren">(</span><em><span class="n">cells</span></em>, <em><span class="n">cell_tb_enr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturetreatment.EnrichElement.initialize_cracked_cell_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the size of the each part of the newly enriched cell
-:param cells: cell collection
-:param cell_tb_enr: id if the cell to be enriched
-:return:</p>
+<dd><p>Compute the size of the each part of the newly enriched cell</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first simple">
+<li><strong>cells</strong> – cell collection</li>
+<li><strong>cell_tb_enr</strong> – id if the cell to be enriched</li>
+</ul>
+</dd>
+<dt class="field-name">Returns</dt><dd class="field-body"><p class="first last"></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -3154,6 +3639,7 @@ results to other results obtained without XFEM on a half rod</p>
 </div>
 <div class="section" id="module-solver">
 <span id="solver"></span><h2>Solver<a class="headerlink" href="#module-solver" title="Permalink to this headline">¶</a></h2>
+<p>Package for solver modules</p>
 <dl class="py class">
 <dt id="solver.NewtonRaphsonBase">
 <em class="property">class </em><code class="descclassname">solver.</code><code class="descname">NewtonRaphsonBase</code><span class="sig-paren">(</span><em><span class="n">function_to_vanish</span></em>, <em><span class="n">nb_iterations_max</span></em>, <em><span class="n">increment_method</span></em><span class="sig-paren">)</span><a class="headerlink" href="#solver.NewtonRaphsonBase" title="Permalink to this definition">¶</a></dt>
@@ -3211,29 +3697,35 @@ results to other results obtained without XFEM on a half rod</p>
 </div>
 <div class="section" id="module-utilities">
 <span id="utilities"></span><h2>Utilities<a class="headerlink" href="#module-utilities" title="Permalink to this headline">¶</a></h2>
+<p>Package for utilities modules</p>
 <dl class="py function">
 <dt id="utilities.timeit_file">
 <code class="descclassname">utilities.</code><code class="descname">timeit_file</code><span class="sig-paren">(</span><em><span class="n">filename</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.timeit_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>A decorator allowing to write in the file, the real and cpu execution
 times of the decorated function</p>
-<p>&#64;param
-filename : name of the output file</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>filename</strong> – name of the output file</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="utilities.compute_second_invariant">
 <code class="descclassname">utilities.</code><code class="descname">compute_second_invariant</code><span class="sig-paren">(</span><em><span class="n">dev_stress</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.compute_second_invariant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the square of the second invariant of stress tensor
-J2 = sqrt(3/2 S:S) where S is the deviatoric part of stress tensor
-:param stress : deviatoric stress tensor</p>
+J2 = sqrt(3/2 S:S) where S is the deviatoric part of stress tensor</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>dev_stress</strong> – deviatoric stress tensor</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="utilities.compute_trace">
 <code class="descclassname">utilities.</code><code class="descname">compute_trace</code><span class="sig-paren">(</span><em><span class="n">stress</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.compute_trace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute trace(sigma)
-:param stress : stress tensor
-:return : trace(sigma)</p>
+<dd><p>Compute trace(sigma)</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><strong>stress</strong> – stress tensor</dd>
+<dt class="field-name">Returns</dt><dd class="field-body">trace(sigma)</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3249,8 +3741,7 @@ J2 = sqrt(3/2 S:S) where S is the deviatoric part of stress tensor
 <dl class="py method">
 <dt id="utilities.Singleton.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.Singleton.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Delete the singleton
-:return:</p>
+<dd><p>Delete the singleton</p>
 </dd></dl>
 
 </dd></dl>
@@ -3272,7 +3763,7 @@ J2 = sqrt(3/2 S:S) where S is the deviatoric part of stress tensor
   <div class="footer-relations">
     
       <div class="pull-left">
-        <a class="btn btn-default" href="index.html" title="previous chapter (use the left arrow)">Welcome to XVOF !</a>
+        <a class="btn btn-default" href="organisation.html" title="previous chapter (use the left arrow)">Code organisation</a>
       </div>
     
       <div class="pull-right">
@@ -3297,7 +3788,7 @@ J2 = sqrt(3/2 S:S) where S is the deviatoric part of stress tensor
           <a href="installation.html" title="Installation"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to XVOF !"
+          <a href="organisation.html" title="Code organisation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">XVOF  documentation</a> &#187;</li> 
       </ul>
