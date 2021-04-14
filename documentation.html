@@ -158,6 +158,15 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 </dd></dl>
 
 <dl class="py method">
+<dt id="cell.Cell.compute_new_porosity">
+<em class="property">abstract </em><code class="descname">compute_new_porosity</code><span class="sig-paren">(</span><em><span class="n">time_step</span></em>, <em><span class="n">porosity_model</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_new_porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the new porosity according to the porosity model in XDATA
+:param time_step: float
+:param porosity_model: porosity model to compute 
+:type mask: np.array([nbr_of_cells, 1], dtype=bool)</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="cell.Cell.compute_new_pressure">
 <em class="property">abstract </em><code class="descname">compute_new_pressure</code><span class="sig-paren">(</span><em><span class="n">mask</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.Cell.compute_new_pressure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the pressure in the cells at time t + dt</p>
@@ -278,6 +287,12 @@ Its different members are, for most of them, numpy 1D-array of nbr_of_cells leng
 <dt id="cell.Cell.number_of_cells">
 <em class="property">property </em><code class="descname">number_of_cells</code><a class="headerlink" href="#cell.Cell.number_of_cells" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of cells</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.Cell.porosity">
+<em class="property">property </em><code class="descname">porosity</code><a class="headerlink" href="#cell.Cell.porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Porosity</p>
 </dd></dl>
 
 <dl class="py method">
@@ -477,6 +492,20 @@ deviatoric stress)</p>
 <dd><p>Computation of the density of the cells at time t+dt using mass conservation principle</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – array of boolean to identify classical cells</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionCell.compute_new_porosity">
+<code class="descname">compute_new_porosity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">porosity_model</span></em>, <em><span class="n">mask</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionCell.compute_new_porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the new porosity according to the porosity model in XDATA</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – model to compute the shear modulus</li>
+<li><strong>porosity_model</strong> – porosity model to compute</li>
+<li><strong>mask</strong> (<em>np.array</em><em>(</em><em>[</em><em>nbr_cells</em><em>, </em><em>1</em><em>]</em><em>, </em><em>dtype=bool</em><em>)</em>) – mask to identify the cells to be computed</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
@@ -685,6 +714,12 @@ from the coordinates and velocities interpolated at the center of the cell</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="cell.OneDimensionCell.porosity_field">
+<em class="property">property </em><code class="descname">porosity_field</code><a class="headerlink" href="#cell.OneDimensionCell.porosity_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Porosity field</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="cell.OneDimensionCell.pressure_field">
 <em class="property">property </em><code class="descname">pressure_field</code><a class="headerlink" href="#cell.OneDimensionCell.pressure_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pressure field</p>
@@ -694,92 +729,8 @@ from the coordinates and velocities interpolated at the center of the cell</p>
 
 <dl class="py class">
 <dt id="cell.OneDimensionHansboEnrichedCell">
-<em class="property">class </em><code class="descclassname">cell.</code><code class="descname">OneDimensionHansboEnrichedCell</code><span class="sig-paren">(</span><em><span class="n">number_of_elements</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">cell.</code><code class="descname">OneDimensionHansboEnrichedCell</code><span class="sig-paren">(</span><em><span class="n">n_cells</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell" title="Permalink to this definition">¶</a></dt>
 <dd><p>A collection of 1d enriched elements. Treatment for Hansbo enrichment</p>
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_artificial_viscosity">
-<em class="property">property </em><code class="descname">additional_dof_artificial_viscosity</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_artificial_viscosity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell artificial viscosity field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_density">
-<em class="property">property </em><code class="descname">additional_dof_density</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_density" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell density field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_strain_rate">
-<em class="property">property </em><code class="descname">additional_dof_deviatoric_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_strain_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell deviatoric strain rate at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_stress_current">
-<em class="property">property </em><code class="descname">additional_dof_deviatoric_stress_current</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_stress_current" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell deviatoric stress at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_stress_new">
-<em class="property">property </em><code class="descname">additional_dof_deviatoric_stress_new</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_deviatoric_stress_new" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell deviatoric stress at time t+dt</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_energy">
-<em class="property">property </em><code class="descname">additional_dof_energy</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell internal energy field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_equivalent_plastic_strain_rate">
-<em class="property">property </em><code class="descname">additional_dof_equivalent_plastic_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_equivalent_plastic_strain_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell equivalent plastic strain rate at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_plastic_strain_rate">
-<em class="property">property </em><code class="descname">additional_dof_plastic_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_plastic_strain_rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell plastic strain rate tensor at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_pressure">
-<em class="property">property </em><code class="descname">additional_dof_pressure</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_pressure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell pressure field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_shear_modulus">
-<em class="property">property </em><code class="descname">additional_dof_shear_modulus</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_shear_modulus" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell shear modulus field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_sound_velocity">
-<em class="property">property </em><code class="descname">additional_dof_sound_velocity</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_sound_velocity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell sound speed field</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_stress">
-<em class="property">property </em><code class="descname">additional_dof_stress</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_stress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell stress at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_stress_xx">
-<em class="property">property </em><code class="descname">additional_dof_stress_xx</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_stress_xx" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell stress at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.additional_dof_yield_stress">
-<em class="property">property </em><code class="descname">additional_dof_yield_stress</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.additional_dof_yield_stress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional cell yield stress field</p>
-</dd></dl>
-
 <dl class="py method">
 <dt id="cell.OneDimensionHansboEnrichedCell.apply_plasticity_enr">
 <code class="descname">apply_plasticity_enr</code><span class="sig-paren">(</span><em><span class="n">mask_mesh</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.apply_plasticity_enr" title="Permalink to this definition">¶</a></dt>
@@ -801,8 +752,8 @@ from the coordinates and velocities interpolated at the center of the cell</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="cell.OneDimensionHansboEnrichedCell.cell_additional_dof_increment">
-<code class="descname">cell_additional_dof_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.cell_additional_dof_increment" title="Permalink to this definition">¶</a></dt>
+<dt id="cell.OneDimensionHansboEnrichedCell.cell_enr_increment">
+<code class="descname">cell_enr_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.cell_enr_increment" title="Permalink to this definition">¶</a></dt>
 <dd><p>Increment the enriched cell variables</p>
 </dd></dl>
 
@@ -955,6 +906,90 @@ time step for the enriched cells</p>
 <dt class="field-name">Returns</dt><dd class="field-body">energy field</dd>
 <dt class="field-name">Return type</dt><dd class="field-body">np.array</dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_artificial_viscosity">
+<em class="property">property </em><code class="descname">enr_artificial_viscosity</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_artificial_viscosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell artificial viscosity field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_density">
+<em class="property">property </em><code class="descname">enr_density</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_density" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell density field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_deviatoric_strain_rate">
+<em class="property">property </em><code class="descname">enr_deviatoric_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_deviatoric_strain_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell deviatoric strain rate at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_deviatoric_stress_current">
+<em class="property">property </em><code class="descname">enr_deviatoric_stress_current</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_deviatoric_stress_current" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell deviatoric stress at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_deviatoric_stress_new">
+<em class="property">property </em><code class="descname">enr_deviatoric_stress_new</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_deviatoric_stress_new" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell deviatoric stress at time t+dt</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_energy">
+<em class="property">property </em><code class="descname">enr_energy</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell internal energy field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_equivalent_plastic_strain_rate">
+<em class="property">property </em><code class="descname">enr_equivalent_plastic_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_equivalent_plastic_strain_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell equivalent plastic strain rate at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_plastic_strain_rate">
+<em class="property">property </em><code class="descname">enr_plastic_strain_rate</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_plastic_strain_rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell plastic strain rate tensor at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_pressure">
+<em class="property">property </em><code class="descname">enr_pressure</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_pressure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell pressure field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_shear_modulus">
+<em class="property">property </em><code class="descname">enr_shear_modulus</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_shear_modulus" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell shear modulus field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_sound_velocity">
+<em class="property">property </em><code class="descname">enr_sound_velocity</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_sound_velocity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell sound speed field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_stress">
+<em class="property">property </em><code class="descname">enr_stress</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell stress at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_stress_xx">
+<em class="property">property </em><code class="descname">enr_stress_xx</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_stress_xx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell stress at time t</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="cell.OneDimensionHansboEnrichedCell.enr_yield_stress">
+<em class="property">property </em><code class="descname">enr_yield_stress</code><a class="headerlink" href="#cell.OneDimensionHansboEnrichedCell.enr_yield_stress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor on the right part of cracked cell yield stress field</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1427,24 +1462,6 @@ more specific custom function class</p>
 <em class="property">class </em><code class="descclassname">discontinuity.</code><code class="descname">Discontinuity</code><span class="sig-paren">(</span><em><span class="n">cell_id</span><span class="p">:</span> <span class="n">int</span></em>, <em><span class="n">mask_in_nodes</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">mask_out_nodes</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">discontinuity_position_in_ruptured_element</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">enriched_mass_matrix_props</span><span class="p">:</span> <span class="n">xfv.src.data.enriched_mass_matrix_props.EnrichedMassMatrixProps</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class describing a discontinuity 1D</p>
 <dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_coordinates_current">
-<em class="property">property </em><code class="descname">additional_dof_coordinates_current</code><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_coordinates_current" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional nodes coordinates at time t</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_coordinates_new">
-<em class="property">property </em><code class="descname">additional_dof_coordinates_new</code><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_coordinates_new" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accessor on the additional nodes coordinates at time t+dt</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="discontinuity.Discontinuity.additional_dof_increment">
-<code class="descname">additional_dof_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.additional_dof_increment" title="Permalink to this definition">¶</a></dt>
-<dd><p>Increment the variables of discontinuity</p>
-</dd></dl>
-
-<dl class="py method">
 <dt id="discontinuity.Discontinuity.compute_discontinuity_new_opening">
 <code class="descname">compute_discontinuity_new_opening</code><span class="sig-paren">(</span><em><span class="n">node_position</span><span class="p">:</span> <span class="n">numpy.array</span></em><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.compute_discontinuity_new_opening" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the discontinuity opening</p>
@@ -1463,6 +1480,12 @@ more specific custom function class</p>
 <dt id="discontinuity.Discontinuity.discontinuity_number">
 <em class="property">classmethod </em><code class="descname">discontinuity_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.discontinuity_number" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the number of existing discontinuities</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="discontinuity.Discontinuity.enr_increment">
+<code class="descname">enr_increment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#discontinuity.Discontinuity.enr_increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increment the variables of discontinuity</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2367,6 +2390,19 @@ discontinuities boundaries</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="mesh.Mesh1dEnriched.compute_new_cells_porosity">
+<code class="descname">compute_new_cells_porosity</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em>, <em><span class="n">porosity_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_cells_porosity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computation of porosity model for each cell at t+dt</p>
+<dl class="docutils field-list" frame="void" rules="none">
+<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
+<li><strong>delta_t</strong> – time step</li>
+<li><strong>porosity_model</strong> – model to compute the porosity model</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="mesh.Mesh1dEnriched.compute_new_cells_pressures">
 <code class="descname">compute_new_cells_pressures</code><span class="sig-paren">(</span><em><span class="n">delta_t</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mesh.Mesh1dEnriched.compute_new_cells_pressures" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computation of cells pressure at t+dt</p>
@@ -2478,9 +2514,21 @@ discontinuities boundaries</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="mesh.Mesh1dEnriched.porosity_field">
+<em class="property">property </em><code class="descname">porosity_field</code><a class="headerlink" href="#mesh.Mesh1dEnriched.porosity_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Porosity field</p>
+</dd></dl>
+
+<dl class="py method">
 <dt id="mesh.Mesh1dEnriched.pressure_field">
 <em class="property">property </em><code class="descname">pressure_field</code><a class="headerlink" href="#mesh.Mesh1dEnriched.pressure_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pressure field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mesh.Mesh1dEnriched.shear_modulus_field">
+<em class="property">property </em><code class="descname">shear_modulus_field</code><a class="headerlink" href="#mesh.Mesh1dEnriched.shear_modulus_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shear Modulus</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2499,6 +2547,12 @@ discontinuities boundaries</p>
 <dt id="mesh.Mesh1dEnriched.velocity_field">
 <em class="property">property </em><code class="descname">velocity_field</code><a class="headerlink" href="#mesh.Mesh1dEnriched.velocity_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node velocity field</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="mesh.Mesh1dEnriched.yield_stress_field">
+<em class="property">property </em><code class="descname">yield_stress_field</code><a class="headerlink" href="#mesh.Mesh1dEnriched.yield_stress_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield Stress</p>
 </dd></dl>
 
 </dd></dl>
@@ -2882,19 +2936,6 @@ ie if its evolution is modified by enrichment
 <em class="property">class </em><code class="descclassname">node.</code><code class="descname">OneDimensionHansboEnrichedNode</code><span class="sig-paren">(</span><em><span class="n">nbr_of_nodes</span><span class="p">:</span> <span class="n">int</span></em>, <em><span class="n">initial_positions</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">initial_velocities</span><span class="p">:</span> <span class="n">numpy.array</span></em>, <em><span class="n">section</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>A class for the enriched nodes with Hansbo enrichment</p>
 <dl class="py method">
-<dt id="node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries">
-<code class="descname">apply_force_on_discontinuity_boundaries</code><span class="sig-paren">(</span><em><span class="n">disc</span><span class="p">:</span> <span class="n">xfv.src.discontinuity.discontinuity.Discontinuity</span></em>, <em><span class="n">stress</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transport the force to apply on discontinuity boundaries on the classical and enriched nodes</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
-<li><strong>disc</strong> – current discontinuity</li>
-<li><strong>stress</strong> – value of the force to apply</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries_arr">
 <code class="descname">apply_force_on_discontinuity_boundaries_arr</code><span class="sig-paren">(</span><em><span class="n">force</span><span class="p">:</span> <span class="n">numpy.ndarray</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.apply_force_on_discontinuity_boundaries_arr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transport the force to apply on discontinuity boundaries on the classical and enriched nodes</p>
@@ -2912,8 +2953,14 @@ ie if its evolution is modified by enrichment
 </dd></dl>
 
 <dl class="py method">
-<dt id="node.OneDimensionHansboEnrichedNode.compute_additional_dof_new_velocity">
-<code class="descname">compute_additional_dof_new_velocity</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_additional_dof_new_velocity" title="Permalink to this definition">¶</a></dt>
+<dt id="node.OneDimensionHansboEnrichedNode.compute_complete_velocity_field">
+<code class="descname">compute_complete_velocity_field</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_complete_velocity_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the true field of node velocity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="node.OneDimensionHansboEnrichedNode.compute_enr_new_velocity">
+<code class="descname">compute_enr_new_velocity</code><span class="sig-paren">(</span><em><span class="n">disc</span></em>, <em><span class="n">delta_t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_enr_new_velocity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the new velocity enriched degree of freedom</p>
 <dl class="docutils field-list" frame="void" rules="none">
 <dt class="field-name">Parameters</dt><dd class="field-body"><ul class="first last simple">
@@ -2922,12 +2969,6 @@ ie if its evolution is modified by enrichment
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="node.OneDimensionHansboEnrichedNode.compute_complete_velocity_field">
-<code class="descname">compute_complete_velocity_field</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#node.OneDimensionHansboEnrichedNode.compute_complete_velocity_field" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the true field of node velocity</p>
 </dd></dl>
 
 <dl class="py method">
@@ -3139,7 +3180,7 @@ the manager asks each of its database to save fields. It’s the same for
 a current iteration above the iteration of next output</p>
 <p>Additional_dof_fields are created when a new discontinuity is created.
 Need to treat them in a different way from classical fields.
-Based on this remark, additional_dof_fields have standard name “Additional…”
+Based on this remark, enr_fields have standard name “Additional…”
 Differentiation is made with test startswith(Additional)</p>
 </dd></dl>
 
@@ -3475,10 +3516,8 @@ filter results</p>
 <dl class="py method">
 <dt id="rupturecriterion.RuptureCriterion.check_criterion">
 <em class="property">abstract </em><code class="descname">check_criterion</code><span class="sig-paren">(</span><em><span class="n">cells</span></em>, <em><span class="o">*</span><span class="n">args</span></em>, <em><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#rupturecriterion.RuptureCriterion.check_criterion" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check of the rupture criterion on the cells in arguments</p>
-<dl class="docutils field-list" frame="void" rules="none">
-<dt class="field-name">Parameters</dt><dd class="field-body"><strong>cells</strong> – cells on which to check the criterion</dd>
-</dl>
+<dd><p>Check of the rupture criterion on the cells in arguments
+:param cells: cells on which to check the criterion</p>
 </dd></dl>
 
 </dd></dl>
