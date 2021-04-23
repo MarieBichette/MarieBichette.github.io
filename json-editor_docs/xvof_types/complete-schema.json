@@ -20,27 +20,11 @@
       "description": "Définitions des conditions limites"
     },
     "numeric-parameters": {
-      "$ref": "#/$defs/veggie"
+      "type": "number"
     },
     "output": {
       "type": "string",
       "description": "Données relatives aux sorties"
-    }
-  },
-  "$defs": {
-    "veggie": {
-      "type": "object",
-      "required": [ "veggieName", "veggieLike" ],
-      "properties": {
-        "veggieName": {
-          "type": "string",
-          "description": "The name of the vegetable."
-        },
-        "veggieLike": {
-          "type": "boolean",
-          "description": "Do I like this vegetable?"
-        }
-      }
     }
   }
 }
