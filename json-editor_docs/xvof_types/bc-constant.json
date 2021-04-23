@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "value": {
-      "type": "float",
+      "type": "number",
       "description": "Valeur à imposer pour la condition limite"
     }
   }
