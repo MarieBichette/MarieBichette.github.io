@@ -1,4 +1,5 @@
 {
+  "numeric-parameters": {
   "title": "numeric-parameters",
   "type": "object",
   "id": "numeric-parameters",
@@ -18,6 +19,7 @@
     "cfl-pseudo": {
       "type": "float",
       "description": "Condition CFL liée à la pseudo-viscosité"
+    }
     }
   }
 }
