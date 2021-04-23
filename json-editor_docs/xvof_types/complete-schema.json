@@ -21,7 +21,6 @@
     },
     "numeric-parameters": {
       "$ref": "numeric-parameters.json",
-      "title": "numeric-parameters",
       "description": "Données relatives aux paramètres de la simulation numérique"
     },
     "output": {
