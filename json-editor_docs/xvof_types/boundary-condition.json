@@ -14,25 +14,19 @@
           "enum": ["constant", "ramp"]
         }
       },
-      "allOf": [
-        {
-          "if": {
-            "properties": { "bc-law": { "const": "constant" } }
-          },
-          "then": {
-            "properties": { "$ref": "bc-constant.json" }
-          }
-        },
 
-        {
-          "if": {
-            "properties": { "bc-law": { "const": "ramp" } }
-          },
-          "then": {
-            "properties": { "$ref": "bc-two-step.json" }
-          }
-        }
-      ]      
+      "if": {
+        "properties": { "bc-law": { "const": "constant" } }
+      },
+      "then": {
+        "properties": { "$ref": "bc-constant.json" }  
+      },
+      "if": {
+        "properties": { "bc-law": { "const": "ramp" } }
+      },
+      "then": {
+        "properties": { "$ref": "bc-two-step.json" }
+      }      
     }
   }
 }
