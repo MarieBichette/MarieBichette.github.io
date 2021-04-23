@@ -11,19 +11,28 @@
         },
         "bc-law": {
           "type": "string",
-          "enum": ["constant", "ramp", "marchtable", "twostep", "creneauramp"]
+          "enum": ["constant", "ramp"]
         },
-        "oneOf": [
+        "allOf": [
           {
-            "$ref": "bc-constant.json",
-            "title": "constant"
+            "if": {
+              "properties": { "bc-law": { "const": "constant" } }
+            },
+            "then": {
+              "properties": { "$ref": "bc-constant.json" }
+            }
           },
+
           {
-            "$ref": "bc-two-step.json",
-            "title": "twostep"
+            "if": {
+              "properties": { "bc-law": { "const": "ramp" } }
+            },
+            "then": {
+              "properties": { "$ref": "bc-two-step.json" }
+            }
           }
         ]
-      }
+      }      
     }
   }
 }
