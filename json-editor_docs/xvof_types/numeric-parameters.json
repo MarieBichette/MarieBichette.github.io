@@ -1,25 +1,24 @@
 {
-  "numeric-parameters": {
-    "title": "numeric-parameters",
-    "type": "object",
-    "id": "numeric-parameters",
-    "properties": {
-      "linear-pseudo": {
-        "type": "number",
-        "description": "Paramètre pour la pseudo-viscosité linéaire"
-      },
-      "quadratic-pseudo": {
-        "type": "number",
-        "description": "Paramètre pour la pseudo-viscosité quadratique"
-      },
-      "cfl": {
-        "type": "number",
-        "description": "Condition CFL"
-      },
-      "cfl-pseudo": {
-        "type": "number",
-        "description": "Condition CFL liée à la pseudo-viscosité"
-      }
+  "$schema": "http://json-schema.org/schema#",
+  "title": "numeric-parameters",
+  "type": "object",
+  "id": "numeric-parameters",
+  "properties": {
+    "linear-pseudo": {
+      "type": "number",
+      "description": "Paramètre pour la pseudo-viscosité linéaire"
+    },
+    "quadratic-pseudo": {
+      "type": "number",
+      "description": "Paramètre pour la pseudo-viscosité quadratique"
+    },
+    "cfl": {
+      "type": "number",
+      "description": "Condition CFL"
+    },
+    "cfl-pseudo": {
+      "type": "number",
+      "description": "Condition CFL liée à la pseudo-viscosité"
     }
   }
 }

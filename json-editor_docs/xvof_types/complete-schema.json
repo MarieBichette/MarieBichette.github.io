@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/schema#",
   "title": "Data",
   "type": "object",
   "id": "complete-schema",
@@ -20,7 +21,7 @@
       "description": "Définitions des conditions limites"
     },
     "numeric-parameters": {
-      "$ref": "numeric_parameters.json#/numeric_parameters"
+      "$ref": "numeric_parameters.json"
     },
     "output": {
       "type": "string",
