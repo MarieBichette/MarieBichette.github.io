@@ -1,0 +1,17 @@
+{
+  "title": "geometry",
+  "type": "object",
+  "id": "geometry",
+  "properties": {
+    "section": {
+      "type": "float",
+      "description": "Section de la barre en m",
+      "default": 1
+      "minimum": 0
+    },
+    "initial-interface-position": {
+      "type": "float",
+      "description": "Position du noeud séparant la cible et le projectile"
+    }
+  }
+}

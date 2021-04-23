@@ -1,0 +1,19 @@
+{
+  "title": "bc-two-step",
+  "type": "object",
+  "id": "bc-two-step",
+  "properties": {
+    "value1": {
+      "type": "float",
+      "description": "Valeur à imposer pour la première valeur de la condition limite"
+    },
+    "value2": {
+      "type": "float",
+      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+    },
+    "time-activation": {
+      "type": "float",
+      "description": "Temps de passage de la value1 à value2"
+    }
+  }
+}
