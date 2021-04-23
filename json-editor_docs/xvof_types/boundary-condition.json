@@ -5,7 +5,7 @@
       "type": "object",
       "description": "Condition limite sur le bord gauche",
       "properties": {
-        "type": {
+        "bc-type": {
           "type": "string",
           "enum": ["pressure", "blue", "yellow"]
         }
