@@ -1,7 +1,5 @@
 {
-  "title": "bc-ramp",
   "type": "object",
-  "id": "bc-ramp",
   "properties": {
     "initial-value": {
       "type": "float",

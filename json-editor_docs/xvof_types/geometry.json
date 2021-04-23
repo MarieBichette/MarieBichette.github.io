@@ -1,7 +1,5 @@
 {
-  "title": "geometry",
   "type": "object",
-  "id": "geometry",
   "properties": {
     "section": {
       "type": "float",

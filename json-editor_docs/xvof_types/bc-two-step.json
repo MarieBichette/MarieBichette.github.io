@@ -1,7 +1,5 @@
 {
-  "title": "bc-two-step",
   "type": "object",
-  "id": "bc-two-step",
   "properties": {
     "value1": {
       "type": "float",

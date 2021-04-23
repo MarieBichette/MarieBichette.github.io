@@ -1,7 +1,5 @@
 {
-  "title": "bc-march-table",
   "type": "object",
-  "id": "bc-march-table",
   "properties": {
     "value": {
       "type": "string",

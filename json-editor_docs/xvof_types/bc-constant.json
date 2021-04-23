@@ -1,7 +1,5 @@
 {
-  "title": "bc-constant",
   "type": "object",
-  "id": "bc-constant",
   "properties": {
     "value": {
       "type": "float",
