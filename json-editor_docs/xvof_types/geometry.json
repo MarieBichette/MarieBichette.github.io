@@ -4,8 +4,8 @@
     "section": {
       "type": "number",
       "description": "Section de la barre en m",
-      "default": 1.0,
-      "minimum": 0
+      "default": "1.0",
+      "minimum": "0"
     },
     "initial-interface-position": {
       "type": "number",
