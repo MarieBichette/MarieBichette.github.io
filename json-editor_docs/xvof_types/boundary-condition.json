@@ -19,13 +19,21 @@
         "properties": { "bc-law": { "const": "constant" } }
       },
       "then": {
-        "properties": { "$ref": "bc-constant.json" }  
+        "properties": { 
+          "value": {
+            "type": "number"
+          }
+        }  
       },
       "if": {
         "properties": { "bc-law": { "const": "ramp" } }
       },
       "then": {
-        "properties": { "$ref": "bc-two-step.json" }
+        "properties": { 
+          "value2": {
+            "type": "number"
+          }
+        }
       }      
     }
   }
