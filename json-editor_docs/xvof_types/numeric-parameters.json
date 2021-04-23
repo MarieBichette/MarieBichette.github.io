@@ -1,5 +1,4 @@
 {
-  "$schema": "http://json-schema.org/schema#",
   "title": "numeric-parameters",
   "type": "object",
   "id": "numeric-parameters",

@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>JSON Data Editor</h1>
-    <p>test 5</p>
+    <p>test 6</p>
 
     <button id='submit'>Submit (console.log)</button>
     <button id='restore'>Restore to Default</button>
@@ -24,18 +24,9 @@
 
         // The schema for the editor
         schema: {
-         // $ref: "./json-editor_docs/xvof_types/complete-schema.json",
+          $ref: "./json-editor_docs/xvof_types/complete-schema.json",
           title: "Data",
-          properties: {
-            time-management: {
-              type: "string",
-              description: "Données relatives au pas de temps"
-            },
-            numeric-parameters: {
-              $ref: "./json-editor_docs/xvof_types/numeric-parameters.json"
-            }
-          }
-        },
+        }
       });
 
       // Hook up the submit button to log to the console
