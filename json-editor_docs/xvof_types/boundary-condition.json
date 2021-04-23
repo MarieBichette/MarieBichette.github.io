@@ -6,8 +6,7 @@
       "description": "Condition limite sur le bord gauche",
       "properties": {
         "toto": {
-          "type": "string",
-          "enum": ["pressure", "velocity"]
+          "type": "string"
         }
       }
     }
