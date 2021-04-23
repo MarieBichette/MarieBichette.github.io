@@ -7,8 +7,7 @@
       "description": "Données relatives au pas de temps"
     },
     "geometry": {
-      "type": "string",
-      "description": "Données relatives à la géométrie de la simulation"
+      "$ref": "geometry.json"
     },
     "matter": {
       "type": "string",
