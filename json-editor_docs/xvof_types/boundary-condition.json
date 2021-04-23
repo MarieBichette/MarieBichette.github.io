@@ -10,7 +10,16 @@
           "enum": ["pressure", "velocity"]
         },
         "bc-law": {
-	  "$ref": "bc-constant.json"
+	  "oneOf": [
+            {
+              "$ref": "bc-constant.json",
+              "title": "constant"
+            },
+            {
+              "$ref": "bc-two-step.json",
+              "title": "twostep"
+            }
+          ]
         }
       }
     }
