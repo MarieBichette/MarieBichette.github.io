@@ -1,0 +1,5 @@
+cd ~/PycharmProjects/json-editor
+git pull
+
+cd ~/PycharmProjects/XVOF_doc/MarieBichette.github.io
+meld ../../json-editor/docs json-editor_docs
