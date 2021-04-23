@@ -2,13 +2,13 @@
   "type": "object",
   "properties": {
     "section": {
-      "type": "float",
+      "type": "number",
       "description": "Section de la barre en m",
-      "default": 1
+      "default": 1.0,
       "minimum": 0
     },
     "initial-interface-position": {
-      "type": "float",
+      "type": "number",
       "description": "Position du noeud séparant la cible et le projectile"
     }
   }
