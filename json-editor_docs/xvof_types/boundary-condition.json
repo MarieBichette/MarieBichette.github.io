@@ -7,7 +7,10 @@
       "properties": {
         "bc-type": {
           "type": "string",
-          "enum": ["pressure", "blue", "yellow"]
+          "enum": ["pressure", "velocity"]
+        },
+        "bc-law": {
+	  "$ref": "bc-constant.json"
         }
       }
     }
