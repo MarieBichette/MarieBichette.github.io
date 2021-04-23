@@ -19,7 +19,25 @@
       "description": "Définitions des conditions limites"
     },
     "numeric-parameters": {
-      "type": "number"
+      "type": "object",
+  "properties": {
+    "linear-pseudo": {
+      "type": "number",
+      "description": "Paramètre pour la pseudo-viscosité linéaire"
+    },
+    "quadratic-pseudo": {
+      "type": "number",
+      "description": "Paramètre pour la pseudo-viscosité quadratique"
+    },
+    "cfl": {
+      "type": "number",
+      "description": "Condition CFL"
+    },
+    "cfl-pseudo": {
+      "type": "number",
+      "description": "Condition CFL liée à la pseudo-viscosité"
+    }
+  }
     },
     "output": {
       "type": "string",
