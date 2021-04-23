@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>JSON Data Editor</h1>
-    <p>test 4</p>
+    <p>test 5</p>
 
     <button id='submit'>Submit (console.log)</button>
     <button id='restore'>Restore to Default</button>
@@ -32,26 +32,10 @@
               description: "Données relatives au pas de temps"
             },
             numeric-parameters: {
-              $ref: "#/defs/veggie"
+              $ref: "./json-editor_docs/xvof_types/numeric-parameters.json"
             }
           }
         },
-        defs: {
-          veggie: {
-            type: "object",
-            required: [ "veggieName", "veggieLike" ],
-            properties: {
-              veggieName: {
-                type: "string",
-                description: "The name of the vegetable."
-              },
-              veggieLike: {
-                type: "boolean",
-                description: "Do I like this vegetable?"
-              }
-            }
-          }
-        }
       });
 
       // Hook up the submit button to log to the console
