@@ -8,10 +8,6 @@
         "toto": {
           "type": "string",
           "enum": ["pressure", "velocity"]
-        },
-        "bc-law": {
-          "$ref": "bc-constant.json"
-          }
         }
       }
     }
