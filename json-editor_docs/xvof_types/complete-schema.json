@@ -20,7 +20,7 @@
       "description": "Définitions des conditions limites"
     },
     "numeric-parameters": {
-      "$ref": "#/$defs/veggie"
+      "$ref": "./json-editor_docs/xvof_types/complete-schema.json#/$defs/veggie"
     },
     "output": {
       "type": "string",
