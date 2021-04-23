@@ -18,6 +18,6 @@
     "cfl-pseudo": {
       "type": "float",
       "description": "Condition CFL liée à la pseudo-viscosité"
-    },
+    }
   }
 }
