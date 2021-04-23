@@ -1,0 +1,31 @@
+{
+  "title": "complete-schema",
+  "type": "object",
+  "id": "complete-schema",
+  "properties": {
+    "time-management": {
+      "type": "string",
+      "description": "Données relatives au pas de temps"
+    },
+    "geometry": {
+      "type": "string",
+      "description": "Données relatives à la géométrie de la simulation"
+    },
+    "matter": {
+      "type": "string",
+      "description": "Données relatives aux matériaux"
+    },
+    "boundary-conditions": {
+      "type": "string",
+      "description": "Définitions des conditions limites"
+    },
+    "numeric-parameters": {
+      "type": "string",
+      "description": "Données relatives aux paramètres de la simulation numérique"
+    },
+    "output": {
+      "type": "string",
+      "description": "Données relatives aux sorties"
+    }
+  }
+}
