@@ -7,7 +7,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["red", "blue", "yellow"]
+          "enum": ["pressure", "blue", "yellow"]
         }
       }
     }
