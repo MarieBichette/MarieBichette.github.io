@@ -19,7 +19,10 @@
       "type": "string",
       "description": "Définitions des conditions limites"
     },
-    "$ref": "./json-editor_docs/xvof_types/numeric-parameters.json",
+    "numeric-parameters": {
+      "type": "string",
+      "description": "Données relatives aux paramètres numériques"
+    },
     "output": {
       "type": "string",
       "description": "Données relatives aux sorties"
