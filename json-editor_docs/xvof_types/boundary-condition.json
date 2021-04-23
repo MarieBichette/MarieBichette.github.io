@@ -10,19 +10,7 @@
           "enum": ["pressure", "velocity"]
         },
         "bc-law": {
-          "type": "object",
-          "properties": {
-            "oneOf": [
-                {
-                  "$ref": "bc-constant.json",
-                  "title": "constant"
-                },
-                {
-                  "$ref": "bc-ramp.json",
-                  "title": "ramp"
-                }
-              ]
-            }
+          "$ref": "bc-constant.json"
           }
         }
       }
