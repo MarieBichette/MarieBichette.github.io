@@ -1,0 +1,23 @@
+{
+  "title": "bc-ramp",
+  "type": "object",
+  "id": "bc-ramp",
+  "properties": {
+    "value1": {
+      "type": "float",
+      "description": "Valeur à imposer pour la première valeur de la condition limite"
+    },
+    "value2": {
+      "type": "float",
+      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+    },
+    "time-activation-value-1": {
+      "type": "float",
+      "description": "Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2)"
+    },
+    "time-activation-value-2": {
+      "type": "float",
+      "description": "Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2)"
+    }
+  }
+}

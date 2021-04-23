@@ -1,0 +1,35 @@
+{
+  "title": "bc-ramp",
+  "type": "object",
+  "id": "bc-ramp",
+  "properties": {
+    "initial-value": {
+      "type": "float",
+      "description": "Valeur initiale à imposer pour la condition limite"
+    },
+    "plateau-value": {
+      "type": "float",
+      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+    },
+    "start-first-ramp-time": {
+      "type": "float",
+      "description": "Temps début transition vers plateau-value"
+    },
+    "reach-value2-time": {
+      "type": "float",
+      "description": "Temps d'arrivée à la valeur plateau-value"
+    },
+    "end-value": {
+      "type": "float",
+      "description": "Valeur finale à imposer pour la condition limite"
+    },
+    "start-second-ramp-time": {
+      "type": "float",
+      "description": "Temps début transition vers end-value"
+    },
+    "reach-value3-time": {
+      "type": "float",
+      "description": "Temps d'arrivée à la valeur end-value"
+    }
+  }
+}
