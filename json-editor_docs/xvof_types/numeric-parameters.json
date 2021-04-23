@@ -1,7 +1,5 @@
 {
-  "title": "numeric-parameters",
   "type": "object",
-  "id": "numeric-parameters",
   "properties": {
     "linear-pseudo": {
       "type": "number",
