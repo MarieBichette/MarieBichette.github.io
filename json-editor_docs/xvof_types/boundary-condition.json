@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "left-boundary": {
+      "type": "object",
+      "description": "Condition limite sur le bord gauche",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["pressure", "velocity"]
+        },
+        "bc-law": {
+          "oneOf": [
+              {
+                "$ref": "bc-constant.json",
+                "title": "constant"
+              },
+              {
+                "$ref": "bc-ramp.json",
+                "title": "ramp"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
