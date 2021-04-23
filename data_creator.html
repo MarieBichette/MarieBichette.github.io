@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@json-editor/json-editor@latest/dist/jsoneditor.min.js"></script>
   </head>
   <body>
-    <h1>Basic JSON Editor Example</h1>
+    <h1>JSON Data Editor</h1>
 
     <div id='editor_holder'></div>
     <button id='submit'>Submit (console.log)</button>
@@ -20,8 +20,8 @@
         // The schema for the editor
         schema: {
           $ref: "./xvof_types/complete-schema.json",
-          title: "Test",
-          
+          title: "Test"
+        }
       });
 
       // Hook up the submit button to log to the console
