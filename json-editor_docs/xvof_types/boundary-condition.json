@@ -5,8 +5,9 @@
       "type": "object",
       "description": "Condition limite sur le bord gauche",
       "properties": {
-        "toto": {
-          "type": "string"
+        "type": {
+          "type": "string",
+          "enum": ["red", "blue", "yellow"]
         }
       }
     }
