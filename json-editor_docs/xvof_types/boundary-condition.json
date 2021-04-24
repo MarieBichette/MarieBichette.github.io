@@ -3,7 +3,6 @@
   "properties": {
     "left-boundary": {
       "type": "object",
-      "description": "Condition limite sur le bord gauche",
       "properties": {
         "bc-type": {
           "type": "string",
