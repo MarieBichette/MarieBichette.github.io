@@ -13,29 +13,7 @@
           "type": "string",
           "enum": ["constant", "ramp"]
         }
-      },
-      "oneOf": [
-      "if": {
-        "properties": { "bc-law": { "const": "constant" } }
-      },
-      "then": {
-        "properties": { 
-          "value": {
-            "type": "number"
-          }
-        }  
-      },
-      "if": {
-        "properties": { "bc-law": { "const": "ramp" } }
-      },
-      "then": {
-        "properties": { 
-          "value2": {
-            "type": "number"
-          }
-        }
-      }
-      ]      
+      }    
     }
   }
 }
