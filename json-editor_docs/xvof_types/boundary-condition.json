@@ -2,8 +2,7 @@
   "type": "object",
   "properties": {
     "left-boundary": {
-      "type": "object",
-      
+      "type": "object",    
         
         "anyOf": [
         {
@@ -13,7 +12,7 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "bc-law": {"type": "string", "const": "constant"},
+            "bc-law": {"const": "constant"},
             "value": {
               "type": "number"
             }
@@ -27,7 +26,7 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "bc-law": {"type": "string", "const": "ramp"},
+            "bc-law": {"const": "ramp"},
             "value2": {
               "type": "number"
             }
@@ -41,7 +40,7 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "bc-law": {"type": "string", "const": "twostep"},
+            "bc-law": {"const": "twostep"},
             "value": {
               "type": "number"
             }
