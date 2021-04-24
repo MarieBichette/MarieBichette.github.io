@@ -3,32 +3,41 @@
   "properties": {
     "left-boundary": {
       "type": "object",
-      "properties": {
-        "bc-type": {
-          "type": "string",
-          "enum": ["pressure", "velocity"]
-        },
+      
+        
         "oneOf": [
         {
           "properties": {
+            "bc-type": {
+              "type": "string",
+              "enum": ["pressure", "velocity"]
+            },
             "one": {"const": "constant"},
             "value": "0"
           }
         },
         {
           "properties": {
+            "bc-type": {
+              "type": "string",
+              "enum": ["pressure", "velocity"]
+            },
             "one": {"const": "ramp"},
             "value2": "3"
           }
         },
         {
           "properties": {
+            "bc-type": {
+              "type": "string",
+              "enum": ["pressure", "velocity"]
+            },
             "one": {"const": "twostep"},
             "value": "4"
           }
         }
         ]
       }    
-    }
+    
   }
 }
