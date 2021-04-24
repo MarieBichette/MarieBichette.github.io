@@ -14,7 +14,7 @@
       "description": "Données relatives aux matériaux"
     },
     "boundary-conditions": {
-      "$ref": "boundary-condition.json" 
+      "type": "string" 
     },
     "numeric-parameters": {
       "$ref": "numeric-parameters.json" 
