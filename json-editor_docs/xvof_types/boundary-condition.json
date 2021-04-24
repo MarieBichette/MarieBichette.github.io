@@ -5,7 +5,7 @@
       "type": "object",
       
         
-        "oneOf": [
+        "anyOf": [
         {
           "title": "Constant",
           "properties": {
