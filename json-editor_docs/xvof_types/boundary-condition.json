@@ -8,10 +8,26 @@
           "type": "string",
           "enum": ["pressure", "velocity"]
         },
-        "bc-law": {
-          "type": "string",
-          "enum": ["constant", "ramp"]
+        "oneOf": [
+        {
+          "properties": {
+            "one": {"const": "constant"},
+            "value": "0"
+          }
+        },
+        {
+          "properties": {
+            "one": {"const": "ramp"},
+            "value2": "3"
+          }
+        },
+        {
+          "properties": {
+            "one": {"const": "twostep"},
+            "value": "4"
+          }
         }
+        ]
       }    
     }
   }
