@@ -13,8 +13,11 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "one": {"const": "constant"},
-            "value": "0"
+            "bc-law": {"const": "constant"},
+            "value": {
+              "type": "number"
+            },
+            "additionalProperties":false
           }
         },
         {
@@ -24,8 +27,11 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "one": {"const": "ramp"},
-            "value2": "3"
+            "bc-law": {"const": "ramp"},
+            "value2": {
+              "type": "number"
+            },
+            "additionalProperties":false
           }
         },
         {
@@ -35,8 +41,11 @@
               "type": "string",
               "enum": ["pressure", "velocity"]
             },
-            "one": {"const": "twostep"},
-            "value": "4"
+            "bc-law": {"const": "twostep"},
+            "value": {
+              "type": "number"
+            },
+            "additionalProperties":false
           }
         }
       ]
