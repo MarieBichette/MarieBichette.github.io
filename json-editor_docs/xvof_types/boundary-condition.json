@@ -17,7 +17,8 @@
             "value": {
               "type": "number"
             }
-          }
+          },
+          "additionalProperties":false
         },
         {
           "title": "Ramp",
@@ -30,7 +31,8 @@
             "value2": {
               "type": "number"
             }
-          }
+          },
+          "additionalProperties":false
         },
         {
           "title": "TwoStep",
@@ -43,7 +45,8 @@
             "value": {
               "type": "number"
             }
-          }
+          },
+          "additionalProperties":false
         }
       ]
     }    
