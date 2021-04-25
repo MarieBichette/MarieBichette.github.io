@@ -15,6 +15,10 @@
         {
           "title": "Ramp",
           "$ref": "bc-ramp.json"
+        },
+        {
+          "title": "CreneauRamp",
+          "$ref": "bc-creneau-ramp.json"
         }
       ]
     }    
