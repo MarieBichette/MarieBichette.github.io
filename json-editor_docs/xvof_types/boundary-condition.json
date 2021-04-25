@@ -18,7 +18,7 @@
         },
         {
           "title": "CreneauRamp",
-          "$ref": "bc-creaneau-ramp.json"
+          "$ref": "bc-creneau-ramp.json"
         },
         {
           "title": "MarchTable",
