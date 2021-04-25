@@ -23,5 +23,5 @@
       "description": "Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2)"
     }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
