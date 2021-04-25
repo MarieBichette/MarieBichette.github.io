@@ -1,7 +1,7 @@
 {
   "$ref": "bc-base.json",
   "properties": {
-    "bc-law": {"type": "string", "default": "marchtable"}
+    "bc-law": {"type": "string", "default": "marchtable"},
     "value": {
       "type": "string",
       "description": "Fichier décrivant les couples temps/valeurs à imposer pour les conditions limites"
