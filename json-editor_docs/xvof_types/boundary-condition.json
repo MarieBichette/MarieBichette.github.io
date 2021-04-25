@@ -7,15 +7,7 @@
         "anyOf": [
         {
           "title": "Constant",
-          "properties": {
-            "bc-type": {
-              "type": "string",
-              "enum": ["pressure", "velocity"]
-            },
-            "bc-law": {"type": "string", "default": "constant"},
-            "$ref": "bc-constant.json"
-          },
-          "additionalProperties":false
+          "$ref": "bc-constant.json"
         },
         {
           "title": "Ramp",
