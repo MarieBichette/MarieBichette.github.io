@@ -13,9 +13,7 @@
               "enum": ["pressure", "velocity"]
             },
             "bc-law": {"type": "string", "default": "constant"},
-            "value": {
-              "type": "number"
-            }
+            "$ref": "bc-constant.json"
           },
           "additionalProperties":false
         },
