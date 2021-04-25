@@ -7,7 +7,11 @@
         {
           "title": "Constant",
           "$ref": "bc-constant.json"
-        }
+        },
+        {
+          "title": "TwoStep",
+          "$ref": "bc-two-step.json"
+        } 
       ]
     }    
   }
