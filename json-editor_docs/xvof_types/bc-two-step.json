@@ -1,7 +1,7 @@
 {
   "$ref": "bc-base.json",
   "properties": {
-    "bc-law": {"type": "string", "default": "twostep",
+    "bc-law": {"type": "string", "default": "twostep"},
     "value1": {
       "type": "number",
       "description": "Valeur à imposer pour la première valeur de la condition limite"
