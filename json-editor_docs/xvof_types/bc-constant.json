@@ -1,5 +1,7 @@
 {
   "$ref": "bc-base.json",
+  "properties": 
+  {
     "bc-law": {"type": "string", "default": "constant"},
     "value": {
       "type": "number",
