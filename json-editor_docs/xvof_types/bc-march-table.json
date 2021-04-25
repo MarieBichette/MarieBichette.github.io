@@ -1,7 +1,10 @@
 {
   "$ref": "bc-base.json",
   "properties": {
-    "bc-law": {"type": "string", "default": "marchtable"},
+    "bc-law": {
+      "type": "string", 
+      "default": "marchtable"
+    },
     "value": {
       "type": "string"
     }
