@@ -3,33 +3,26 @@
   "properties": {
     "bc-law":  {"type": "string", "default": "creneau-ramp"},
     "initial-value": {
-      "type": "number",
-      "description": "Valeur initiale à imposer pour la condition limite"
+      "type": "number"
     },
     "plateau-value": {
-      "type": "number",
-      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+      "type": "number"
     },
     "start-first-ramp-time": {
-      "type": "number",
-      "description": "Temps début transition vers plateau-value"
+      "type": "number"
     },
     "reach-value2-time": {
-      "type": "number",
-      "description": "Temps d'arrivée à la valeur plateau-value"
+      "type": "number"
     },
     "end-value": {
-      "type": "number",
-      "description": "Valeur finale à imposer pour la condition limite"
+      "type": "number"
     },
     "start-second-ramp-time": {
-      "type": "number",
-      "description": "Temps début transition vers end-value"
+      "type": "number"
     },
     "reach-value3-time": {
-      "type": "number",
-      "description": "Temps d'arrivée à la valeur end-value"
+      "type": "number"
     }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
