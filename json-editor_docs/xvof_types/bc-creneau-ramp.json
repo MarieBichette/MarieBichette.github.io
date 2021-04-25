@@ -1,6 +1,7 @@
 {
-  "type": "object",
+  "$ref": "bc-base.json",
   "properties": {
+    "bc-law":  {"type": "string", "default": "creaneau-ramp"},
     "initial-value": {
       "type": "number",
       "description": "Valeur initiale à imposer pour la condition limite"
@@ -29,5 +30,6 @@
       "type": "number",
       "description": "Temps d'arrivée à la valeur end-value"
     }
-  }
+  },
+  "additionalProperties":false
 }
