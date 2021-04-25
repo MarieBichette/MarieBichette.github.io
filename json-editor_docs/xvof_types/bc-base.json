@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "bc-type": {
+       "type": "string",
+       "enum": ["pressure", "velocity"]
+     }
+  }
+}
