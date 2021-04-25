@@ -9,7 +9,7 @@
     "value": {
       "type": "number",
       "description": "Valeur à imposer pour la condition limite"
-    }
+    },
     "value1": {
       "type": "number",
       "description": "Valeur à imposer pour la première valeur de la condition limite"
