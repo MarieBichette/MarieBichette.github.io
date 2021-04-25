@@ -1,10 +1,6 @@
 {
-  "type": "object",
+  "$ref": "bc-ramp.json"
   "properties": {
-    "bc-type": {
-       "type": "string",
-       "enum": ["pressure", "velocity"]
-     },
     "bc-law": {"type": "string", "default": "ramp"},
     "value": {
       "type": "number",
