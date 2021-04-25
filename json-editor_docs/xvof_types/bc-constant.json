@@ -1,10 +1,5 @@
 {
-  "type": "object",
-  "properties": {
-    "bc-type": {
-       "type": "string",
-       "enum": ["pressure", "velocity"]
-     },
+  "$ref": "bc-base.json",
     "bc-law": {"type": "string", "default": "constant"},
     "value": {
       "type": "number",
