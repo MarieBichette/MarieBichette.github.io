@@ -1,5 +1,5 @@
 {
-  "$ref": "bc-ramp.json",
+  "$ref": "bc-base.json",
   "properties": {
     "bc-law": {"type": "string", "default": "ramp"},
     "value": {
