@@ -11,7 +11,11 @@
         {
           "title": "TwoStep",
           "$ref": "bc-two-step.json"
-        } 
+        },
+        {
+          "title": "Ramp",
+          "$ref": "bc-ramp.json"
+        }
       ]
     }    
   }
