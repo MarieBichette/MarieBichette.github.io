@@ -1,9 +1,15 @@
 {
   "type": "object",
   "properties": {
+    "bc-type": {
+       "type": "string",
+       "enum": ["pressure", "velocity"]
+     },
+    "bc-law": {"type": "string", "default": "constant"},
     "value": {
       "type": "number",
       "description": "Valeur à imposer pour la condition limite"
     }
-  }
+  },
+  "additionalProperties":false
 }
