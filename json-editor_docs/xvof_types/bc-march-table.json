@@ -7,5 +7,5 @@
       "description": "Fichier décrivant les couples temps/valeurs à imposer pour les conditions limites"
     }
   },
-  "additionalProperties":false
+  "additionalProperties": false
 }
