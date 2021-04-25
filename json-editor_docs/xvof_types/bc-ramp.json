@@ -1,6 +1,15 @@
 {
   "type": "object",
   "properties": {
+    "bc-type": {
+       "type": "string",
+       "enum": ["pressure", "velocity"]
+     },
+    "bc-law": {"type": "string", "default": "ramp"},
+    "value": {
+      "type": "number",
+      "description": "Valeur à imposer pour la condition limite"
+    }
     "value1": {
       "type": "number",
       "description": "Valeur à imposer pour la première valeur de la condition limite"
@@ -17,5 +26,6 @@
       "type": "number",
       "description": "Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2)"
     }
-  }
+  },
+  "additionalProperties":false
 }
