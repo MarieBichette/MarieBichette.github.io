@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "anyOf": [
+   {
+    "title": "MinimumPressure",
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string", 
+        "default": "MinimumPressure"
+      },
+      "value": {
+        "type": "number"
+      }
+    }
+  },
+  {
+    "title": "TwoStep",
+    "$ref": "bc-two-step.json"
+  },
+  {
+    "title": "Ramp",
+    "$ref": "bc-ramp.json"
+  },
+  {
+    "title": "CreneauRamp",
+    "$ref": "bc-creneau-ramp.json"
+   },
+   {
+     "title": "MarchTable",
+     "$ref": "bc-march-table.json"
+   }
+ ]
+      
+      
+      
+    }
+  },
+  "additionalProperties":false
+}
