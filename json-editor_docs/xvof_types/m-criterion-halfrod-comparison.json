@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string", 
+      "default": "HalfRodComparison"
+    },
+    "value": {
+      "type": "number"
+    },
+    "index": {
+      "type": "number"
+    }
+  }
+}
