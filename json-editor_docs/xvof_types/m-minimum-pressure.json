@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string", 
+      "default": "MinimumPressure"
+    },
+    "value": {
+      "type": "number"
+    }
+  }
+}
