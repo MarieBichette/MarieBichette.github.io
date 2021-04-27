@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string", 
+      "default": "JohnsonModel"
+    },
+    "coefficients": {
+      "type": "object",
+      "properties": {
+        "initial-porosity": {
+          "type": "number"
+        },
+        "effective-strength": {
+          "type": "number"
+        },
+        "viscosity": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  "additionalProperties":false
+}
