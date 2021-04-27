@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "coefficients": {
+      "type": "string"
+    },
+    "elasticity-model": {
+      "type": "string",
+      "default": "Linear"
+    },
+    "plasticity-model": {
+      "type": "string",
+      "default": "EPP" 
+    },
+    "plasticity-criterion": {
+      "type": "string",
+      "default": "VonMises" 
+    }
+  },
+  "additionalProperties":false
+}
