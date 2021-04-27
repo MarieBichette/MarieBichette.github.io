@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "final-time": {
+      "type": "number",
+      "description": "Temps final du calcul"
+    },
+    "initial-time_step": {
+      "type": "number",
+      "description": "Pas de temps initial du calcul"
+    },
+    "constant-time-step": {
+      "type": "string",
+      "enum": [
+        "true",
+        "false"
+      ],
+      "description": "Impose ou non un pas de temps constant"
+    },
+    "time-step-reduction-factor-for-failure": {
+      "type": "number",
+      "description": "Facteur permettant de diciser le pas de temps après la rupture afin de stabiiser le calcul pour la gestion du contact"
+    }
+  }
+}

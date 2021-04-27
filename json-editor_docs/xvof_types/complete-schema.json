@@ -3,8 +3,7 @@
   "type": "object",
   "properties": {
     "time-management": {
-      "type": "string",
-      "description": "Données relatives au pas de temps"
+      "$ref": "time-management.json"      
     },
     "geometry": {
       "$ref": "geometry.json"
