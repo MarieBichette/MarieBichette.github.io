@@ -3,6 +3,9 @@
   "properties": {
     "left-boundary": {
       "$ref": "bc-generic.json"
-    }    
+    },
+    "right-boundary": {
+      "$ref": "bc-generic.json"
+    }
   }
 }
