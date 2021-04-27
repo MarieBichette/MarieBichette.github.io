@@ -1,5 +1,6 @@
-"type": "object",    
-"anyOf": [
+{
+  "type": "object",    
+  "anyOf": [
   {
     "title": "Constant",
     "$ref": "bc-constant.json"
@@ -21,3 +22,4 @@
      "$ref": "bc-march-table.json"
    }
  ]
+}
