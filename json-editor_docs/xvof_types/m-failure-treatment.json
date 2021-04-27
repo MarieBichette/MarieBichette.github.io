@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "anyOf": [
+   {
+     "title": "ImposedPressure",
+     "$ref": "m-imposed-pressure.json"
+   },
+   {
+     "title": "Enrichment",
+     "$ref": "m-enrichment.json"
+   }
+  ]
+}

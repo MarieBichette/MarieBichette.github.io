@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "properties": {
+    "initial-velocity": {
+      "type": "number", 
+      "default": "0."
+    },
+    "init-thermo": {
+      "type": "string"
+    }
+  },
+  "additionalProperties":false
+}

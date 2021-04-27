@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string", 
+      "default": "Enrichment"
+    },
+    "lump-mass-matrix": {
+      "type": "string",
+      "enum": ["somme", "menouillard"]
+    },
+    "value": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}
