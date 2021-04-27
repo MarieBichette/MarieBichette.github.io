@@ -19,7 +19,7 @@
     },
     "time-step-reduction-factor-for-failure": {
       "type": "number",
-      "description": "Facteur permettant de diciser le pas de temps après la rupture afin de stabiiser le calcul pour la gestion du contact"
+      "description": "Facteur permettant de diviser le pas de temps après la rupture"
     }
   }
 }
