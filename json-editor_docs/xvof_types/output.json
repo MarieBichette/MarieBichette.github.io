@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "number-of-images": {
+      "description": "Nombre d'images dans la simulation",
+      "type": "integer"    
+    },
+    "database": {
+      "$ref": "o-database.json"
+    },
+    "variables": {
+      "$ref": "o-variables.json"
+    }
+  },
+  "additionalProperties":false
+}

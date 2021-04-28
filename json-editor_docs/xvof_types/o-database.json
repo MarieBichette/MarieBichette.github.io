@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "path": {
+      "description":"Nom du fichier de sortie",
+      "type": "string"
+    },
+    "anyOf": [
+      {
+        "iteration-period": {
+          "description":"Nombre de périodes",
+          "type": "integer"
+        }
+      },
+      {
+        "time-period": {
+          "description":"Durée entre deux sorties",
+          "type": "real"
+        }
+      }
+    ]
+  },
+  "additionalProperties":false
+}
