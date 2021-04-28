@@ -1,0 +1,11 @@
+{
+  "$ref": "o-database.json",
+  "properties":{
+    "time-period": {
+      "type": "integer",
+      "description":"Durée entre deux sorties"
+    }
+  },
+  "additionalProperties":false
+}
+

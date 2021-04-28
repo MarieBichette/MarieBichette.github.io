@@ -1,0 +1,11 @@
+{
+  "$ref": "o-database.json",
+  "properties":{
+    "iteration-period": {
+      "type": "integer",
+      "description":"Nombre de périodes"
+    }
+  },
+  "additionalProperties":false
+}
+

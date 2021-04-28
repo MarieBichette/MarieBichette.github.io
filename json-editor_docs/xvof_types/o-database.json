@@ -8,21 +8,11 @@
     "anyOf": [
       {
         "title":"iteration-period",
-        "properties":{
-          "iteration-period": {
-            "type": "integer",
-            "description":"Nombre de périodes"
-          }
-        }
+        "$ref":"o-iteration-period.json"
       },
       {
-        "title":"iteration-period",
-        "properties":{
-          "time-period": {
-            "type": "real",
-            "description":"Nombre de périodes"
-          }
-        }
+        "title":"time-period",
+        "$ref":"o-time-period.json"
       }
     ]
   },
