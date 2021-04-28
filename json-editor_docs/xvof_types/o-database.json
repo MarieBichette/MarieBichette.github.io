@@ -2,20 +2,20 @@
   "type": "object",
   "properties": {
     "path": {
-      "description":"Nom du fichier de sortie",
-      "type": "string"
+      "type": "string",
+      "description":"Nom du fichier de sortie"
     },
     "anyOf": [
       {
         "iteration-period": {
-          "description":"Nombre de périodes",
-          "type": "integer"
+          "type": "integer",
+          "description":"Nombre de périodes"
         }
       },
       {
         "time-period": {
-          "description":"Durée entre deux sorties",
-          "type": "real"
+          "type": "real",
+          "description":"Nombre de périodes"
         }
       }
     ]
