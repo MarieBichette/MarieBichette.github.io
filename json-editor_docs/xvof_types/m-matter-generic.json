@@ -1,5 +1,5 @@
 {
-  "type": "object";
+  "type": "object",
   "properties": {
     "initialization": {
       "$ref": "m-initialization.json"
