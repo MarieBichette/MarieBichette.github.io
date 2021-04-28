@@ -5,16 +5,6 @@
       "type": "string",
       "description":"Nom du fichier de sortie"
     },
-    "anyOf": [
-      {
-        "title":"iteration-period",
-        "$ref":"o-iteration-period.json"
-      },
-      {
-        "title":"time-period",
-        "$ref":"o-time-period.json"
-      }
-    ]
   },
   "additionalProperties":false
 }
