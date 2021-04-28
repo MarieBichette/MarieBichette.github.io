@@ -1,13 +1,20 @@
 {
   "type": "object",
-  "anyOf": [
-  {
-    "title": "Constant",
-    "$ref": "bc-constant.json"
+  "properties": {
+    "path": {
+      "type": "string",
+      "description":"Nom du fichier de sortie"
+    },
+    "anyOf": [
+      {
+        "title":"iteration-period",
+        "$ref":"o-iteration-period.json"
+      },
+      {
+        "title":"time-period",
+        "$ref":"o-time-period.json"
+      }
+    ]
   },
-  {
-    "title": "TwoStep",
-    "$ref": "bc-two-step.json"
-  },
-  ]
+  "additionalProperties":false
 }
