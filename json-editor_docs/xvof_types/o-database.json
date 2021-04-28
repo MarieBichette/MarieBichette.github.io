@@ -7,15 +7,21 @@
     },
     "anyOf": [
       {
-        "iteration-period": {
-          "type": "integer",
-          "description":"Nombre de périodes"
+        "title":"iteration-period",
+        "properties":{
+          "iteration-period": {
+            "type": "integer",
+            "description":"Nombre de périodes"
+          }
         }
       },
       {
-        "time-period": {
-          "type": "real",
-          "description":"Nombre de périodes"
+        "title":"iteration-period",
+        "properties":{
+          "time-period": {
+            "type": "real",
+            "description":"Nombre de périodes"
+          }
         }
       }
     ]
