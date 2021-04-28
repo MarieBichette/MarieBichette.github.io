@@ -18,8 +18,7 @@
       "$ref": "numeric-parameters.json" 
     },
     "output": {
-      "type": "string",
-      "description": "Données relatives aux sorties"
+      "$ref": "output.json" 
     }
   }
 }

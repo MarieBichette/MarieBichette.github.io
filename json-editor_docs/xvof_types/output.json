@@ -7,9 +7,6 @@
     },
     "database": {
       "$ref": "o-database.json"
-    },
-    "variables": {
-      "$ref": "o-variables.json"
     }
   },
   "additionalProperties":false
