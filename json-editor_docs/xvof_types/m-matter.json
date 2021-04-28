@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "anyOf": [
+    {
+      "title": "Matter simple",
+      "$ref": "m-matter-generic.json"
+    },
+    {
+      "title": "Projectile + Cible",
+      "properties": {
+        "projectile": {
+          "$ref": "m-matter-generic.json"
+        },
+        "target": {
+          "$ref": "m-matter-generic.json"
+        }
+      }
+    }
+  ]
+}
