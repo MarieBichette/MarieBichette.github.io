@@ -1,13 +1,13 @@
 {
   "type": "object",
   "anyOf": [
-    {
-      "title":"iteration-period",
-      "$ref":"o-iteration-period.json"
-    },
-    {
-      "title":"time-period",
-      "$ref":"o-time-period.json"
-    }
+  {
+    "title": "Constant",
+    "$ref": "bc-constant.json"
+  },
+  {
+    "title": "TwoStep",
+    "$ref": "bc-two-step.json"
+  },
   ]
 }
