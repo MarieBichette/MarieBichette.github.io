@@ -13,7 +13,8 @@
         "target": {
           "$ref": "m-matter-generic.json"
         }
-      }
+      },
+      "additionalProperties":false
     }
   ]
 }
