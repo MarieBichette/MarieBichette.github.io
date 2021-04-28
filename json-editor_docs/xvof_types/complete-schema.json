@@ -9,8 +9,7 @@
       "$ref": "geometry.json"
     },
     "matter": {
-      "type": "string",
-      "description": "Données relatives aux matériaux"
+      "$ref": "m-matter.json"
     },
     "boundary-conditions": {
       "$ref": "boundary-condition.json"
