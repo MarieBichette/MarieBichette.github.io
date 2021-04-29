@@ -1,0 +1,29 @@
+{
+  "anyOf": [
+    {
+      "title": "Correction cinétique",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "LagrangianMultiplier"
+        }
+      },
+      "additionalProperties":false
+    },
+    {
+      "title": "Pénalisation",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "Penalty"
+        },
+        "penalty-stiffness": {
+          "type": "number"
+        }
+      },
+      "additionalProperties":false
+    }
+  ]
+}
