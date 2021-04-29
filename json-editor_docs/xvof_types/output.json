@@ -7,6 +7,35 @@
     },
     "database": {
       "$ref": "o-database.json"
+    },
+    "variables": {
+      "$ref": "o-variables.json"
+    }
+  },
+  "properties": {
+    "variables": {
+      "description": "Nom des variables de sorties",
+      "type": "string",
+      "enum": [
+        "All",
+        "ArtificialViscosity",
+        "CellSize",
+        "CohesiveForce",
+        "Density",
+        "DeviatoricStress",
+        "DiscontinuityOpening",
+        "EquivalentPlasticStrainRate",
+        "InternalEnergy",
+        "NodeVelocity",
+        "NodeCoordinates",
+        "PlasticStrainRate",
+        "Porosity",
+        "Pressure",
+        "ShearModulus",
+        "SoundVelocity",
+        "Stress",
+        "YieldStress"
+      ]
     }
   },
   "additionalProperties":false
