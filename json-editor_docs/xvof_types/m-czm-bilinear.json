@@ -21,7 +21,10 @@
           "type": "number"
         }
       }
+    },
+    "unloading-model": {
+      "$ref": "m-czm-unloading.json"
     }
   },
-    "additionalProperties":false
+  "additionalProperties":false
 }
