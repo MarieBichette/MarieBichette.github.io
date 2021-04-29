@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "number-of-images": {
-      "$ref": "o-number-images.json"
+    "database": {
+      "$ref": "o-database.json"
     }
   },
   "additionalProperties":false

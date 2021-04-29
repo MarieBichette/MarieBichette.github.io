@@ -4,7 +4,7 @@
     "path": {
       "type": "string",
       "description":"Nom du fichier de sortie"
-    },
+    }
   },
   "additionalProperties":false
 }
