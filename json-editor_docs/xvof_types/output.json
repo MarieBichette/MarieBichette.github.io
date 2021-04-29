@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "number-of-images": {
-      "$ref": "m-equation-of-state.json"
+      "$ref": "o-number-images.json"
     }
   },
   "additionalProperties":false
