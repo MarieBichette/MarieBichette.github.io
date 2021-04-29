@@ -15,13 +15,13 @@
           "type": "number"
         },
         "separation-at-point-1": {
-          "type": "number
+          "type": "number"
         },
         "stress-at-point-1": {
-          "type": "number
+          "type": "number"
         }
       }
-    },
+    }
+  },
     "additionalProperties":false
-  }
 }
