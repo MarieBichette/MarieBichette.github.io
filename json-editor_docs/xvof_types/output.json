@@ -1,12 +1,13 @@
 {
   "type": "object",
   "properties": {
-    "database": {
-      "$ref": "o-database.json"
-    },
     "number-of-images":{
       "type": "integer",
       "description": "Nombre d'images dans la simulation"
+    },
+    "database": {
+      "$ref": "o-database.json"
     }
-  }
+  },
+  "additionalProperties":false
 }
