@@ -9,11 +9,6 @@
       "$ref": "o-database.json"
     },
     "variables": {
-      "$ref": "o-variables.json"
-    }
-  },
-  "properties": {
-    "variables": {
       "description": "Nom des variables de sorties",
       "type": "string",
       "enum": [
