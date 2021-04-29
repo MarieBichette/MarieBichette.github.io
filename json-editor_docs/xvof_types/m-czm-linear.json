@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": "Linear"
+    },
+    "coefficients": {
+      "type": "object",
+      "properties": {
+        "cohesive-strength": {
+          "type": "number"
+        },
+        "critical-separation": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
