@@ -3,7 +3,7 @@
   "properties": {
     "number-of-images": {
       "$ref": "o-number-images.json"         
-    },
+    }
   },
   "additionalProperties":false
 }
