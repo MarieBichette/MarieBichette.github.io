@@ -6,9 +6,6 @@
     },
     "equation-of-state": {
       "$ref": "m-equation-of-state.json"
-    },
-    "rheology": {
-      "$ref": "m-rheology.json"
     }
   },
   "additionalProperties":false
