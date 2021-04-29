@@ -9,7 +9,6 @@
       "$ref": "o-database.json"
     },
     "variables": {
-      "description": "Nom des variables de sorties",
       "type": "string",
       "enum": [
         "All",
