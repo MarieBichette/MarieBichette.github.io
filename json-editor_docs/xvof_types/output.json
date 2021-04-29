@@ -2,12 +2,12 @@
   "type": "object",
   "properties": {
     "number-of-images": {
-      "description": "Nombre d'images dans la simulation",
-      "type": "integer"    
+      "type": "integer",
+      "description": "Nombre d'images dans la simulation"    
     },
     "database": {
-      "$ref": "o-database.json"
-    }
+      "$ref":"o-database.json"
+    },
   },
   "additionalProperties":false
 }
