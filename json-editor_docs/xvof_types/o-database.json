@@ -15,6 +15,5 @@
       "title": "Duree entre interations",
       "$ref": "o-time-period.json"
     }
-  ],
-  "additionalProperties":false
+  ]
 }
