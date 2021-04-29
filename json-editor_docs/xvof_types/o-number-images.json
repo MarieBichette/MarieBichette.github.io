@@ -1,8 +1,10 @@
- {
+{
   "type": "object",
   "properties": {
+    "number-of-images":{
       "type": "integer",
       "description": "Nombre d'images dans la simulation"
+    }  
   },
   "additionalProperties":false
 }
