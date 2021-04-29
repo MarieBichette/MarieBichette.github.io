@@ -1,7 +1,7 @@
 {
   "anyOf": [
     {
-      "title": "Matter simple",
+      "title": "Matériau unique",
       "$ref": "m-matter-generic.json"
     },
     {

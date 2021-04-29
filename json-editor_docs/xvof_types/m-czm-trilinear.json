@@ -1,0 +1,36 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "default": "Bilinear"
+    },
+    "coefficients": {
+      "type": "object",
+      "properties": {
+        "cohesive-strength": {
+          "type": "number"
+        },
+        "critical-separation": {
+          "type": "number"
+        },
+        "separation-at-point-1": {
+          "type": "number"
+        },
+        "stress-at-point-1": {
+          "type": "number"
+        },
+        "separation-at-point-2": {
+          "type": "number"
+        },
+        "stress-at-point-2": {
+          "type": "number"
+        }
+      }
+    },
+    "unloading-model": {
+      "$ref": "m-czm-unloading.json"
+    }
+  },
+  "additionalProperties":false
+}

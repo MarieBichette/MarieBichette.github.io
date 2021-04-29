@@ -1,0 +1,29 @@
+{
+  "anyOf": [
+    {
+      "title": "Décharge élastique",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "lossofstiffnessunloading"
+        }
+      },
+      "additionalProperties":false
+    },
+    {
+      "title": "Décharge plastique",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "default": "progessiveunloading"
+        },
+        "slope": {
+          "type": "number"
+        }
+      },
+      "additionalProperties":false
+    }
+  ]
+}
