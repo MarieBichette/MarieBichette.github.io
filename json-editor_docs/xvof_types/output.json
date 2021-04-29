@@ -1,9 +1,6 @@
 {
   "type": "object",
   "properties": {
-    "initialization": {
-      "$ref": "m-initialization.json"
-    },
     "equation-of-state": {
       "$ref": "m-equation-of-state.json"
     }
