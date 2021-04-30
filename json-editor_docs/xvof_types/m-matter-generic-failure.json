@@ -13,7 +13,7 @@
         },
         {
           "title": "Enrichissement + Modèle cohésif",
-          "$ref": "m-failure-enrichment.json"
+          "$ref": "m-failure-enrichment-czm.json"
         }
       ]
     }
