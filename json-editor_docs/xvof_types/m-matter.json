@@ -1,8 +1,8 @@
 {
   "anyOf": [
     {
-      "title": "Matériau unique",
-      "$ref": "m-matter-generic.json"
+      "title": "Matériau unique avec rupture",
+      "$ref": "m-matter-generic-failure.json"
     },
     {
       "title": "Projectile + Cible",
