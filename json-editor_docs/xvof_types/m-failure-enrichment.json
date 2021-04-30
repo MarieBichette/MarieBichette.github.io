@@ -6,6 +6,9 @@
     },
     "failure-treatment": {
       "$ref": "m-enrichment.json"
+    },
+    "contact-treatement": {
+      "$ref": "m-contact-treatment.json"
     }
   },
   "additionalProperties": false
