@@ -1,0 +1,22 @@
+{
+  "$ref": "m-failure-enrichment.json",
+  "properties": {
+    "cohesive-model": {
+      "anyOf": [
+          {
+            "title": "Loi linéaire",
+            "$ref": "m-czm-linear.json"
+          },
+          {
+            "title": "Loi bilinéaire",
+            "$ref": "m-czm-bilinear.json"
+          },
+          {
+            "title": "Loi trilinéaire",
+            "$ref": "m-czm-trilinear.json"
+          }
+        ]
+      }
+    }
+  }
+}
