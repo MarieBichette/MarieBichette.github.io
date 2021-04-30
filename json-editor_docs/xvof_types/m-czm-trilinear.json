@@ -3,7 +3,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "default": "Bilinear"
+      "default": "Trilinear"
     },
     "coefficients": {
       "type": "object",
