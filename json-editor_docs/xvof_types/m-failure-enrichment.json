@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "failure-criterion": {
+      "$ref": "m-failure-criterion.json"
+    },
+    "failure-treatment": {
+      "$ref": "m-enrichment.json"
+    }
+  },
+  "additionalProperties": false
+}
