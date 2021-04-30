@@ -2,27 +2,18 @@
   "$ref": "m-matter-generic.json",
   "properties": {
     "failure": {
-      "type": "object",
-      "properties": {
-        "porosity-model": {
-          "$ref": "m-porosity.json"
-        },
-        "failure-criterion": {
-          "$ref": "m-failure-criterion.json"
-        }
-      },
       "anyOf": [
         {
           "title": "Pression imposée",
-          "$ref": "m-imposed-pressure.json"
+          "$ref": "m-failure-imposed-pressure.json"
         },
         {
           "title": "Enrichissement",
-          "$ref": "m-enrichment.json"
+          "$ref": "m-failure-enrichment.json"
         },
         {
           "title": "Enrichissement + Modèle cohésif",
-          "$ref": "m-enrichment.json"
+          "$ref": "m-failure-enrichment.json"
         }
       ]
     }
