@@ -18,7 +18,9 @@
           "$ref": "m-matter-generic.json"
         }
       },
-      {
+      "additionalProperties":false
+    },
+    {
       "title": "Projectile + Cible avec rupture",
       "properties": {
         "projectile": {
