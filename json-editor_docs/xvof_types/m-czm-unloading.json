@@ -9,7 +9,7 @@
           "default": "lossofstiffnessunloading"
         }
       },
-      "additionalProperties":false
+      "additionalProperties": false
     },
     {
       "title": "Décharge plastique",
@@ -23,7 +23,7 @@
           "type": "number"
         }
       },
-      "additionalProperties":false
+      "additionalProperties": false
     }
   ]
 }
