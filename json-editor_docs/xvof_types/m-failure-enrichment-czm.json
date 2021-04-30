@@ -1,6 +1,15 @@
 {
-  "$ref": "m-failure-enrichment.json",
+  "type": "object",
   "properties": {
+    "failure-criterion": {
+      "$ref": "m-failure-criterion.json"
+    },
+    "failure-treatment": {
+      "$ref": "m-enrichment.json"
+    },
+    "contact-treatement": {
+      "$ref": "m-contact-treatment.json"
+    },
     "cohesive-model": {
       "anyOf": [
           {
