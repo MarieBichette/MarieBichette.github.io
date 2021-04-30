@@ -1,20 +1,12 @@
 {
   "type": "object",
   "properties": {
-    "failure-criterion": {
-      "$ref": "m-failure-criterion.json"
+    "name": {
+      "type": "string", 
+      "default": "ImposedPressure"
     },
-    "failure-treatment": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string", 
-          "default": "ImposedPressure"
-        },
-        "value": {
-          "type": "number"
-        }
-      }
+    "value": {
+      "type": "number"
     }
   },
   "additionalProperties": false
