@@ -6,7 +6,7 @@
       "description":"Nom du fichier de sortie"
     },
     "time-period": {
-      "type": "real",
+      "type": "number",
       "description":"Durée entre deux sorties"
     }
   },
