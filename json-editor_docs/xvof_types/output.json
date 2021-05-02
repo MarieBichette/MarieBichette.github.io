@@ -5,7 +5,7 @@
       "type": "integer",
       "description": "Nombre d'images dans la simulation"
     },
-    "database": {
+    "database2": {
       "$ref": "o-database.json"
     },
     "variables": {
