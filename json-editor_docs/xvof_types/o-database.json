@@ -1,15 +1,13 @@
 {
   "type": "object",
-  "properties": {
-    "anyOf": [
-      {
-        "title": "Nombre d'interations",
-        "$ref": "o-iteration-period.json"
-      },
-      {
-        "title": "Duree entre interations",
-        "$ref": "o-time-period.json"
-      }
-    ]
-  }
+  "anyOf": [
+  {
+    "title": "Nombre d'interations",
+    "$ref": "o-iteration-period.json"
+  },
+  {
+    "title": "Duree entre interations",
+    "$ref": "o-time-period.json"
+    }
+  ]
 }
