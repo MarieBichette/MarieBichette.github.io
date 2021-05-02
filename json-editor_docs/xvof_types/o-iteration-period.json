@@ -1,6 +1,10 @@
 {
   "type": "object",
   "properties":{
+    "path": {
+      "type": "string",
+      "description":"Nom du fichier de sortie"
+    },
     "iteration-period": {
       "type": "integer",
       "description":"Nombre de périodes"

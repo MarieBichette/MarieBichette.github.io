@@ -1,10 +1,6 @@
 {
   "type": "object",
   "properties": {
-    "path": {
-      "type": "string",
-      "description":"Nom du fichier de sortie"
-    },
     "anyOf": [
       {
         "title": "Nombre d'interations",

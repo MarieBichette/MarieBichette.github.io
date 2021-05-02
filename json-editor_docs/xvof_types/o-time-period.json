@@ -1,6 +1,10 @@
 {
   "type": "object",
   "properties":{
+    "path": {
+      "type": "string",
+      "description":"Nom du fichier de sortie"
+    },
     "time-period": {
       "type": "real",
       "description":"Durée entre deux sorties"
