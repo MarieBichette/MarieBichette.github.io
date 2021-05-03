@@ -39,18 +39,6 @@
         "options": {
         "collapsed": false
       }
-    },
-      "possibleFonts": {
-      "type": "array",
-      "format": "table",
-      "items": {
-        "type": "string",
-        "enum":  ["Arial", "Times", "Helvetica", "Comic Sans"]        
-          },
-      "default": ["Arial", "Times", "Helvetica", "Comic Sans"],
-        "options": {
-        "collapsed": false
-      }
     }
   },
   "additionalProperties":false
