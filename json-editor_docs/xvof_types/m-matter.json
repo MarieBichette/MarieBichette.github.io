@@ -19,7 +19,7 @@
           "$ref": "m-matter-generic.json"
         }
       },
-      "additionalProperties":false
+      "additionalProperties": false
     },
     {
       "title": "Projectile + Cible avec rupture",
@@ -32,7 +32,7 @@
           "$ref": "m-matter-generic.json"
         }
       },
-      "additionalProperties":false
+      "additionalProperties": false
     }
   ]
 }
