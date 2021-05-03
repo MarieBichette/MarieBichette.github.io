@@ -38,19 +38,6 @@
       },
       "default": "All"
     },
-    "selectedFonts2": {
-      "type": "array",
-      "format": "table",
-      "uniqueItems": true,
-      "items": {
-        "type": "string",
-        "enumSource": "possible_fonts",
-        "watch": {
-          "possible_fonts": "root.possibleFonts"
-               }
-             },
-          "default": ["Arial", "Times"]
-        },
       "possibleFonts": {
       "type": "array",
       "format": "table",
