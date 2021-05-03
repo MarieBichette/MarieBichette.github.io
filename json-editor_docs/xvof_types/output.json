@@ -38,11 +38,12 @@
       },
       "default": "All"
     },
-      "possibleFonts": {
+      "possibleFonts2": {
       "type": "array",
       "format": "table",
       "items": {
-        "type": "string"
+        "type": "string",
+        "enum":  ["Arial", "Times", "Helvetica", "Comic Sans"]        
           },
       "default": ["Arial", "Times", "Helvetica", "Comic Sans"],
         "options": {
