@@ -29,7 +29,7 @@
           "$ref": "m-matter-generic.json"
         },
         "target": {
-          "$ref": "m-matter-generic.json"
+          "$ref": "m-matter-generic-failure.json"
         }
       },
       "additionalProperties":false
