@@ -3,7 +3,7 @@
   "properties": {
     "name": {
       "type": "string", 
-      "default": "Enrichment"
+      "const": "Enrichment"
     },
     "lump-mass-matrix": {
       "type": "string",
