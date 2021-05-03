@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["selectedFonts", "possibleFonts"],
+  "required": ["possibleFonts"],
   "properties": {
     "number-of-images":{
       "type": "integer",
@@ -9,10 +9,9 @@
     "database": {
       "$ref": "o-database.json"
     },
-    "variables3": {
+    "variables": {
       "type": "array",
       "format": "table",
-      "uniqueItems": true,
       "items": {
         "type": "string",
         "enum": [
@@ -41,7 +40,7 @@
         "collapsed": false
       }
     },
-      "possibleFonts2": {
+      "possibleFonts": {
       "type": "array",
       "format": "table",
       "items": {
