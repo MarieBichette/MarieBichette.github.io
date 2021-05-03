@@ -5,31 +5,37 @@
       "type": "integer",
       "description": "Nombre d'images dans la simulation"
     },
-    "database3": {
+    "database": {
       "$ref": "o-database.json"
     },
-    "variables": {
-      "type": "string",
-      "enum": [
-        "All",
-        "ArtificialViscosity",
-        "CellSize",
-        "CohesiveForce",
-        "Density",
-        "DeviatoricStress",
-        "DiscontinuityOpening",
-        "EquivalentPlasticStrainRate",
-        "InternalEnergy",
-        "NodeVelocity",
-        "NodeCoordinates",
-        "PlasticStrainRate",
-        "Porosity",
-        "Pressure",
-        "ShearModulus",
-        "SoundVelocity",
-        "Stress",
-        "YieldStress"
-      ]
+    "variables2": {
+      "type": "array",
+      "format": "table",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "All",
+          "ArtificialViscosity",
+          "CellSize",
+          "CohesiveForce",
+          "Density",
+          "DeviatoricStress",
+          "DiscontinuityOpening",
+          "EquivalentPlasticStrainRate",
+          "InternalEnergy",
+          "NodeVelocity",
+          "NodeCoordinates",
+          "PlasticStrainRate",
+          "Porosity",
+          "Pressure",
+          "ShearModulus",
+          "SoundVelocity",
+          "Stress",
+          "YieldStress"
+        ]
+      },
+      "default": "All"
     }
   },
   "additionalProperties":false
