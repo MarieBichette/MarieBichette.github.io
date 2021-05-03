@@ -13,5 +13,5 @@
       "type": "number"
     }
   },
-  "additionalProperties": false
+  "additionalProperties":false
 }
