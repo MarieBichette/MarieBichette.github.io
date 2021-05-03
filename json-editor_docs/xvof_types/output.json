@@ -1,5 +1,6 @@
 {
   "type": "object",
+  "required": ["selectedFonts", "possibleFonts"],
   "properties": {
     "number-of-images":{
       "type": "integer",
@@ -37,7 +38,7 @@
       },
       "default": "All"
     },
-    "selectedFonts": {
+    "selectedFonts2": {
       "type": "array",
       "format": "table",
       "uniqueItems": true,
