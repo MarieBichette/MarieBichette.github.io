@@ -10,5 +10,6 @@
     "rheology": {
       "$ref": "m-rheology.json"
     }
-  }
+  },
+  "additionalProperties": false
 }
