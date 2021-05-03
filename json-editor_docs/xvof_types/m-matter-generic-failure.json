@@ -1,6 +1,15 @@
 {
-  "$ref": "m-matter-generic.json",
+  "type": "object",
   "properties": {
+    "initialization": {
+      "$ref": "m-initialization.json"
+    },
+    "equation-of-state": {
+      "$ref": "m-equation-of-state.json"
+    },
+    "rheology": {
+      "$ref": "m-rheology.json"
+    },
     "failure": {
       "anyOf": [
         {
