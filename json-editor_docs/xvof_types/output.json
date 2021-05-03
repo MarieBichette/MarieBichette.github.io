@@ -9,7 +9,7 @@
     "database": {
       "$ref": "o-database.json"
     },
-    "variables2": {
+    "variables3": {
       "type": "array",
       "format": "table",
       "uniqueItems": true,
@@ -36,7 +36,10 @@
           "YieldStress"
         ]
       },
-      "default": "All"
+      "default": ["All"],
+        "options": {
+        "collapsed": false
+      }
     },
       "possibleFonts2": {
       "type": "array",
