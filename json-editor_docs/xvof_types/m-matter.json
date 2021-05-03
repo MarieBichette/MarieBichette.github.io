@@ -10,6 +10,7 @@
     },
     {
       "title": "Projectile + Cible",
+      "type": "object",
       "properties": {
         "projectile": {
           "$ref": "m-matter-generic.json"
@@ -22,6 +23,7 @@
     },
     {
       "title": "Projectile + Cible avec rupture",
+      "type": "object",
       "properties": {
         "projectile": {
           "$ref": "m-matter-generic.json"
