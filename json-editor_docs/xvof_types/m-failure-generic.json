@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "anyOf": [
+  {
+    "title": "Nombre d'iterations",
+    "$ref": "o-iteration-period.json"
+  },
+  {
+    "title": "Duree entre iterations",
+    "$ref": "o-time-period.json"
+    }
+  ]
+}
