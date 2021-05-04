@@ -5,7 +5,7 @@
       "$ref": "m-matter-generic.json"
     },
     {
-      "title": "Matériau unique avec rupture",
+      "title": "Matériau unique avec rupture 1",
       "$ref": "m-matter-generic-failure.json"
     },
     {
