@@ -11,20 +11,7 @@
       "$ref": "m-rheology.json"
     },
     "failure": {
-      "anyOf": [
-        {
-          "title": "Pression imposée",
-          "$ref": "m-failure-imposed-pressure.json"
-        },
-        {
-          "title": "Enrichissement",
-          "$ref": "m-failure-enrichment.json"
-        },
-        {
-          "title": "Enrichissement + Modèle cohésif",
-          "$ref": "m-failure-enrichment-czm.json"
-        }
-      ]
+      "$ref": "m-failure-generic.json"
     }
   },
   "additionalProperties": false
