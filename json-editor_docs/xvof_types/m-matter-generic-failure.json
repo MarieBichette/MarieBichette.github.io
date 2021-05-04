@@ -11,7 +11,7 @@
       "$ref": "m-rheology.json"
     },
     "failure": {
-      "$ref": "m-failure-generic.json"
+      "$ref": "m-failure-criterion.json"
     }
   },
   "additionalProperties": false

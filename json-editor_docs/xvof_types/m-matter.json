@@ -6,7 +6,7 @@
     },
     {
       "title": "Matériau unique avec rupture",
-      "$ref": "m-matter-generic-failure.json"
+      "$ref": "m-matter-generic.json"
     },
     {
       "title": "Projectile + Cible",
