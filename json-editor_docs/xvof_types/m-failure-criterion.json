@@ -9,7 +9,12 @@
       "type": "number"
     },
     "index": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "dependencies": {
+          "name": "HalfRodComparison"
+        }
+      }
     }
   }
 }
