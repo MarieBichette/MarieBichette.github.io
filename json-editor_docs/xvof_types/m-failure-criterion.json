@@ -1,25 +1,15 @@
 {
   "type": "object",
-  "anyOf": [
-   {
-     "title": "MinimumPressure",
-     "$ref": "m-minimum-pressure.json"
-   },
-   {
-     "title": "MaximalStress",
-     "$ref": "m-criterion-maximal-stress.json"
-   },
-   {
-     "title": "HalRodComparison",
-     "$ref": "m-criterion-halfrod-comparison.json"
-   },
-   {
-     "title": "Damage",
-     "$ref": "m-criterion-damage.json"
+  "properties" {
+    "name": {
+      "type": "string",
+      "enum": ["MinimumPressure", "MaximalStress", "HalfRodComparison", "Porosity"]
     },
-    {
-      "title": "Porosity",
-      "$ref": "m-criterion-porosity.json"
+    "value": {
+      "type": "number"
+    },
+    "index": {
+      "type": "number"
     }
-  ]
+  }
 }
