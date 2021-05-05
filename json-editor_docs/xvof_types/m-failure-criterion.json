@@ -17,5 +17,5 @@
       }
     }
   }, 
-  "required": ["name", "value"]
+  "defaultProperties": ["name", "value"]
 }
