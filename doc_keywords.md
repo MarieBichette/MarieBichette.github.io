@@ -32,31 +32,130 @@ Type : Real
 Si plusieurs matériaux, on spécifie le comportement de chacun à l'intérieur de ces balises.
 Si un seul matériau, pas besoin de <projectile> ou <target>, on peut renseigner directement les propriétés du matériau sous la balise <matter>
 
-## initialisation
+### initialisation
 Données relatives à l'initialisation du matériau
 
-### initial-velocity
+#### initial-velocity
 Vitesse initiale du matériau (en m/s).
 Tye : Real
 
-### init-thermo
+#### init-thermo
 Chemin vers le fichier de données contenant les champs thermodynamiques initiaux (à t=0) de la matière.
 Ce fichier contient les pression, température, densité et énergie interne (massique) du matériau.
 Type : String
 
-## equation-of-state
+### equation-of-state
 Données relatives à l'équation d'état définissant le comportement volumique du matériau
 
-### name
+#### name
 Choix du type de l'équation d'état.
 Seule l'équation de Mie Gruneisen est possible pour le moment.
 Type : String
 ```
 <name>mie-gruneisen</name>
 ```
-### coefficients
+#### coefficients
 Chemin vers le fichier contenant les coefficients du matériau pour l'équation de Mie Grüneisen
 Type : String
+
+### rheology
+Données relatives à la loi de comportement définissant le comportement élasto-plastique du matériau
+
+#### coefficients
+Chemin vers le fichier contenant les propriétés d'élastoplasticité du matériau 
+Type : String
+
+#### elasticity-model
+Choix du type de loi d'élasticité
+Seul le modèle l'élasticité linéaire est possible pour le moment 
+Type : String
+```
+"elasticity-model": "linear"
+```
+
+#### plasticity-model
+Choix du type de loi de modèle de plasticité
+Seul le modèle de plasticité EPP (Elastique Parfaitemetn Plastique) est possible pour le moment 
+Type : String
+```
+"plasticity-model": "EPP"
+```
+
+#### plasticity-criterion
+Choix du critère de plasticité
+Seul le critère de plasticité de Von Mises est possible pour le moment 
+Type : String
+```
+"plasticity-criterion": "VonMises"
+```
+
+### failure
+Données relatives aux propriétés d'endommagement et de rupture du matériau
+
+#### porosity-model
+Données relatives aux modèles d'endommagement avec une évolution de porosité
+
+##### name
+Choix du modèle d'endommagement avec évolution de porosité. 
+Seul le modèle JohnsonModel est disponible pour le moment
+Type : String
+"name" : "JohnsonModel"
+
+##### coefficients
+Définition de l'ensemble des coefficients du modèle de Johnson
+
+###### initial-porosity
+Porosité initiale du modèle de Johnson
+Type : Real
+
+###### effective-strength
+Contrainte deffective du modèle de Johnson
+Type : Real
+
+###### viscosity
+Viscosité du modèle de Johnson
+Type : Real
+
+#### failure-criterion
+Choix du critère déclenchant le modèle de rupture
+
+##### name
+Nom du critère déclenchant le modèle de rupture
+Type : String
+Choix possibles : - "MinimumPressure"
+                  - "Damage"
+                  - "Porosity"
+                  - "HalfRodComparison"
+                  - "MaximalStress"
+Tous ces modèles attendent une valeur comme paramètre.
+
+##### value
+Valeur du seuil déclenchant la rupture
+Type : Real
+
+##### index               
+Index de la cellule où déclencher la rupture, une fois le seuil atteint
+Type : Integer
+
+#### failure-treatment
+Choix du modèle de rupture
+
+##### name
+Nom du modèle de rupture
+Type : String
+Choix possibles : "ImposedPressure" : on impose la pression à une valeur indiquée dans les mailles rompues ;   
+                                      Champ obligatoire : "value"
+                  "Enrichment" : on enrichit les mailles rompues ; Champ obligatoire : "lump-mass-matrix"
+
+##### lump-mass-matrix
+Choix de la condensation de la matrice de masse dans le cas d'un traitement de type Enrichment
+Type : String
+Choix possibles : - "somme"
+                  - "menouillard"
+                  
+##### value
+Valeur imposée dans la maille rompue
+Type : Real
 
 # boundary-conditions
 
@@ -113,7 +212,7 @@ Valeur du premier plateau pour la condition aux limites "creneauramp"
 Type : Real
 
 #### start-first-ramp-time
-Temps de début de la transition de la valeur initiale à la valeur finale
+Temps de début de la transition de la valeur initiale à la valeur finale  pour la condition aux limites "creneauramp"
 Type : Real
 
 #### reach-value2-time
@@ -129,7 +228,7 @@ Temps de la fin de la transition du plateau à la valeur finale pour la conditio
 Type : Real
 
 #### end-value
-Valeur du plateau final pour la condition aux limites "creneauramp"
+Valeur du plateau final pour la condition aux limites "creneauramp"  pour la condition aux limites "creneauramp"
 Type : Real
 
 # numeric-parameters
