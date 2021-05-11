@@ -14,8 +14,7 @@
       "enum": ["constant", "marchtable", "twostep", "ramp", "creneau-ramp"],
       "options": {
         "infoText": "Fonction du temps décrivant les valeurs à imposer",
-        "grid_columns": 4,
-        "grid_break": true
+        "grid_columns": 4
       }
     },
     
@@ -23,8 +22,7 @@
       "type": ["number", "string"],
       "options": {
         "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer",
-        "grid_columns": 8,
-        "grid_break": true
+        "grid_columns": 4
       }
     },
     
@@ -46,8 +44,7 @@
       "type": "number",
       "options": {
         "infoText": "TwoStep : Temps de passage de la value1 à value2",
-        "grid_columns": 4,
-        "grid_break": true
+        "grid_columns": 4
       }
     },
     "time-activation-value-1": {
@@ -61,8 +58,7 @@
       "type": "number",
       "options": {
         "infoText": "Ramp : Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2))",
-        "grid_columns": 4,
-        "grid_break": true
+        "grid_columns": 4
       }
     },
   
@@ -118,6 +114,6 @@
     
   },
   "format": "grid-strict",
-  "additionalProperties":false,
+  "additionalProperties": false,
   "required": ["bc-type", "bc-law"]
 }
