@@ -3,13 +3,17 @@
   "properties": {
     "section": {
       "type": "number",
-      "description": "Section de la barre en m",
+      "options": {
+        "infoText": "Section de la barre en m"
+      },
       "default": "1.0",
       "minimum": "0"
     },
     "initial-interface-position": {
       "type": "number",
-      "description": "Position du noeud séparant la cible et le projectile"
+      "options": {
+        "infoText": "Position du noeud séparant la cible et le projectile"
+      }
     }
   },
   "required": ["section"]
