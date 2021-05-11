@@ -13,7 +13,7 @@
     "value": {
       "type": ["number", "string"],
       "options": {
-        "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer"
+        "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer",
         "grid_columns": 8,
         "grid_break": true,
       }
