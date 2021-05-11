@@ -20,10 +20,7 @@
     <div id='editor_holder'></div>
 
     <script>
-      // Disable collapse button and properties object button
-      JSONEditor.defaults.editors.object.options.disable_collapse = true;
-      JSONEditor.defaults.editors.object.options.disable_properties = true;
-      
+     
       // Initialize the editor with a JSON schema
       var editor = new JSONEditor(document.getElementById('editor_holder'),{
         // Enable fetching schemas via ajax
