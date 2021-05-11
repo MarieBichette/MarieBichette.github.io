@@ -12,6 +12,7 @@
     },
     "variables": {
       "type": "array",
+      "format": "table",
       "uniqueItems": true,
       "items": {
         "type": "string",
