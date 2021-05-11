@@ -6,7 +6,7 @@
       "enum": ["pressure", "velocity"],
       "options": {
         "infoText": "Type de condition limite",
-        "grid_columns": 4,
+        "grid_columns": 4
       }
     },
     "bc-law": {
