@@ -3,11 +3,20 @@
   "properties": {
     "bc-type": {
       "type": "string",
-      "enum": ["pressure", "velocity"]
+      "enum": ["pressure", "velocity"],
+      "options": {
+        "infoText": "Type de condition limite",
+        "grid_columns": 4,
+      }
     },
     "bc-law": {
       "type": "string", 
-      "enum": ["constant", "marchtable", "twostep", "ramp", "creneau-ramp"]
+      "enum": ["constant", "marchtable", "twostep", "ramp", "creneau-ramp"],
+      "options": {
+        "infoText": "Fonction du temps décrivant les valeurs à imposer",
+        "grid_columns": 4,
+        "grid_break": true
+      }
     },
     
     "value": {
