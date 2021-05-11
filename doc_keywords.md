@@ -157,6 +157,66 @@ Choix possibles : - "somme"
 Valeur imposée dans la maille rompue
 Type : Real
 
+#### cohesive-model
+Choix du modèle de loi cohésive
+
+##### name
+Nom du modèle de loi cohésive 
+Type : String
+Choix possibles : - "linear" ; Champs obligatoires : "cohesive-strength", "critical-separation"
+                  - "bilinear" ; Champs obligatoires : "cohesive-strength", "critical-separation", "separation-at-point-1", "stress-at-point-1"
+                  - "trilinear" ; Champs obligatoires : "cohesive-strength", "critical-separation", "separation-at-point-1", "stress-at-point-1", "separation-at-point-2", "stress-at-point-2"
+
+##### coefficients
+Définition de l'ensemble des paramètres de la loi cohésive
+
+###### cohesive-strength
+Valeur de la contrainte caractéristique pour les lois cohesives
+Type : Real
+
+###### critical-separation
+Valeur de la distance limite pour les lois cohésives
+Type : Real
+
+###### separation-at-point-1
+Valeur de la distance limite à la première rupture de pente dans la loi cohésive pour les lois bilinear ou trilinear
+Type : Real
+
+###### stress-at-point-1
+Valeur de la contrainte à la première rupture de pente dans la loi cohésive pour les lois bilinear ou trilinear
+Type : Real
+
+###### separation-at-point-2
+Valeur de la distance limite à la deuxième rupture de pente dans la loi cohésive pour la loi trilinear
+Type : Real
+
+###### stress-at-point-2
+Valeur de la contrainte à la deuxième rupture de pente dans la loi cohésive pour la loi trilinear
+Type : Real
+
+##### unloading-model
+Nom du modèle de décharge
+Type : String
+Choix possibles : - "lossofstiffnessunloading" pour une décharge élastique
+                  - "progressiveunloading" pour une décharge plastique 
+
+###### slope
+Valeur de la pente pour la décharge plastique
+Type : Real
+ 
+#### contact-treatment
+Choix du modèle de contact
+
+##### name
+Nom du modèle de contact
+Type : String 
+Choix possibles : - "penalty" contact avec pénalité
+                  - "lagrangianmultiplier" contact avec multipliucateur de lagrange
+
+###### penalty-stiffness
+Raideur de la pénalité pour le contact de type penalty
+Type : Real
+
 # boundary-conditions
 
 ## left-boundary | right-boundary
@@ -230,6 +290,7 @@ Type : Real
 #### end-value
 Valeur du plateau final pour la condition aux limites "creneauramp"  pour la condition aux limites "creneauramp"
 Type : Real
+
 
 # numeric-parameters
 
