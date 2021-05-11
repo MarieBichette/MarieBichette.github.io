@@ -14,5 +14,5 @@
       "$ref": "m-failure-criterion.json"
     }
   },
-  "additionalProperties": false
+  "required": ["initialization", "equation-of-state"]
 }
