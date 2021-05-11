@@ -1,30 +1,53 @@
 {
   "type": "object",
+  "required": ["name",  "coefficients"],
   "properties": {
     "name": {
       "type": "string",
-      "enum": ["Linear", "Bilinear", "Trilinear"]
+      "enum": ["Linear", "Bilinear", "Trilinear"],
+      "options": {
+        "infoText": "Nom de la loi cohésive"
+      }
     },
     "coefficients": {
       "type": "object",
+      "required": ["cohesive-strength", "critical-separation"],
       "properties": {
         "cohesive-strength": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Résistance cohésive (requise pour les trois lois cohésives)"
+          }
         },
         "critical-separation": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Séparation critique (requise pour les trois lois cohésives)"
+          }
         },
         "separation-at-point-1": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Contrainte à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
+          }
         },
         "stress-at-point-1": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Ouverture à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
+          }
         },
         "separation-at-point-2": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Contrainte à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
+          }
         },
         "stress-at-point-2": {
-          "type": "number"
+          "type": "number",
+          "options": {
+            "infoText": "Ouverture à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
+          }
         }
       }
     },
