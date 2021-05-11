@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["failure-criterion", "failure-treatment"]
+  "required": ["failure-criterion", "failure-treatment"],
   "properties": {
     "failure-criterion": {
       "$ref": "m-failure-criterion.json"
