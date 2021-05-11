@@ -17,5 +17,6 @@
       "type": "number",
       "description": "Condition CFL liée à la pseudo-viscosité"
     }
-  }
+  },
+  "required": ["linear-pseudo", "quadratic-pseudo", "cfl", "cfl-pseudo"]
 }
