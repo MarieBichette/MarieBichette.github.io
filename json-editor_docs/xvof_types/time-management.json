@@ -12,11 +12,8 @@
       "description": "Pas de temps initial du calcul"
     },
     "constant-time-step": {
-      "type": "string",
-      "enum": [
-        "true",
-        "false"
-      ],
+      "type": "boolean",
+      "format": "checkbox",
       "description": "Impose ou non un pas de temps constant"
     },
     "time-step-reduction-factor-for-failure": {
