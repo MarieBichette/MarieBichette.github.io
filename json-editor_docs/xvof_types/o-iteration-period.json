@@ -3,11 +3,15 @@
   "properties":{
     "path": {
       "type": "string",
-      "description":"Nom du fichier de sortie"
+      "options": {
+        "infoText": "Nom du fichier de sortie"
+      }
     },
     "iteration-period": {
       "type": "integer",
-      "description":"Nombre de périodes"
+      "options": {
+        "infoText": "Nombre de périodes"
+      }
     }
   },
   "additionalProperties":false
