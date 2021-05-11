@@ -1,5 +1,9 @@
 {
   "basicCategoryTitle": "matter",
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
   "anyOf": [
     {
       "title": "Matériau unique",
