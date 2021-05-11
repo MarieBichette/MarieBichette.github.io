@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["name", "penalty-stiffness"]
+  "required": ["name", "penalty-stiffness"],
   "properties": {
     "name": {
       "type": "string",
