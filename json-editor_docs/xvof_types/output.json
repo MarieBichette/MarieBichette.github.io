@@ -38,7 +38,7 @@
       },
       "default": ["All"],
       "options": {
-        "infoText": "Cocher les cases pour sélectionner les variables",
+        "infoText": "Sélection des variables à sortir",
         "collapsed": true
       }
     }
