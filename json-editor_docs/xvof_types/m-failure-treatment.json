@@ -1,13 +1,23 @@
 {
   "type": "object",
-  "anyOf": [
-   {
-     "title": "ImposedPressure",
-     "$ref": "m-imposed-pressure.json"
-   },
-   {
-     "title": "Enrichment",
-     "$ref": "m-enrichment.json"
-   }
-  ]
+  "properties": {
+    "name": {
+      "type": "string", 
+      "enum": ["Enrichment", "ImposedPressure"]
+    },
+    "lump-mass-matrix": {
+      "type": "string",
+      "enum": ["somme", "menouillard"],
+      "options": {
+        "infoText": "Enrichissement : choix de la méthode de condensation de la matrice de masse"
+      }
+    },
+    "value": {
+      "type": "number",
+      "options": {
+        "infoText": "Enrichissement : position relative de la discontinuité dans la maille rompue. ImposedPressure : valeur à imposer pour la pression"
+      }
+    }
+  },
+  "required": ["name", "value"]
 }
