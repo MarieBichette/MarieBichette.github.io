@@ -1,6 +1,10 @@
 {
   "type": "object",
   "required": ["name",  "coefficients"],
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
   "properties": {
     "name": {
       "type": "string",
