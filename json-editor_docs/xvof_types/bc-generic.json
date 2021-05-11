@@ -61,6 +61,6 @@
     }
     
   },
-  "additionalProperties":false
+  "additionalProperties":false,
   "required": ["bc-type", "bc-law"]
 }
