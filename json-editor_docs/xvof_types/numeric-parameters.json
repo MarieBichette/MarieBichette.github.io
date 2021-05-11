@@ -3,19 +3,27 @@
   "properties": {
     "linear-pseudo": {
       "type": "number",
-      "description": "Paramètre pour la pseudo-viscosité linéaire"
+      "options": {
+        "infoText": "Paramètre pour la pseudo-viscosité linéaire"
+      }
     },
     "quadratic-pseudo": {
       "type": "number",
-      "description": "Paramètre pour la pseudo-viscosité quadratique"
+      "options": {
+        "infoText": "Paramètre pour la pseudo-viscosité quadratique"
+      }
     },
     "cfl": {
       "type": "number",
-      "description": "Condition CFL"
+      "options": {
+        "infoText": "Condition CFL"
+      }
     },
     "cfl-pseudo": {
       "type": "number",
-      "description": "Condition CFL liée à la pseudo-viscosité"
+      "options": {
+        "infoText": "Condition CFL liée à la pseudo-viscosité"
+      }
     }
   },
   "required": ["linear-pseudo", "quadratic-pseudo", "cfl", "cfl-pseudo"]
