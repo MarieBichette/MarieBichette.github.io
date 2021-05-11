@@ -21,6 +21,5 @@
       "$ref": "output.json" 
     }
   },
-  "required" : ["time-management", "geometry", "matter", "boundary-conditions", "numeric-parameters", "output"],
-  "format": "grid"
+  "required" : ["time-management", "geometry", "matter", "boundary-conditions", "numeric-parameters", "output"]
 }
