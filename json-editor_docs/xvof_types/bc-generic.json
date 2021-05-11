@@ -1,25 +1,44 @@
 {
   "type": "object",    
-  "anyOf": [
-  {
-    "title": "Constant",
-    "$ref": "bc-constant.json"
+  "properties": {
+    "bc-type": {
+      "type": "string",
+      "enum": ["pressure", "velocity"]
+    },
+    "bc-law": {
+      "type": "string", 
+      "enum": ["constant", "creneau-ramp"]
+    },
+    "value": {
+      "type": "number",
+      "options" {
+        "infoText": "Valeur à imposer pour la condition limite"
+      }
+    },
+  
+    "initial-value": {
+      "type": "number"
+    },
+    "plateau-value": {
+      "type": "number"
+    },
+    "start-first-ramp-time": {
+      "type": "number"
+    },
+    "reach-value2-time": {
+      "type": "number"
+    },
+    "end-value": {
+      "type": "number"
+    },
+    "start-second-ramp-time": {
+      "type": "number"
+    },
+    "reach-value3-time": {
+      "type": "number"
+    }
+    
   },
-  {
-    "title": "TwoStep",
-    "$ref": "bc-two-step.json"
-  },
-  {
-    "title": "Ramp",
-    "$ref": "bc-ramp.json"
-  },
-  {
-    "title": "CreneauRamp",
-    "$ref": "bc-creneau-ramp.json"
-   },
-   {
-     "title": "MarchTable",
-     "$ref": "bc-march-table.json"
-   }
- ]
+  "additionalProperties":false
+  "required": ["bc-type", "bc-law"]
 }
