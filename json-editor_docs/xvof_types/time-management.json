@@ -3,7 +3,9 @@
   "properties": {
     "final-time": {
       "type": "number",
-      "description": "Temps final du calcul"
+      "options": {
+        "infoText": "Your full name"
+      }
     },
     "initial-time_step": {
       "type": "number",
