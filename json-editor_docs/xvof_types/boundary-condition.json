@@ -1,5 +1,6 @@
 {
   "type": "object",
+  "format": "grid-strict",
   "properties": {
     "left-boundary": {
       "$ref": "bc-generic.json"
