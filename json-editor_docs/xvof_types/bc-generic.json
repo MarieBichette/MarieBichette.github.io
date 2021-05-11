@@ -14,85 +14,101 @@
       "type": ["number", "string"],
       "options": {
         "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer"
+        "grid_columns": 8,
+        "grid_break": true,
       }
     },
     
     "value1": {
       "type": "number",
       "options": {
-        "infoText": "TwoStep / Ramp : Première valeur à imposer"
+        "infoText": "TwoStep / Ramp : Première valeur à imposer",
+        "grid_columns": 4,
       }
     },
     "value2": {
       "type": "number",
       "options": {
-        "infoText": "TwoStep / Ramp : Deuxième valeur à imposer"
+        "infoText": "TwoStep / Ramp : Deuxième valeur à imposer",
+        "grid_columns": 4,
       }
     },
     "time-activation": {
       "type": "number",
       "options": {
-        "infoText": "TwoStep : Temps de passage de la value1 à value2"
+        "infoText": "TwoStep : Temps de passage de la value1 à value2",
+        "grid_columns": 4,
+        "grid_break": true
       }
     },
     "time-activation-value-1": {
       "type": "number",
       "options": {
-        "infoText": "Ramp : Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2))"
+        "infoText": "Ramp : Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2))",
+        "grid_columns": 4,
       }
     },
     "time-activation-value-2": {
       "type": "number",
       "options": {
-        "infoText": "Ramp : Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2))"
+        "infoText": "Ramp : Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2))",
+        "grid_columns": 4,
+        "grid_break": true
       }
     },
   
     "initial-value": {
       "type": "number",
       "options": {
-        "infoText": "CreneauRamp : Première valeur"
+        "infoText": "CreneauRamp : Première valeur",
+        "grid_columns": 4
       }
     },
     "plateau-value": {
       "type": "number",
       "options": {
-        "infoText": "CreneauRamp : Deuxième valeur"
-      }
-    },
-    "start-first-ramp-time": {
-      "type": "number",
-      "options": {
-        "infoText": "CreneauRamp : Temps d'activation de la transition vers plateau-value"
-      }
-    },
-    "reach-value2-time": {
-      "type": "number",
-      "options": {
-        "infoText": "CreneauRamp : Temps d'arrivée à plateau-value"
+        "infoText": "CreneauRamp : Deuxième valeur",
+        "grid_columns": 4
       }
     },
     "end-value": {
       "type": "number",
       "options": {
-        "infoText": "CreneauRamp : Troisième valeur à imposer"
+        "infoText": "CreneauRamp : Troisième valeur à imposer",
+        "grid_columns": 4
+      }
+    },
+    "start-first-ramp-time": {
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps d'activation de la transition vers plateau-value",
+        "grid_columns": 4
+      }
+    },
+    "reach-value2-time": {
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps d'arrivée à plateau-value",
+        "grid_columns": 4
       }
     },
     "start-second-ramp-time": {
       "type": "number",
       "options": {
-        "infoText": "CreneauRamp : Temps de début de transition à end-value"
+        "infoText": "CreneauRamp : Temps de début de transition à end-value",
+        "grid_columns": 4
       }
     },
     "reach-value3-time": {
       "type": "number",
       "options": {
-        "infoText": "CreneauRamp : Temps d'arrivée à la valeur end-value"
+        "infoText": "CreneauRamp : Temps d'arrivée à la valeur end-value",
+        "grid_columns": 4
       }
     }
     
   },
-  "format": "grid",
+  "format": "grid-strict",
   "additionalProperties":false,
   "required": ["bc-type", "bc-law"]
 }
