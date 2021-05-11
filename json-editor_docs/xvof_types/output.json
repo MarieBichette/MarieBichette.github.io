@@ -3,16 +3,19 @@
   "properties": {
     "number-of-images":{
       "type": "integer",
-      "description": "Nombre d'images dans la simulation"
+      "options": {
+        "infoText": "Nombre d'images dans la simulation"
+      }
     },
     "database": {
       "$ref": "o-database.json"
     },
     "variables": {
       "type": "array",
-      "format": "table",
+      "uniqueItems": true,
       "items": {
         "type": "string",
+        "format": "checkbox",
         "enum": [
           "All",
           "ArtificialViscosity",
@@ -35,8 +38,8 @@
         ]
       },
       "default": ["All"],
-        "options": {
-        "collapsed": false
+      "options": {
+        "infoText": "Cocher les cases pour sélectionner les variables"
       }
     }
   },
