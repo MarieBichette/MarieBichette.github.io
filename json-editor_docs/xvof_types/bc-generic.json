@@ -19,45 +19,76 @@
     
     "value1": {
       "type": "number",
-      "description": "Valeur à imposer pour la première valeur de la condition limite"
+      "options": {
+        "infoText": "TwoStep / Ramp : Première valeur à imposer"
+      }
     },
     "value2": {
       "type": "number",
-      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+      "options": {
+        "infoText": "TwoStep / Ramp : Deuxième valeur à imposer"
+      }
     },
     "time-activation": {
       "type": "number",
-      "description": "Temps de passage de la value1 à value2"
+      "options": {
+        "infoText": "TwoStep : Temps de passage de la value1 à value2"
+      }
     },
     "time-activation-value-1": {
       "type": "number",
-      "description": "Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2)"
+      "options": {
+        "infoText": "Ramp : Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2))"
+      }
     },
     "time-activation-value-2": {
       "type": "number",
-      "description": "Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2)"
+      "options": {
+        "infoText": "Ramp : Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2))"
+      }
     },
   
     "initial-value": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Première valeur"
+      }
     },
     "plateau-value": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Deuxième valeur"
+      }
     },
     "start-first-ramp-time": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps d'activation de la transition vers plateau-value"
+      }
     },
     "reach-value2-time": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps d'arrivée à plateau-value"
+      }
     },
     "end-value": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Troisième valeur à imposer"
+      }
     },
     "start-second-ramp-time": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps de début de transition à end-value"
+      }
     },
     "reach-value3-time": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "CreneauRamp : Temps d'arrivée à la valeur end-value"
+      }
     }
     
   },
