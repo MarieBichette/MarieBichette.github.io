@@ -11,5 +11,6 @@
       "type": "number",
       "description": "Position du noeud séparant la cible et le projectile"
     }
-  }
+  },
+  "required": ["section"]
 }
