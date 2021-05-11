@@ -7,6 +7,7 @@
     {
       "title": "Projectile + Cible",
       "format": "categories",
+      "required": ["projectile", "target"],
       "type": "object",
       "properties": {
         "projectile": {
