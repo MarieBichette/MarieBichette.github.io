@@ -4,21 +4,27 @@
     "final-time": {
       "type": "number",
       "options": {
-        "infoText": "Your full name"
+        "infoText": "Temps final de la simulation"
       }
     },
     "initial-time_step": {
       "type": "number",
-      "description": "Pas de temps initial du calcul"
+      "options": {
+        "infoText": "Pas de temps initial du calcul"
+      }
     },
     "constant-time-step": {
       "type": "boolean",
       "format": "checkbox",
-      "description": "Impose ou non un pas de temps constant"
+      "options": {
+        "infoText": "Cocher la case pour imposer un pas de temps constant"
+      }
     },
     "time-step-reduction-factor-for-failure": {
       "type": "number",
-      "description": "Facteur permettant de diviser le pas de temps après la rupture"
+      "options": {
+        "infoText": "Facteur permettant de diviser le pas de temps après la rupture"
+      }
     }
   },
   "required" : ["final-time", "initial-time_step", "constant-time-step"]
