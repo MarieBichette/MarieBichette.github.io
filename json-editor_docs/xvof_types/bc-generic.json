@@ -15,7 +15,7 @@
       "options": {
         "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer",
         "grid_columns": 8,
-        "grid_break": true,
+        "grid_break": true
       }
     },
     
@@ -23,14 +23,14 @@
       "type": "number",
       "options": {
         "infoText": "TwoStep / Ramp : Première valeur à imposer",
-        "grid_columns": 4,
+        "grid_columns": 4
       }
     },
     "value2": {
       "type": "number",
       "options": {
         "infoText": "TwoStep / Ramp : Deuxième valeur à imposer",
-        "grid_columns": 4,
+        "grid_columns": 4
       }
     },
     "time-activation": {
@@ -45,7 +45,7 @@
       "type": "number",
       "options": {
         "infoText": "Ramp : Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2))",
-        "grid_columns": 4,
+        "grid_columns": 4
       }
     },
     "time-activation-value-2": {
