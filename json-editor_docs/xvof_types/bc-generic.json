@@ -92,6 +92,7 @@
     }
     
   },
+  "format": "grid",
   "additionalProperties":false,
   "required": ["bc-type", "bc-law"]
 }
