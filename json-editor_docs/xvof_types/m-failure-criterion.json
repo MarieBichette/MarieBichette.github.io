@@ -3,13 +3,22 @@
   "properties": {
     "name": {
       "type": "string",
-      "enum": ["MinimumPressure", "MaximalStress", "HalfRodComparison", "Porosity"]
+      "enum": ["MinimumPressure", "MaximalStress", "HalfRodComparison", "Porosity"],
+      "options": {
+        "infoText": "Nom du critère de rupture"
+      }
     },
     "value": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "Valeur seuil associée au critère de rupture"
+      }
     },
     "index": {
-      "type": "number"
+      "type": "number",
+      "options": {
+        "infoText": "HalfRodComparison : indice de la maille à rompre"
+      }
     }
   }, 
   "required": ["name", "value"]
