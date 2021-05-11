@@ -7,13 +7,35 @@
     },
     "bc-law": {
       "type": "string", 
-      "enum": ["constant", "creneau-ramp"]
+      "enum": ["constant", "marchtable", "twostep", "ramp", "creneau-ramp"]
     },
+    
     "value": {
-      "type": "number",
+      "type": ["number", "string"],
       "options": {
-        "infoText": "Valeur à imposer pour la condition limite"
+        "infoText": "Constant : Valeur à imposer pour la condition limite. Ramp : Valeur initiale à imposer. MarchTable : nom du fichier contenant la table de marche à imposer"
       }
+    },
+    
+    "value1": {
+      "type": "number",
+      "description": "Valeur à imposer pour la première valeur de la condition limite"
+    },
+    "value2": {
+      "type": "number",
+      "description": "Valeur à imposer pour la deuxième valeur de la condition limite"
+    },
+    "time-activation": {
+      "type": "number",
+      "description": "Temps de passage de la value1 à value2"
+    },
+    "time-activation-value-1": {
+      "type": "number",
+      "description": "Temps de passage de la value1 (interpolation linéaire entre (t1, v1) et (t2, v2)"
+    },
+    "time-activation-value-2": {
+      "type": "number",
+      "description": "Temps de passage de la value2 (interpolation linéaire entre (t1, v1) et (t2, v2)"
     },
   
     "initial-value": {
