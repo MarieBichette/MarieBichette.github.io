@@ -1,5 +1,9 @@
 {
   "type": "object",
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
   "properties": {
     "linear-pseudo": {
       "type": "number",
