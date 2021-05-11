@@ -1,16 +1,32 @@
 {
-  "anyOf": [
-  {
-    "title": "Pression imposée",
-    "$ref": "m-failure-imposed-pressure.json"
+  "type": "object",
+  "properties": {
+    "failure-criterion": {
+      "$ref": "m-failure-criterion.json"
+    },
+    "failure-treatment": {
+      "$ref": "m-failure-treatment.json
+    },
+    "contact-treatement": {
+      "$ref": "m-contact-treatment.json"
+    },
+    ,
+    "cohesive-model": {
+      "anyOf": [
+          {
+            "title": "Loi linéaire",
+            "$ref": "m-czm-linear.json"
+          },
+          {
+            "title": "Loi bilinéaire",
+            "$ref": "m-czm-bilinear.json"
+          },
+          {
+            "title": "Loi trilinéaire",
+            "$ref": "m-czm-trilinear.json"
+          }
+        ]
+      }
   },
-  {
-    "title": "Enrichissement",
-    "$ref": "m-failure-enrichment.json"
-  },
-  {
-    "title": "Enrichissement + Modèle cohésif",
-    "$ref": "m-failure-enrichment-czm.json"
-    }
-  ]
+  "additionalProperties": false
 }
