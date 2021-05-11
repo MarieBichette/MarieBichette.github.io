@@ -12,7 +12,7 @@
       "$ref": "m-matter.json"
     },
     "boundary-conditions": {
-      "$ref": "boundary-condition.json"
+      "$ref": "output.json"
     },
     "numeric-parameters": {
       "$ref": "numeric-parameters.json" 
