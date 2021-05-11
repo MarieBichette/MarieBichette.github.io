@@ -8,5 +8,5 @@
       "$ref": "bc-generic.json"
     }
   },
-  "format": "grid"
+  "format": "categories"
 }
