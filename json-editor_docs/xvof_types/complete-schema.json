@@ -20,5 +20,6 @@
     "output": {
       "$ref": "output.json" 
     }
-  }
+  },
+  "required" : ["time-management", "geometry", "matter", "boundary-conditions", "output"]
 }
