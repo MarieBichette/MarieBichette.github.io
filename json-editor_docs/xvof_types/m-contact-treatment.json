@@ -1,29 +1,19 @@
 {
-  "anyOf": [
-    {
-      "title": "Correction cinétique",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "default": "LagrangianMultiplier"
-        }
-      },
-      "additionalProperties":false
+  "type": "object",
+  "required": ["name", "penalty-stiffness"]
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": ["LagrangianMultiplier", "Penalty"],
+      "options": {
+        "infoText": "Traitement du contact entre les bords des discontinuités"
+      }
     },
-    {
-      "title": "Pénalisation",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "default": "Penalty"
-        },
-        "penalty-stiffness": {
-          "type": "number"
-        }
-      },
-      "additionalProperties":false
+    "penalty-stiffness": {
+      "type": "number",
+      "options": {
+        "infoText": "Valeur de la raideur pour le traitement du contact"
+      }
     }
-  ]
+  }
 }
