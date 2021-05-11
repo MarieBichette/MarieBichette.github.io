@@ -17,6 +17,6 @@
       "default": "VonMises" 
     }
   },
-  "required": ["coefficients", "elasticity-model"]
-  "additionalProperties":false
+  "required": ["coefficients", "elasticity-model"],
+  "additionalProperties": false
 }
