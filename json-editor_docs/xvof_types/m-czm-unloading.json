@@ -1,29 +1,19 @@
 {
-  "anyOf": [
-    {
-      "title": "Décharge élastique",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "default": "lossofstiffnessunloading"
-        }
-      },
-      "additionalProperties": false
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "enum": ["lossofstiffnessunloading", "progessiveunloading"],
+      "options": {
+        "infoText": "lossofstiffnessunloading : décharge élastique. progessiveunloading : décharge plastique"
+      }
     },
-    {
-      "title": "Décharge plastique",
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string",
-          "default": "progessiveunloading"
-        },
-        "slope": {
-          "type": "number"
-        }
-      },
-      "additionalProperties": false
+    "slope": {
+      "type": "number",
+      "options": {
+        "infoText": "Pente pour la décharge plastique"
+      }
     }
-  ]
+  }
 }
