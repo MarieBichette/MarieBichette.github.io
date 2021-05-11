@@ -43,5 +43,6 @@
       }
     }
   },
-  "additionalProperties":false
+  "additionalProperties":false,
+  "required": ["number-of-images", "database", "variables"]
 }
