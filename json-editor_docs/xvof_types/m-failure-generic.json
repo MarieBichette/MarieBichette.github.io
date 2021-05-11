@@ -5,7 +5,7 @@
       "$ref": "m-failure-criterion.json"
     },
     "failure-treatment": {
-      "$ref": "m-failure-treatment.json
+      "$ref": "m-failure-treatment.json"
     },
     "contact-treatement": {
       "$ref": "m-contact-treatment.json"
