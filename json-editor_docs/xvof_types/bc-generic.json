@@ -11,7 +11,7 @@
     },
     "value": {
       "type": "number",
-      "options" {
+      "options": {
         "infoText": "Valeur à imposer pour la condition limite"
       }
     },
