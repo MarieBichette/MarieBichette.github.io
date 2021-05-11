@@ -2,19 +2,31 @@
   "type": "object",
   "properties": {
     "coefficients": {
-      "type": "string"
+      "type": "string",
+      "options": {
+        "infoText": "Elasticité : chemin vers le fichier contenant les coefficients matériaux pour l'élasticité"
+      }
     },
     "elasticity-model": {
       "type": "string",
-      "default": "Linear"
+      "default": "Linear",
+      "options": {
+        "infoText": "Elasticité : loi de comportement pour le module de cisaillement"
+      }
     },
     "plasticity-model": {
       "type": "string",
-      "default": "EPP" 
+      "default": "EPP",
+      "options": {
+        "infoText": "Plasticité : loi de comportement pour la limite d'élasticité"
+      }
     },
     "plasticity-criterion": {
       "type": "string",
-      "default": "VonMises" 
+      "default": "VonMises",
+      "options": {
+        "infoText": "Plasticité : critère de plasticité"
+      }
     }
   },
   "required": ["coefficients", "elasticity-model"],
