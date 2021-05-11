@@ -2,10 +2,6 @@
   "anyOf": [
     {
       "title": "Matériau unique",
-      "$ref": "m-matter-generic.json"
-    },
-    {
-      "title": "Matériau unique avec rupture",
       "$ref": "m-matter-generic-failure.json"
     },
     {
@@ -13,23 +9,10 @@
       "type": "object",
       "properties": {
         "projectile": {
-          "$ref": "m-matter-generic.json"
+          "$ref": "m-matter-generic-failure.json"
         },
         "target": {
-          "$ref": "m-matter-generic.json"
-        }
-      },
-      "additionalProperties": false
-    },
-    {
-      "title": "Projectile + Cible avec rupture",
-      "type": "object",
-      "properties": {
-        "projectile": {
-          "$ref": "m-matter-generic.json"
-        },
-        "target": {
-          "$ref": "m-matter-generic.json"
+          "$ref": "m-matter-generic-failure.json"
         }
       },
       "additionalProperties": false
