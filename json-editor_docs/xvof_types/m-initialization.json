@@ -9,5 +9,5 @@
       "type": "string"
     }
   },
-  "additionalProperties":false
+  "required" : ["initial-velocity", "init-thermo"]
 }
