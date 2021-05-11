@@ -3,11 +3,15 @@
   "properties":{
     "path": {
       "type": "string",
-      "description":"Nom du fichier de sortie"
+      "options": {
+        "infoText": "Nom du fichier de sortie"
+      }
     },
     "time-period": {
       "type": "number",
-      "description":"Durée entre deux sorties"
+      "options": {
+        "infoText": "Durée entre deux sorties"
+      }
     }
   },
   "additionalProperties":false
