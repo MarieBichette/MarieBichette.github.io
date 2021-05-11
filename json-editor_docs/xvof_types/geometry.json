@@ -16,5 +16,8 @@
       }
     }
   },
-  "required": ["section"]
+  "required": ["section"],
+  "options": {
+    "disable_collapse": true
+  }
 }
