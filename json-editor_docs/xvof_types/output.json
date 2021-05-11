@@ -39,7 +39,8 @@
       },
       "default": ["All"],
       "options": {
-        "infoText": "Cocher les cases pour sélectionner les variables"
+        "infoText": "Cocher les cases pour sélectionner les variables",
+        "collapsed": true
       }
     }
   },
