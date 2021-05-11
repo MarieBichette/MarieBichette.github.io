@@ -1,6 +1,8 @@
 {
   "id": "complete-schema",
   "type": "object",
+  "format": "categories",
+  "required" : ["time-management", "geometry", "matter", "boundary-conditions", "numeric-parameters", "output"],
   "properties": {
     "time-management": {
       "$ref": "time-management.json"      
@@ -20,6 +22,5 @@
     "output": {
       "$ref": "output.json" 
     }
-  },
-  "required" : ["time-management", "geometry", "matter", "boundary-conditions", "numeric-parameters", "output"]
+  }
 }
