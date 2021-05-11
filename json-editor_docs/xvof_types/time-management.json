@@ -21,5 +21,6 @@
       "type": "number",
       "description": "Facteur permettant de diviser le pas de temps après la rupture"
     }
-  }
+  },
+  "required" : ["final-time", "initial-time_step", "constant-time-step"]
 }
