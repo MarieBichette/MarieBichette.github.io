@@ -1,5 +1,10 @@
 {
   "type": "object",
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
+  "required" : ["name", "coefficients"],
   "properties": {
     "name": {
       "type": "string", 
@@ -7,6 +12,11 @@
     },
     "coefficients": {
       "type": "object",
+      "options": {
+        "disable_collapse": true,
+        "disable_properties": true
+      },
+      "required" : ["initial-porosity", "effective-strength", "viscosity"],
       "properties": {
         "initial-porosity": {
           "type": "number"
