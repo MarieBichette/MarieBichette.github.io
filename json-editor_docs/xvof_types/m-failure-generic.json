@@ -1,5 +1,9 @@
 {
   "type": "object",
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
   "required": ["failure-criterion", "failure-treatment"],
   "properties": {
     "failure-criterion": {
