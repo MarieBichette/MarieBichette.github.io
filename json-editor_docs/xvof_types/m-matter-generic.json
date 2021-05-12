@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "options": {
+    "disable_collapse": true,
+    "disable_properties": true
+  },
+  "format": "categories",
+  "properties": {
+    "initialization": {
+      "$ref": "m-initialization.json"
+    },
+    "equation-of-state": {
+      "$ref": "m-equation-of-state.json"
+    },
+    "rheology": {
+      "$ref": "m-rheology.json"
+    }
+  },
+  "required": ["initialization", "equation-of-state"]
+}
