@@ -36,25 +36,25 @@
         "separation-at-point-1": {
           "type": "number",
           "options": {
-            "infoText": "Contrainte à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
+            "infoText": "Ouverture à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
           }
         },
         "stress-at-point-1": {
           "type": "number",
           "options": {
-            "infoText": "Ouverture à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
+            "infoText": "Contrainte à la première rupture de pente dans la loi cohésive (requise pour les lois Bilinear et Trilinear)"
           }
         },
         "separation-at-point-2": {
           "type": "number",
           "options": {
-            "infoText": "Contrainte à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
+            "infoText": "Ouverture à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
           }
         },
         "stress-at-point-2": {
           "type": "number",
           "options": {
-            "infoText": "Ouverture à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
+            "infoText": "Contrainte à la deuxième rupture de pente dans la loi cohésive (requise pour la loi Trilinear)"
           }
         }
       }
