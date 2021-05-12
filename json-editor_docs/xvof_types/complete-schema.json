@@ -6,6 +6,7 @@
     "disable_properties": true
   },
   "format": "categories",
+  "basicCategoryTitle": "matter",
   "required" : ["time-management", "geometry", "matter", "boundary-conditions", "numeric-parameters", "output"],
   "properties": {
     "time-management": {
