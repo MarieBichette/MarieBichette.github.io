@@ -18,7 +18,6 @@
       <li>Extraire (copier-coller) le résultat dans un fichier DATA.json et placer le fichier créé dans le répertoire du cas</li>
     </ul>
 
-    <button id='submit'>Submit (console.log)</button>
     <button id='restore'>Restore to Default</button>
     <button id='enable_disable'>Disable/Enable Form</button>
     <span id='valid_indicator'></span>
@@ -48,12 +47,6 @@
           theme: "spectre",
           iconlib: "spectre"
         }
-      });
-
-      // Hook up the submit button to log to the console
-      document.getElementById('submit').addEventListener('click',function() {
-        // Get the value from the editor
-        console.log(editor.getValue());
       });
 
       // Hook up the Restore to Default button
