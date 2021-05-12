@@ -6,6 +6,9 @@
   },
   "required": ["failure-criterion", "failure-treatment"],
   "properties": {
+    "porosity-model": {
+      "$ref": "m-porosity.json"
+    },
     "failure-criterion": {
       "$ref": "m-failure-criterion.json"
     },
