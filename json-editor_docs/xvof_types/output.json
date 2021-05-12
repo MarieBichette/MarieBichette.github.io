@@ -16,7 +16,7 @@
     },
     "variables": {
       "type": "array",
-      "title": "Liste des variables",
+      "title": "Liste des variables à sortir",
       "format": "table",
       "options": {
         "disable_collapse": true
