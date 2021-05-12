@@ -1,1 +1,286 @@
+<h1 id="time-management">time-management</h1>
+<h2 id="final-time">final-time</h2>
+<p>Temps final de calcul en secondes. </p>
+<p>Type : Real</p>
+<h2 id="initial-time-step">initial-time-step</h2>
+<p>Pas de temps initial en secondes.</p>
+<p>Type : Real</p>
+<h2 id="constant-time-step">constant-time-step</h2>
+<p>Si vrai : le pas de temps est constant au long du calcul.</p>
+<p>Si faux, il est calculé à partir de la condition CFL.</p>
+<p>Type : Boolean (&quot;true&quot; / &quot;false&quot;)</p>
+<h1 id="geometry">geometry</h1>
+<h2 id="section">section</h2>
+<p>Section de la barre</p>
+<p>Type : Real</p>
+<h2 id="initial-interface-position">initial-interface-position</h2>
+<p>Position de l&#39;interface entre la cible et le projectile.</p>
+<p>Doit correspondre à la position d&#39;un noeud du maillage.</p>
+<p>Paramètre non obligatoire si la cible et le projectile ne sont pas définis.</p>
+<p>Type : Real.</p>
+<h1 id="matter">matter</h1>
+<h2 id="projectile-target-">projectile | target | &quot; &quot;</h2>
+<p>Si plusieurs matériaux, on spécifie le comportement de chacun à l&#39;intérieur de ces balises.</p>
+<p>Si un seul matériau, pas besoin de <code>&lt;projectile&gt;</code> ou <code>&lt;target&gt;</code>, on peut renseigner directement les propriétés du matériau sous la balise <code>&lt;matter&gt;</code>.</p>
+<h3 id="initialisation">initialisation</h3>
+<p>Données relatives à l&#39;initialisation du matériau</p>
+<h4 id="initial-velocity">initial-velocity</h4>
+<p>Vitesse initiale du matériau (en m/s).</p>
+<p>Tye : Real</p>
+<h4 id="init-thermo">init-thermo</h4>
+<p>Chemin vers le fichier de données contenant les champs thermodynamiques initiaux (à t=0) de la matière.</p>
+<p>Ce fichier contient les pression, température, densité et énergie interne (massique) du matériau.</p>
+<p>Type : String</p>
+<h3 id="equation-of-state">equation-of-state</h3>
+<p>Données relatives à l&#39;équation d&#39;état définissant le comportement volumique du matériau</p>
+<h4 id="name">name</h4>
+<p>Choix du type de l&#39;équation d&#39;état.</p>
+<p>Seule l&#39;équation de Mie Gruneisen est possible pour le moment.</p>
+<p>Type : String</p>
+<pre><code>&lt;<span class="hljs-built_in">name</span>&gt;mie-gruneisen&lt;/<span class="hljs-built_in">name</span>&gt;
+</code></pre><h4 id="coefficients">coefficients</h4>
+<p>Chemin vers le fichier contenant les coefficients du matériau pour l&#39;équation de Mie Grüneisen</p>
+<p>Type : String</p>
+<h3 id="rheology">rheology</h3>
+<p>Données relatives à la loi de comportement définissant le comportement élasto-plastique du matériau</p>
+<h4 id="coefficients">coefficients</h4>
+<p>Chemin vers le fichier contenant les propriétés d&#39;élastoplasticité du matériau </p>
+<p>Type : String</p>
+<h4 id="elasticity-model">elasticity-model</h4>
+<p>Choix du type de loi d&#39;élasticité</p>
+<p>Seul le modèle l&#39;élasticité linéaire est possible pour le moment </p>
+<p>Type : String</p>
+<pre><code><span class="hljs-string">"elasticity-model"</span>: <span class="hljs-string">"linear"</span>
+</code></pre><h4 id="plasticity-model">plasticity-model</h4>
+<p>Choix du type de loi de modèle de plasticité</p>
+<p>Seul le modèle de plasticité EPP (Elastique Parfaitemetn Plastique) est possible pour le moment </p>
+<p>Type : String</p>
+<pre><code><span class="hljs-string">"plasticity-model"</span>: <span class="hljs-string">"EPP"</span>
+</code></pre><h4 id="plasticity-criterion">plasticity-criterion</h4>
+<p>Choix du critère de plasticité</p>
+<p>Seul le critère de plasticité de Von Mises est possible pour le moment </p>
+<p>Type : String</p>
+<pre><code><span class="hljs-string">"plasticity-criterion"</span>: <span class="hljs-string">"VonMises"</span>
+</code></pre><h3 id="failure">failure</h3>
+<p>Données relatives aux propriétés d&#39;endommagement et de rupture du matériau</p>
+<h4 id="porosity-model">porosity-model</h4>
+<p>Données relatives aux modèles d&#39;endommagement avec une évolution de porosité</p>
+<h5 id="name">name</h5>
+<p>Choix du modèle d&#39;endommagement avec évolution de porosité. </p>
+<p>Seul le modèle JohnsonModel est disponible pour le moment</p>
+<p>Type : String</p>
+<pre><code><span class="hljs-string">"name"</span> : <span class="hljs-string">"JohnsonModel"</span>
+</code></pre><h5 id="coefficients">coefficients</h5>
+<p>Définition de l&#39;ensemble des coefficients du modèle de Johnson</p>
+<h6 id="initial-porosity">initial-porosity</h6>
+<p>Porosité initiale du modèle de Johnson</p>
+<p>Type : Real</p>
+<h6 id="effective-strength">effective-strength</h6>
+<p>Contrainte effective du modèle de Johnson</p>
+<p>Type : Real</p>
+<h6 id="viscosity">viscosity</h6>
+<p>Viscosité du modèle de Johnson</p>
+<p>Type : Real</p>
+<h4 id="failure-criterion">failure-criterion</h4>
+<p>Choix du critère déclenchant le modèle de rupture</p>
+<h5 id="name">name</h5>
+<p>Nom du critère déclenchant le modèle de rupture</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;MinimumPressure&quot;</li>
+<li>&quot;Damage&quot;</li>
+<li>&quot;Porosity&quot;</li>
+<li>&quot;HalfRodComparison&quot;</li>
+<li>&quot;MaximalStress&quot;</li>
+</ul>
+<p>Tous ces modèles attendent une valeur comme paramètre.</p>
+<h5 id="value">value</h5>
+<p>Valeur du seuil déclenchant la rupture</p>
+<p>Type : Real</p>
+<h5 id="index">index</h5>
+<p>Index de la cellule où déclencher la rupture pour le critère HalfRodComparison</p>
+<p>Type : Integer</p>
+<h4 id="failure-treatment">failure-treatment</h4>
+<p>Choix du modèle de rupture</p>
+<h5 id="name">name</h5>
+<p>Nom du modèle de rupture</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;ImposedPressure&quot; : on impose la pression à une valeur indiquée dans les mailles rompues</li>
+</ul>
+<p>Champ obligatoire : &quot;value&quot;</p>
+<ul>
+<li>&quot;Enrichment&quot; : on enrichit les mailles rompues</li>
+</ul>
+<p>Champ obligatoire : &quot;value&quot;, &quot;lump-mass-matrix&quot;</p>
+<h5 id="lump-mass-matrix">lump-mass-matrix</h5>
+<p>Choix de la condensation de la matrice de masse dans le cas d&#39;un traitement de type Enrichment</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;somme&quot;</li>
+<li>&quot;menouillard&quot;</li>
+</ul>
+<h5 id="value">value</h5>
+<p>Valeur imposée dans la maille rompue</p>
+<p>Type : Real</p>
+<h4 id="cohesive-model">cohesive-model</h4>
+<p>Choix du modèle de loi cohésive</p>
+<h5 id="name">name</h5>
+<p>Nom du modèle de loi cohésive </p>
+<p>Type : String</p>
+<p>Choix possibles :</p>
+<ul>
+<li>&quot;linear&quot; : Champs obligatoires : &quot;cohesive-strength&quot;, &quot;critical-separation&quot;</li>
+<li>&quot;bilinear&quot; : Champs obligatoires : &quot;cohesive-strength&quot;, &quot;critical-separation&quot;, &quot;separation-at-point-1&quot;, &quot;stress-at-point-1&quot;</li>
+<li>&quot;trilinear&quot; : Champs obligatoires : &quot;cohesive-strength&quot;, &quot;critical-separation&quot;, &quot;separation-at-point-1&quot;, &quot;stress-at-point-1&quot;, &quot;separation-at-point-2&quot;, &quot;stress-at-point-2&quot;</li>
+</ul>
+<h5 id="coefficients">coefficients</h5>
+<p>Définition de l&#39;ensemble des paramètres de la loi cohésive</p>
+<h6 id="cohesive-strength">cohesive-strength</h6>
+<p>Valeur de la contrainte caractéristique pour les lois cohesives</p>
+<p>Type : Real</p>
+<h6 id="critical-separation">critical-separation</h6>
+<p>Valeur de la distance limite pour les lois cohésives</p>
+<p>Type : Real</p>
+<h6 id="separation-at-point-1">separation-at-point-1</h6>
+<p>Valeur de la distance limite à la première rupture de pente dans la loi cohésive pour les lois bilinear ou trilinear</p>
+<p>Type : Real</p>
+<h6 id="stress-at-point-1">stress-at-point-1</h6>
+<p>Valeur de la contrainte à la première rupture de pente dans la loi cohésive pour les lois bilinear ou trilinear</p>
+<p>Type : Real</p>
+<h6 id="separation-at-point-2">separation-at-point-2</h6>
+<p>Valeur de la distance limite à la deuxième rupture de pente dans la loi cohésive pour la loi trilinear</p>
+<p>Type : Real</p>
+<h6 id="stress-at-point-2">stress-at-point-2</h6>
+<p>Valeur de la contrainte à la deuxième rupture de pente dans la loi cohésive pour la loi trilinear</p>
+<p>Type : Real</p>
+<h5 id="unloading-model">unloading-model</h5>
+<p>Nom du modèle de décharge</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;lossofstiffnessunloading&quot; pour une décharge élastique</li>
+<li>&quot;progressiveunloading&quot; pour une décharge plastique. Champs requis : &quot;slope&quot;</li>
+</ul>
+<h6 id="slope">slope</h6>
+<p>Valeur de la pente pour la décharge plastique</p>
+<p>Type : Real</p>
+<h4 id="contact-treatment">contact-treatment</h4>
+<p>Choix du modèle de contact</p>
+<h5 id="name">name</h5>
+<p>Nom du modèle de contact</p>
+<p>Type : String </p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;penalty&quot; contact avec pénalisation</li>
+<li>&quot;lagrangianmultiplier&quot; contact avec multiplicateur de Lagrange</li>
+</ul>
+<h6 id="penalty-stiffness">penalty-stiffness</h6>
+<p>Raideur de la pénalité pour le contact de type penalty</p>
+<p>Type : Real</p>
+<h1 id="boundary-conditions">boundary-conditions</h1>
+<h2 id="left-boundary-right-boundary">left-boundary | right-boundary</h2>
+<p>Surface dont les conditions aux limites seront caractérisées</p>
+<h3 id="type">type</h3>
+<p>Choix du type de conditions aux limites</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;pressure&quot;</li>
+<li>&quot;velocity&quot;</li>
+</ul>
+<h3 id="bc-law">bc-law</h3>
+<p>Choix de la forme de la conditions aux limites</p>
+<p>Type : String</p>
+<p>Choix possibles : </p>
+<ul>
+<li>&quot;constant&quot; ; Champ obligatoire : &quot;value&quot;</li>
+<li>&quot;twostep&quot; ; Champs obligatoires : &quot;value1&quot;, &quot;value2&quot;, &quot;time-activation&quot;</li>
+<li>&quot;ramp&quot; ; Champs obligatoires : &quot;value1&quot;, &quot;value2&quot;, &quot;time-activation1&quot;,  &quot;time-activation2&quot;</li>
+<li>&quot;marchtable&quot; ; Champ obligatoire : &quot;value&quot;</li>
+<li>&quot;creneauramp&quot; ; Champs obligatoires : &quot;initial-value&quot;, &quot;plateau-value&quot;, &quot;start-first-ramp-time&quot;, &quot;reach-value2-time&quot;</li>
+</ul>
+<h4 id="value">value</h4>
+<p>Valeur pour la condition aux limites &quot;constant&quot;</p>
+<p>Nom du fichier pour la condition aux limites &quot;marchtable&quot;</p>
+<p>Type :</p>
+<ul>
+<li>Real pour la condition aux limites &quot;constant&quot;</li>
+<li>String pour la condition aux limites &quot;marchtable&quot;</li>
+</ul>
+<h4 id="value1">value1</h4>
+<p>Première valeur pour la condition aux limites &quot;twostep&quot; ou &quot;ramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="value2">value2</h4>
+<p>Deuxième valeur pour la condition aux limites &quot;twostep&quot; ou &quot;ramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="time-activation">time-activation</h4>
+<p>Temps d&#39;activation de la deuxième valeur pour la condition aux limites &quot;twostep&quot;</p>
+<p>Type : Real</p>
+<h4 id="time-activation-value-1">time-activation-value-1</h4>
+<p>Temps d&#39;activation de la première valeur pour la condition aux limites &quot;ramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="time-activation-value-2">time-activation-value-2</h4>
+<p>Temps d&#39;activation de la deuxième valeur pour la condition aux limites &quot;ramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="initial-value">initial-value</h4>
+<p>Valeur initiale pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="plateau-value">plateau-value</h4>
+<p>Valeur du premier plateau pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="start-first-ramp-time">start-first-ramp-time</h4>
+<p>Temps de début de la transition de la valeur initiale à la valeur finale  pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="reach-value2-time">reach-value2-time</h4>
+<p>Temps de la fin de la transition de la valeur initiale à la valeur finale pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="start-second-ramp-time">start-second-ramp-time</h4>
+<p>Temps de début de la deuxième transition du plateau à la valeur finale pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="reach-value3-time">reach-value3-time</h4>
+<p>Temps de la fin de la transition du plateau à la valeur finale pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h4 id="end-value">end-value</h4>
+<p>Valeur du plateau final pour la condition aux limites &quot;creneauramp&quot;  pour la condition aux limites &quot;creneauramp&quot;</p>
+<p>Type : Real</p>
+<h1 id="numeric-parameters">numeric-parameters</h1>
+<h2 id="linear-pseudo">linear-pseudo</h2>
+<p>Valeur du paramètre linéaire de la pseudo</p>
+<p>Type: Real</p>
+<h2 id="quadratic-pseudo">quadratic-pseudo</h2>
+<p>Valeur du paramètre quadratique de la pseudo</p>
+<p>Type: Real</p>
+<h2 id="cfl">cfl</h2>
+<p>Valeud de la cfl</p>
+<p>Type : Real</p>
+<h2 id="cfl-pseudo">cfl-pseudo</h2>
+<p>Valeud de la cfl pseudo</p>
+<p>Type : Real</p>
+<h1 id="output">output</h1>
+<h2 id="number-of-images">number-of-images</h2>
+<p>Nombre d&#39;images dans la simulation</p>
+<p>Type : Integer</p>
+<h2 id="database">database</h2>
+<p>Liste des propriétés des sorties demandées</p>
+<h3 id="path">path</h3>
+<p>Nom du fichier de sorties</p>
+<p>Type : string</p>
+<h3 id="iteration-period">iteration-period</h3>
+<p>Nombre d&#39;iterations du calcul entre chaque sorties</p>
+<p>Type: integer</p>
+<h3 id="time-period">time-period</h3>
+<p>Durée entre chaque sorties</p>
+<p>Type : Real</p>
+<h2 id="variables">variables</h2>
+<p>Liste des varibles de sorties</p>
+<p>Choix possibles: </p>
+<ul>
+<li>All </li>
+<li>choix de plusieurs variables parmi la liste suivante: &quot;ArtificialViscosity&quot;,
+&quot;CellSize&quot;, &quot;CohesiveForce&quot;, &quot;Density&quot;, &quot;DeviatoricStress&quot;, &quot;DiscontinuityOpening&quot;, &quot;EquivalentPlasticStrainRate&quot;, &quot;InternalEnergy&quot;, &quot;NodeVelocity&quot;, &quot;NodeCoordinates&quot;, &quot;PlasticStrainRate&quot;, &quot;Porosity&quot;, &quot;Pressure&quot;, &quot;ShearModulus&quot;, &quot;SoundVelocity&quot;, &quot;Stress&quot;, &quot;YieldStress&quot;</li>
+</ul>
 
