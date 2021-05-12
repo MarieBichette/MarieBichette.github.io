@@ -18,6 +18,9 @@
       "type": "array",
       "title": "Liste des variables",
       "format": "table",
+      "options": {
+        "disable_collapse": true
+      },
       "items": {
         "type": "string",
         "title": "Variable",
