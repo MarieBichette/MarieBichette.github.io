@@ -7,6 +7,10 @@
   "anyOf": [
     {
       "title": "Matériau unique",
+      "$ref": "m-matter-generic.json"
+    },
+    {
+      "title": "Matériau unique avec rupture",
       "$ref": "m-matter-generic-failure.json"
     },
     {
@@ -16,7 +20,7 @@
       "type": "object",
       "properties": {
         "projectile": {
-          "$ref": "m-matter-generic-failure.json"
+          "$ref": "m-matter-generic.json"
         },
         "target": {
           "$ref": "m-matter-generic-failure.json"
