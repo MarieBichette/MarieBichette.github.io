@@ -16,9 +16,11 @@
     },
     "variables": {
       "type": "array",
+      "title": "Liste des variables",
       "format": "table",
       "items": {
         "type": "string",
+        "title": "Variable",
         "enum": [
           "All",
           "ArtificialViscosity",
@@ -42,8 +44,7 @@
       },
       "default": ["All"],
       "options": {
-        "infoText": "Sélection des variables à sortir",
-        "collapsed": true
+        "infoText": "Sélection des variables à sortir"
       }
     }
   },
