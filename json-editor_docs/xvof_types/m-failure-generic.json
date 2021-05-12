@@ -6,9 +6,6 @@
   },
   "required": ["failure-criterion", "failure-treatment"],
   "properties": {
-    "porosity-model": {
-      "$ref": "m-porosity.json"
-    },
     "failure-criterion": {
       "$ref": "m-failure-criterion.json"
     },
@@ -20,6 +17,9 @@
     },
     "cohesive-model": {
       "$ref": "m-cohesive-zone-model.json"
+    },
+    "porosity-model": {
+      "$ref": "m-porosity.json"
     }
   },
   "additionalProperties": false
