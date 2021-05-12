@@ -303,7 +303,7 @@ Choix possibles :
 - "lossofstiffnessunloading" pour une décharge élastique
 - "progressiveunloading" pour une décharge plastique. Champs requis : "slope"
 
-###### slope
+##### slope
 
 Valeur de la pente pour la décharge plastique
 
@@ -322,7 +322,7 @@ Choix possibles :
 - "penalty" contact avec pénalisation
 - "lagrangianmultiplier" contact avec multiplicateur de Lagrange
 
-###### penalty-stiffness
+##### penalty-stiffness
 
 Raideur de la pénalité pour le contact de type penalty
 
