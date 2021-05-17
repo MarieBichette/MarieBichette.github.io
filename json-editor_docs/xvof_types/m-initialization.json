@@ -7,10 +7,16 @@
   "properties": {
     "initial-velocity": {
       "type": "number", 
-      "default": "0."
+      "default": "0.",
+      "options": {
+        "infoText": "Vitesse initiale de la matière"
+      }
     },
     "init-thermo": {
-      "type": "string"
+      "type": "string",
+      "options": {
+        "infoText": "Fichier contenant les valeurs des champs thermo initiaux"
+      }
     }
   },
   "required" : ["initial-velocity", "init-thermo"]
