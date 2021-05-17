@@ -17,6 +17,7 @@
     "variables": {
       "type": "array",
       "format": "checkbox",
+      "uniqueItems": true,
       "title": "Liste des variables à sortir",
       "options": {
         "disable_collapse": true
