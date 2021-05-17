@@ -7,10 +7,16 @@
   "properties": {
     "name": {
       "type": "string", 
-      "default": "MieGruneisen"
+      "default": "MieGruneisen",
+      "options": {
+        "infoText": "Nom du modèle pour l'équation d'état"
+      }
     },
     "coefficients": {
-      "type": "string"
+      "type": "string",
+      "options": {
+        "infoText": "Fichier de paramètres du modèle"
+      }
     }
   },
   "required": ["name", "coefficients"],
