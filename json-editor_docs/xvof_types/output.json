@@ -16,7 +16,7 @@
     },
     "variables": {
       "type": "array",
-      "format": "select",
+      "format": "checkbox",
       "title": "Liste des variables à sortir",
       "options": {
         "disable_collapse": true
