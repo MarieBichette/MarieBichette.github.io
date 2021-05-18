@@ -14,6 +14,7 @@
     "database": {
       "type": "array",
       "uniqueItems": true, 
+      "title": "Propriétés des sorties",
       "options": {
         "disable_collapse": true
       },
