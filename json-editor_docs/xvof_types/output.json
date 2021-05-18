@@ -13,6 +13,7 @@
     },
     "dump-images":{
       "type": "boolean",
+      "format": "checkbox",
       "options": {
         "infoText": "Cocher la case pour activer l'option"
       }
@@ -70,5 +71,5 @@
     }
   },
   "additionalProperties":false,
-  "required": ["number-of-images", "database", "variables"]
+  "required": ["number-of-images","dump-images","database", "variables"]
 }
