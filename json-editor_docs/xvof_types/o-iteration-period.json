@@ -2,18 +2,19 @@
   "type": "object",
   "required": ["path"],
   "properties":{
-    "path": {
-      "type": "string",
-      "options": {
-        "infoText": "Nom du fichier de sortie"
-      }
-    },
     "identifier": {
       "type": "string",
       "options": {
         "infoText": "Nom de l'identifiant de sortie"
       }
     },
+    "path": {
+      "type": "string",
+      "options": {
+        "infoText": "Nom du fichier de sortie"
+      }
+    },
+
     "iteration-period": {
       "type": "integer",
       "options": {
