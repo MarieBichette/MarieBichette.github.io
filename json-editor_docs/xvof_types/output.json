@@ -8,12 +8,15 @@
     "number-of-images":{
       "type": "integer",
       "options": {
-        "infoText": "Nombre d'images dans la simulation3"
+        "infoText": "Nombre d'images dans la simulation"
       }
     },
     "database": {
       "type": "array",
       "uniqueItems": true, 
+      "options": {
+        "disable_collapse": true
+      },
       "items": {
         "$ref": "o-database.json"
       }
