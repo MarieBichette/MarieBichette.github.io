@@ -8,6 +8,12 @@
         "infoText": "Nom du fichier de sortie"
       }
     },
+    "identifier": {
+      "type": "string",
+      "options": {
+        "infoText": "Nom de l'identifiant de sortie"
+      }
+    },
     "time-period": {
       "type": "number",
       "options": {
