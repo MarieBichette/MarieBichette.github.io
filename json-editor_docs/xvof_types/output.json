@@ -9,7 +9,14 @@
       "type": "integer",
       "options": {
         "infoText": "Nombre d'images dans la simulation"
+      }, 
+    "dump-images":{
+      "type": "boolean",
+      "format": "checkbox",
+      "options": {
+        "infoText": "Cocher la case pour activer l'option"
       }
+    },
     },
     "database": {
       "type": "array",
