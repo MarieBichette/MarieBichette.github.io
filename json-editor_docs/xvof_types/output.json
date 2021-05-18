@@ -5,7 +5,7 @@
     "disable_properties": true
   },
   "properties": {
-    "number-of-images3":{
+    "number-of-images":{
       "type": "integer",
       "options": {
         "infoText": "Nombre d'images dans la simulation"
@@ -13,11 +13,12 @@
     },
     "database": {
       "type": "array",
+      "title": "Propriétés des sorties",
       "disable_collapse": true,
       "uniqueItems": true, 
       "items": {
         "$ref": "o-database.json"
-      }
+      },
     },
     "variables": {
       "type": "array",
