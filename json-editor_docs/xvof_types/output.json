@@ -5,14 +5,15 @@
     "disable_properties": true
   },
   "properties": {
-    "number-of-images":{
+    "number-of-images3":{
       "type": "integer",
       "options": {
-        "infoText": "Nombre d'images dans la simulation3"
+        "infoText": "Nombre d'images dans la simulation"
       }
     },
     "database": {
       "type": "array",
+      "disable_collapse": true,
       "uniqueItems": true, 
       "items": {
         "$ref": "o-database.json"
