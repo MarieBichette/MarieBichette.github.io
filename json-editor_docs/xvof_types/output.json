@@ -28,7 +28,7 @@
         "disable_collapse": true
       },
       "items": {
-        "title": "  ",
+        "title": "Sélectionner le type de sortie",
         "$ref": "o-database.json"
       }
     },
