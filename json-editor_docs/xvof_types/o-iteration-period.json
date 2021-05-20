@@ -1,15 +1,17 @@
 {
   "type": "object",
-  "required": ["path"],
+  "required": ["path", "identifier", "iteration-period"],
   "properties":{
     "identifier": {
       "type": "string",
+      "default": "AllFieldsDb",
       "options": {
         "infoText": "Nom de l'identifiant de sortie"
       }
     },
     "path": {
       "type": "string",
+      "default": "all_fields.hdf5",
       "options": {
         "infoText": "Nom du fichier de sortie"
       }
