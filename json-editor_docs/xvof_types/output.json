@@ -28,7 +28,7 @@
         "disable_collapse": true
       },
       "items": {
-        "title": "",
+        "title": "  ",
         "$ref": "o-database.json"
       }
     },
