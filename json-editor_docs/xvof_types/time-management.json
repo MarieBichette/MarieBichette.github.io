@@ -31,5 +31,5 @@
       }
     }
   },
-  "required" : ["final-time", "initial-time_step", "constant-time-step"]
+  "required" : ["final-time", "initial-time-step", "constant-time-step"]
 }
