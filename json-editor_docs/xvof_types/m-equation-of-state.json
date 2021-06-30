@@ -7,7 +7,7 @@
   "properties": {
     "name": {
       "type": "string", 
-      "default": "MieGruneisen",
+      "default": "Mie-Gruneisen",
       "options": {
         "infoText": "Nom du modèle pour l'équation d'état"
       }

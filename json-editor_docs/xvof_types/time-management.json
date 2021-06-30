@@ -11,7 +11,7 @@
         "infoText": "Temps final de la simulation"
       }
     },
-    "initial-time_step": {
+    "initial-time-step": {
       "type": "number",
       "options": {
         "infoText": "Pas de temps initial du calcul"

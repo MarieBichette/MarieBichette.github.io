@@ -8,7 +8,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "enum": ["LagrangianMultiplier", "Penalty"],
+      "enum": ["Penalty", "LagrangianMultiplier"],
       "options": {
         "infoText": "Traitement du contact entre les bords des discontinuités"
       }
