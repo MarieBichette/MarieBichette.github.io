@@ -10,3 +10,6 @@ This script does not generate XVOF documentation. Only fetch the previously gene
 
 # Requirements
 Have a local copy (or clone) of the XVOF project
+
+# Installation pyenv
+https://github.com/pyenv/pyenv-installer
